@@ -14,38 +14,35 @@
 - 가정분양 게시판을 제공해, 사용자가 분양할 반려동물의 정보를 올리고 분양을 받을 수 있도록 합니다.
 - 게시판을 이용해 사용자가 키우고 있는 반려동물의 사진을 올리고, 올려진 게시물에 좋아요 반응과 댓글을 생성할 수 있도록 합니다.
 
-## Tech Skills
-
 ## Members
 
 ### Team Leader
+
+### 조진형
+
+- Position: Full-Stack
+- Stack : NODE js, EXPRESS, MYSql, Sequelize, AWS
+- main kick: 
+
+### Team Crew
 
 ### 정새얀
 
 - Position: Back-end
 - Stack : NODE js, EXPRESS, MYSql, Sequelize, AWS
-- main kick: oauth를 활용한 소셜 로그인 기능
-
-### Team Crew
-
-### 조진형
-
-- Position: Back-end
-- Stack : NODE js, EXPRESS, MYSql, Sequelize, AWS
-- main kick: oauth를 활용한 소셜 로그인 기능
+- main kick: 
 
 ### 정민규
 
-- Position: Front-end
-- Stack : JavaScript, React.js, Styled-Component
-- main kick: 카카오맵 api를 활용한 브루어리 위치 찾기
+- Position: Full-Stack
+- Stack : React.js, Styled-Component
+- main kick: 
 
 ### 박선교 
 
 - Position: Front-end
-- Stack : JavaScript, React.js, Styled-Component
-- main kick: 카카오맵 api를 활용한 브루어리 위치 찾기
-
+- Stack : React.js, Styled-Component
+- main kick: 
 
 ## Deploy(임시)
-[Brewhere](주소)
+[Conimals]()
