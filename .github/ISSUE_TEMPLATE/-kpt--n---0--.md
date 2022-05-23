@@ -1,6 +1,6 @@
 ---
 name: "[KPT] N주차 0요일"
-about: Suggest an idea for this project
+about: KPT 회고록 작성 템플릿
 title: ''
 labels: ''
 assignees: ''
