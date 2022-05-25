@@ -1,11 +1,10 @@
 require('dotenv').config();
-
 const bcrypt = require('bcrypt');
 const { sign, verify } = require('jsonwebtoken');
 
 module.exports = {
   generateAccessToken: (data) => {
-    return sign(data, process.env.ACCESS_SECRET, {expiresIn: '1h'});
+    return sign(data, process.env.ACCESS_SECRET, {expiresIn: '10h'});
   },
 
   sendAccessToken: (res, accessToken) => {
@@ -16,23 +15,18 @@ module.exports = {
     })
   },
 
-  // isAuthorized: (req) => {
-  //   // const Authorization = req.headers.authorization;
-  //   // // console.log(req.headers.authorization);
-  //   // if(!Authorization) return null;
+  removeAccessToken: (res) => {
+    return res.status(200).clearCookie();
+  },
 
-  //   // const token = Authorization.split(' ')[1];
-  //   // if(!token) return null;
-  //   // return verify(token, process.env.ACCESS_SECRET);
+  isAuthorized: (req) => {
+    const authorization = req.headers['authorization'];
+    if(!authorization) return null;
 
-  //   const jwt = req.cookies.jwt;
-  //   console.log(req.cookies);
-  //   if(!jwt) {
-  //     return null;
-  //   } else {
-  //     return verify(req.cookies.token, process.env.ACCESS_SECRET);
-  //   }
-  // },
+    const token = authorization.split(' ')[1];
+    if(!token) return null;
+    return verify(token, process.env.ACCESS_SECRET);
+  },
 
   hashPassword: (password) => {
     return bcrypt.hashSync(password.toString(), 10);
