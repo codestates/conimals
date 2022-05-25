@@ -4,11 +4,13 @@ const cors = require('cors');
 const { sequelize } = require('./models');
 
 const usersRouter = require('./routes/users');
+const mypageRouter = require('./routes/mypage');
 
 app.use(cors());
 app.use(express.json());
 
 app.use('/users', usersRouter);
+app.use('/mypage', mypageRouter);
 
 app.get('/', function(req, res) {
   res.send('Hello World!');
