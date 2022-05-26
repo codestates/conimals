@@ -5,7 +5,7 @@ const cookieParser = require('cookie-parser');
 const { sequelize } = require('./models');
 
 const usersRouter = require('./routes/users');
-const mypageRouter = require('./routes/mypage');
+const mypageRouter = require('./routes/mypages');
 
 app.use(
   cors({
@@ -34,7 +34,7 @@ sequelize.sync({ force: false })
   console.error(err)
 })
 
-const port = 3000; 
+const port = 8080; 
 app.listen(port, function(){ 
   console.log('server on! http://localhost:'+port);
 });
