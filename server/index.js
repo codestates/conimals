@@ -1,18 +1,28 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
+const cookieParser = require('cookie-parser');
 const { sequelize } = require('./models');
 
 const usersRouter = require('./routes/users');
 const mypageRouter = require('./routes/mypage');
 
-app.use(cors());
+app.use(
+  cors({
+    origin: true,
+    credentials: true,
+    methods: ['GET', 'POST', 'OPTIONS', 'DELETE', 'PATCH'],
+    allowedHeaders: ['Content-Type', 'authorization'],
+  })
+);
 app.use(express.json());
+app.use(cookieParser());
 
 app.use('/users', usersRouter);
-app.use('/mypage', mypageRouter);
+app.use('/mypages', mypageRouter);
 
 app.get('/', function(req, res) {
+  res.header("Access-Control-Allow-Origin", "*");
   res.send('Hello World!');
 });
 

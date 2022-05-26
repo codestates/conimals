@@ -19,7 +19,6 @@ module.exports = async(req, res) => {
       "https://kapi.kakao.com/v2/user/me",
       {
         headers: {
-          // ACCESS_TOKEN은 나중에 맞게 고칠 부분
           Authorization: `Bearer ${token.data.access_token}`
         },
       }
