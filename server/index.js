@@ -7,6 +7,8 @@ const { sequelize } = require('./models');
 const usersRouter = require('./routes/users');
 const mypageRouter = require('./routes/mypages');
 
+app.use(express.urlencoded({ extended: false }));
+
 app.use(
   cors({
     origin: true,

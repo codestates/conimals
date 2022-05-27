@@ -1,24 +1,11 @@
 import React, {  } from 'react';
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-function Modal1({ className, visible, children }) {
+// Modal1.propTypes = {
+//   visible: PropTypes.bool,
+// }
 
-  return (
-    <>
-      <ModalOverlay visible={visible} />
-      <ModalWrapper className={className} tabIndex="-1" visible={visible}>
-        <ModalInner tabIndex="0" className="modal-inner">
-          {children}
-        </ModalInner>
-      </ModalWrapper>
-    </>
-  )
-}
-
-Modal.propTypes = {
-  visible: PropTypes.bool,
-}
 // 모달 내용이 들어갈 곳
 const ModalWrapper = styled.div`
   box-sizing: border-box;
@@ -58,5 +45,20 @@ const ModalInner = styled.div`
   margin: 0 auto;
   padding: 40px 20px;
 `
+// import { Modal1 } from '../Modal/Modals' 형식으로 import해 이용
+// 알림 모달, 로그인 모달 규격 다르게 만들어 2종으로 활용/재사용 가능
 
-export default Modal1
+export function Modal1({ className, visible, children }) {
+
+  return (
+    <>
+      <ModalOverlay visible={visible} />
+      {/* tabIndex="-1": 키보드로 포커스 순서에서 제외 */}
+      <ModalWrapper className={className} tabIndex="-1" visible={visible}>
+        <ModalInner tabIndex="0" className="modal-inner">
+          {children}
+        </ModalInner>
+      </ModalWrapper>
+    </>
+  )
+}
