@@ -1,0 +1,6 @@
+node_modules
+config/config.js
+.env
+key.pem
+cert.pem
+server/.env.example
