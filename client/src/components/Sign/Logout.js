@@ -4,13 +4,16 @@ import axios from 'axios';
 function Logout() {
 
   const handleLogout = () => {
+    
     axios.get(
-      'http://localhost:8080/users/logout', 
+      `${process.env.REACT_APP_API_URL}/users/logout`, 
     {
-      headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` },
+      headers: { authorization: `${localStorage.getItem('user')}`},
       withCredentials: true,
     }
     ).then((res) => {
+      localStorage.removeItem('user')
+      console.log(localStorage)
       // setUserinfos(null);
       // setIsLogin(false);
       // navigate('/');

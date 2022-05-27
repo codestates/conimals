@@ -1,10 +1,14 @@
-import React, { useState } from "react";
-import Logout from "./Logout";
-import axios from "axios";
+import React, { useState } from 'react';
+import Logout from './Logout';
+import axios from 'axios';
+import { Modal1 } from '../Modal/Modals'
+// import dotenv from "dotenv";
+// dotenv.config();
 
 function Login() {
+
   const [loginInfo, setLoginInfo] = useState({
-    email: "",
+    userEmail: "",
     password: "",
   });
 
@@ -13,17 +17,21 @@ function Login() {
   };
 
   const handleLogin = () => {
-    const { email, password } = loginInfo;
-
+    const { userEmail, password } = loginInfo;
+    
     axios
       .post(
-        "http://localhost:8080/users/login",
-        { email: email, password: password },
+        `${process.env.REACT_APP_API_URL}/users/login`,
+        { userEmail: userEmail, password: password },
         {
           headers: { "Content-Type": "application/json" },
           withCredentials: true,
         }
-      )
+      ).then((res) => 
+      {
+        if(res.data.data.accessToken) {
+          localStorage.setItem('user', res.data.data.accessToken);
+        }}).then(() => console.log(localStorage.user))
       .catch((err) => console.log(err));
   };
 
@@ -31,7 +39,7 @@ function Login() {
     <>
       <div>
         email
-        <input onChange={handleInputValue("email")}></input>
+        <input onChange={handleInputValue("userEmail")}></input>
       </div>
       <div>
         password
@@ -39,6 +47,8 @@ function Login() {
       </div>
       <button onClick={handleLogin}>login</button>
       <Logout />
+
+      <Modal1 />
     </>
   );
 }
