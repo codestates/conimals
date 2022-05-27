@@ -22,8 +22,7 @@ module.exports = {
   isAuthorized: (req) => {
     const authorization = req.headers['authorization'];
     if(!authorization) return null;
-
-    const token = authorization.split(' ')[1];
+    const token = authorization;
     if(!token) return null;
     return verify(token, process.env.ACCESS_SECRET);
   },

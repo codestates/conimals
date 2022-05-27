@@ -7,12 +7,12 @@ function Signup() {
   const navigate = useNavigate();
 
   const [userinfo, setUserinfo] = useState({
-    username: "",
-    useremail: "",
+    userName: "",
+    userEmail: "",
     password: "",
   });
 
-  const [username, setUsername] = useState("");
+  const [userName, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [userEmail, setEmail] = useState("");
@@ -78,8 +78,8 @@ function Signup() {
           // "rejectUnauthorized": false
         }
       )
+      .then((res) => console.log(res))
       .then(alert("축하합니다. 회원가입이 되었습니다!"))
-      .then(navigate("/"));
   };
 
   return (
@@ -94,7 +94,7 @@ function Signup() {
           className="input-signup"
           placeholder="example@gmail.com"
           onBlur={onChangeEmail}
-          onChange={handleInputValue("useremail")}
+          onChange={handleInputValue("userEmail")}
         />
         <div className="desc input-title">닉네임</div>
         <input
@@ -102,7 +102,7 @@ function Signup() {
           className="input-signup"
           placeholder="Petmily"
           onBlur={onChangeUsername}
-          onChange={handleInputValue("username")}
+          onChange={handleInputValue("userName")}
         />
         <div className="desc input-title">비밀번호</div>
         {passwordError ? (

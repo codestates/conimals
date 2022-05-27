@@ -7,6 +7,8 @@ const { sequelize } = require('./models');
 const usersRouter = require('./routes/users');
 const mypageRouter = require('./routes/mypage');
 
+app.use(express.urlencoded({ extended: false }));
+
 app.use(
   cors({
     origin: true,
@@ -34,7 +36,7 @@ sequelize.sync({ force: false })
   console.error(err)
 })
 
-const port = 3000; 
+const port = 8080; 
 app.listen(port, function(){ 
   console.log('server on! http://localhost:'+port);
 });
