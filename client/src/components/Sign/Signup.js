@@ -1,5 +1,5 @@
 import React, {  } from 'react';
-
+// import { passwordValidator, passwordMatchValidator, nicknameValidator } from '../../utils/validator'
 
 function Signup() {
 
