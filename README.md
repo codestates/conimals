@@ -1,9 +1,6 @@
 # conimals
 
 ## Logo
-![Conimals_logo](https://user-images.githubusercontent.com/91467260/170245328-d9eacece-5b11-4637-97c1-403591c4ff4d.png)
-
-
 <img width="300" height="300" src="https://user-images.githubusercontent.com/74203440/169957702-452b79df-6d21-4c1f-bd94-bf7f6dc3fa16.svg"/>
 
 ## About
