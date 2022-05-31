@@ -4,6 +4,9 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const { sequelize } = require('./models');
 const morgan = require('morgan');
+// const mysql = require('mysql2/promise');
+// const dotenv = require('dotenv');
+// dotenv.config();
 
 const usersRouter = require('./routes/users');
 const mypageRouter = require('./routes/mypage');
