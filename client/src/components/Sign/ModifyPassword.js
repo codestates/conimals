@@ -1,13 +1,21 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-function ModifyPassword() {
+import Modal from '../Modal/Modals';
+import passwordValidator from '../../utils/validator';
 
+function ModifyPassword() {
   const [newPassword, setNewPassword] = useState({
     password: '',
     newPassword: '',
-    retypeNewPassword: ''
-  })
+  });
+
+  const [errMsg, setErrMsg] = useState('');
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const modalHandler = () => {
+    setModalOpen(false);
+  };
 
   const handleInputValue = (key) => (e) => {
     setNewPassword({ ...newPassword, [key]: e.target.value });
@@ -16,38 +24,56 @@ function ModifyPassword() {
   const handleNewPassword = () => {
     axios
       .patch(
-        `http://localhost:8080/users/password`,
+        `http://localhost:8080/mypages/password`,
         {
-          oldPassword: newPassword.password,
-          newPassword: newPassword.newPassword,
+          password: newPassword.password,
+          changedPassword: newPassword.newPassword,
         },
-        { withCredentials: true },
+        {
+          headers: { authorization: `Beraer ${localStorage.user}` },
+          withCredentials: true,
+        }
       )
-      .then(res => {
-        console.log(res);
+      .then((res) => {
+        // TODO: Modal 알림 띄우기
+        setModalOpen(true);
       })
       .catch((err) => {
         console.error(err);
-      })
+      });
+  };
+
+  const checkPasswordBlur = (e) => {
+    if (!passwordValidator(e.target.value)) {
+      setErrMsg('8자 이상의 영문, 숫자 조합이어야 합니다.');
     }
+  };
 
   return (
-  <>
-    <input 
-      placeholder='og-password' 
-      onChange={ handleInputValue('password') }
-    />
-    <input 
-      placeholder='변경하실 비밀번호를 입력해주세요' 
-      onChange={ handleInputValue('newPassword') }
-    />
-    <input 
-      placeholder='새로운 비밀번호를 다시 입력해주세요' 
-      onChange={ handleInputValue('retypeNewPassword') }
-    />
-    <button onClick={ handleNewPassword }>Submit</button>
-  </>
-  )
+    <>
+      <div>비밀번호 변경</div>
+      <input
+        placeholder='기존 비밀번호를 입력해주세요'
+        onChange={handleInputValue('password')}
+      />
+      <br />
+      <input
+        placeholder='변경하실 비밀번호를 입력해주세요'
+        onChange={handleInputValue('newPassword')}
+        onBlur={() => checkPasswordBlur}
+      />
+      <br />
+      {errMsg}
+      <br />
+      <button onClick={handleNewPassword}>비밀번호 수정</button>
+      <br />
+      {modalOpen ? (
+        <Modal handleModal={modalHandler}>
+          비밀번호 수정이 완료되었습니다.
+        </Modal>
+      ) : null}
+    </>
+  );
 }
 
 export default ModifyPassword;
