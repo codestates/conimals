@@ -127,7 +127,7 @@ function Signup() {
           placeholder='8자 이상의 영문, 숫자를 입력해주세요'
           onChange={handleInputValue('retypePassword')}
         />
-
+        <br />
         <button className='signup-btn' onClick={onSubmit}>
           회원가입
         </button>
