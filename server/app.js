@@ -3,20 +3,20 @@ const app = express();
 const cors = require('cors');
 const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
+
 const { sequelize } = require('./models');
 
-const usersRouter = require('./routes/users');
-const mypageRouter = require('./routes/mypages');
-const postsRouter = require('./routes/posts');
+const indexRouter = require('./routes');
 
 app.use(express.urlencoded({ extended: false }));
+// extended meaning what
 
 app.use(
   cors({
     origin: true,
     credentials: true,
     methods: ['GET', 'POST', 'OPTIONS', 'DELETE', 'PATCH'],
-    allowedHeaders: ['Content-Type', 'authorization'],
+    allowedHeaders: ['Content-Type', 'athorization'],
   })
 );
 app.use(express.json());
@@ -24,16 +24,25 @@ app.use(cookieParser());
 app.use(
   morgan(':method :url :status :res[content-length] - :response-time ms')
 );
+// 미들웨어 안에 미들웨어 검색 모건 옵션 찾아보기
 
-app.use('/users', usersRouter);
-app.use('/mypages', mypageRouter);
-app.use('/posts', postsRouter);
+app.use('/', indexRouter);
 
 app.get('/', function (req, res) {
   res.header('Access-Control-Allow-Origin', '*');
   res.send('Hello World!');
 });
 
+/* 서버에러 */
+app.use((err, req, res, next) => {
+  console.log(err.stack);
+  res.status(500).send({
+    message: 'Internal Server Error',
+    stacktrace: err.toString(),
+  });
+});
+
+/* 데이터베이스 연결 */
 sequelize
   .sync({ alter: true })
   .then(() => {
@@ -43,15 +52,7 @@ sequelize
     console.error(err);
   });
 
-//  sequelize.sync();
-//  sequelize.sync({ alter: true })
-//    .then(()=> {
-//      console.log('🤢 re-sync db.')
-//    })
-//    .catch(err => {
-//      console.log('  re-sync error: ', err)
-//    })
-
+/* 서버 포트 설정 */
 const port = 8080;
 app.listen(port, function () {
   console.log('server on! http://localhost:' + port);
