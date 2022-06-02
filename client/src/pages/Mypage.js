@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
+import Modal from '../components/Modal/Modals';
 import ModifyUsername from '../components/Sign/ModifyUsername';
 import ModifyPassword from '../components/Sign/ModifyPassword';
 
@@ -16,6 +17,11 @@ function Mypage() {
   });
 
   const [modifyMode, setModifyMode] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const modalHandler = () => {
+    setModalOpen(false);
+  };
 
   const getUserinfo = () => {
     axios
@@ -45,6 +51,7 @@ function Mypage() {
         localStorage.removeItem('user');
         history('/');
         // TODO: Modal로 알리기
+        setModalOpen(true);
         alert('회원탈퇴가 완료되었습니다.');
       });
   };
@@ -84,10 +91,13 @@ function Mypage() {
           {/* // TODO: 탈퇴 버튼 클릭 시 확인 / 취소 comfirm 창 표출, 분기에 따른 취소 가능 */}
           <br />
           {modifyMode ? null : (
-            <button onClick={handleModifyMode}>회원수정</button>
+            <button onClick={handleModifyMode}>회원정보 수정</button>
           )}
 
           <button onClick={handleWithdrawal}>회원탈퇴</button>
+          {modalOpen ? (
+            <Modal handleModal={modalHandler}>회원탈퇴가 완료되었습니다.</Modal>
+          ) : null}
         </>
       ) : (
         <div>'non-login'</div>

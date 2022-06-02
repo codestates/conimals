@@ -3,24 +3,24 @@ dotenv.config();
 
 module.exports = {
   development: {
-    username: 'admin',
+    username: 'root',
     password: process.env.DATABASE_PASSWORD,
     database: 'conimals',
-    host: 'conimals-database.cv8xyyitpqcj.ap-northeast-2.rds.amazonaws.com',
+    host: '127.0.0.1',
     dialect: 'mysql',
   },
   test: {
-    username: 'admin',
+    username: 'root',
     password: process.env.DATABASE_PASSWORD,
     database: 'conimals',
-    host: 'conimals-database.cv8xyyitpqcj.ap-northeast-2.rds.amazonaws.com',
+    host: '127.0.0.1',
     dialect: 'mysql',
   },
   production: {
-    username: 'admin',
+    username: 'root',
     password: process.env.DATABASE_PASSWORD,
     database: 'conimals',
-    host: 'conimals-database.cv8xyyitpqcj.ap-northeast-2.rds.amazonaws.com',
+    host: '127.0.0.1',
     dialect: 'mysql',
   },
 };
