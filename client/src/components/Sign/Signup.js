@@ -7,8 +7,13 @@ import {
   emailValidator,
 } from '../../utils/validator';
 import Modal from '../Modal/Modals';
+import styled from 'styled-components';
 
 const axios = require('axios');
+
+const SignupBlock = styled.div`
+  margin-top: 10rem;
+`;
 
 function Signup() {
   const navigate = useNavigate();
@@ -80,7 +85,7 @@ function Signup() {
   };
 
   return (
-    <>
+    <><SignupBlock>
       <div className='signupPage'>
         <div className='desc input-title'>이메일</div>
         {emailError ? (
@@ -127,17 +132,18 @@ function Signup() {
           placeholder='8자 이상의 영문, 숫자를 입력해주세요'
           onChange={handleInputValue('retypePassword')}
         />
-
+        <br />
         <button className='signup-btn' onClick={onSubmit}>
           회원가입
         </button>
       </div>
 
-      {modalOpen ? (
-        <Modal handleModal={modalHandler}>
-          축하합니다. 회원가입이 되었습니다!
-        </Modal>
-      ) : null}
+        {modalOpen ? (
+          <Modal handleModal={modalHandler}>
+            축하합니다. 회원가입이 되었습니다!
+          </Modal>
+        ) : null}
+      </SignupBlock>
     </>
   );
 }
