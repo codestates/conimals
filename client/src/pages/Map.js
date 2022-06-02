@@ -1,11 +1,7 @@
-import React, {  } from 'react';
-
+import React from 'react';
 
 function Map() {
-
-  return (
-    <div>Map</div>
-  );
+  return <div>ConimalsMap</div>;
 }
 
 export default Map;
