@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
 import Main from './pages/Main';
-import Map from './pages/Map';
+import ConimalsMap from './pages/Map';
 import Test from './pages/Test/Test';
 import TestResults1 from './pages/Test/TestResults1';
 import TestResults2 from './pages/Test/TestResults2';
@@ -20,7 +20,7 @@ function App() {
 
       <Routes>
         <Route exact path='/' element={<Main />} />
-        <Route path='/map' element={<Map />} />
+        <Route path='/map' element={<ConimalsMap />} />
         <Route path='/test' element={<Test />} />
         <Route path='/results1' element={<TestResults1 />} />
         <Route path='/results2' element={<TestResults2 />} />
