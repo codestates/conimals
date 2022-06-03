@@ -1,7 +1,5 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class users extends Model {
     /**
@@ -11,18 +9,30 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      this.hasMany(models.posts, {
+        foreignKey: 'userId',
+        sourceKey: 'id',
+      });
+      this.hasMany(models.postComments, {
+        foreignKey: 'userId',
+        sourceKey: 'id',
+      });
     }
   }
-  users.init({
-    userName: DataTypes.STRING,
-    userEmail: DataTypes.STRING,
-    password: DataTypes.STRING,
-    kakaoId: DataTypes.STRING,
-    kakaoOauthToken: DataTypes.STRING,
-  }, {
-    sequelize,
-    modelName: 'users',
-    freezeTableName: true,
-  });
+  users.init(
+    {
+      userName: DataTypes.STRING,
+      userEmail: DataTypes.STRING,
+      password: DataTypes.STRING,
+      admin: { type: DataTypes.BOOLEAN, defaultValue: 0 },
+      kakaoId: DataTypes.STRING,
+      kakaoOauthToken: DataTypes.STRING,
+    },
+    {
+      sequelize,
+      modelName: 'users',
+      freezeTableName: true,
+    }
+  );
   return users;
 };

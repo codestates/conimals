@@ -17,7 +17,7 @@ const uploads = multer({
       // 파일이름 + 시간 + 확장자명
       cb(null, basename + Date.now() + '-' + ext);
     },
-    limits: { fileSize: 5 * 1024 * 1024 }, // 5MB
+    limits: { fileSize: 10 * 1024 * 1024 }, // 10MB
   }),
 });
 const fs = require('fs');
