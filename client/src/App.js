@@ -12,6 +12,9 @@ import TestResults3 from './pages/Test/TestResults3';
 import Login from './components/Sign/Login';
 import Mypage from './pages/Mypage';
 import Signup from './components/Sign/Signup';
+import Posts from './pages/post/Posts';
+import NewPost from './pages/post/NewPost';
+import EditPost from './pages/post/EditPost';
 
 function App() {
   return (
@@ -29,6 +32,10 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/mypage' element={<Mypage />} />
         <Route path='/signup' element={<Signup />} />
+
+        <Route path='/posts' element={<Posts />} />
+        <Route path='/new' element={<NewPost />} />
+        <Route path='/edit' element={<EditPost />} />
       </Routes>
 
       <Footer />
