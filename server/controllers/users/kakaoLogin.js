@@ -7,7 +7,6 @@ module.exports = async (req, res) => {
   const code = req.headers['authorization'];
   try {
     const token = await axios.post(
-      // KAKAO_REDIRECT_URI는 나중에 .env에서 바꿀 것
       `https://kauth.kakao.com/oauth/token?grant_type=authorization_code&client_id=${process.env.KAKAO_CLIENT_ID}&redirect_uri=${process.env.KAKAO_REDIRECT_URI}&code=${code}&client_secret=${process.env.KAKAO_CLIENT_SECRET}`,
       {
         headers: {
