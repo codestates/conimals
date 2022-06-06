@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-import Modal from '../Modal/Modals';
+import ConfirmModal from '../Modal/ConfirmModals';
 import passwordValidator from '../../utils/validator';
 
 function ModifyPassword() {
@@ -24,13 +24,13 @@ function ModifyPassword() {
   const handleNewPassword = () => {
     axios
       .patch(
-        `http://localhost:8080/mypages/password`,
+        `${process.env.REACT_APP_API_URL}/mypages/password`,
         {
           password: newPassword.password,
           changedPassword: newPassword.newPassword,
         },
         {
-          headers: { authorization: `Beraer ${localStorage.user}` },
+          headers: { authorization: `Bearer ${localStorage.user}` },
           withCredentials: true,
         }
       )
@@ -68,9 +68,9 @@ function ModifyPassword() {
       <button onClick={handleNewPassword}>비밀번호 수정</button>
       <br />
       {modalOpen ? (
-        <Modal handleModal={modalHandler}>
+        <ConfirmModal handleModal={modalHandler}>
           비밀번호 수정이 완료되었습니다.
-        </Modal>
+        </ConfirmModal>
       ) : null}
     </>
   );

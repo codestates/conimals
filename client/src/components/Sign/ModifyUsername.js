@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-import Modal from '../Modal/Modals';
+import ConfirmModal from '../Modal/ConfirmModals';
 
 function ModifyUsername() {
   const [newUsername, setNewUsername] = useState({
@@ -26,7 +26,7 @@ function ModifyUsername() {
           userName: newUsername.newUsername,
         },
         {
-          headers: { authorization: `Beraer ${localStorage.user}` },
+          headers: { authorization: `Bearer ${localStorage.user}` },
           withCredentials: true,
         }
       )
@@ -46,7 +46,9 @@ function ModifyUsername() {
       />
       <button onClick={handleNewUsername}>닉네임 수정</button>
       {modalOpen ? (
-        <Modal handleModal={modalHandler}>닉네임 수정이 완료되었습니다.</Modal>
+        <ConfirmModal handleModal={modalHandler}>
+          닉네임 수정이 완료되었습니다.
+        </ConfirmModal>
       ) : null}
     </>
   );

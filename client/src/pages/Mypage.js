@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-import Modal from '../components/Modal/Modals';
+import ConfirmModal from '../components/Modal/ConfirmModals';
 import ModifyUsername from '../components/Sign/ModifyUsername';
 import ModifyPassword from '../components/Sign/ModifyPassword';
 
@@ -13,6 +13,7 @@ function Mypage() {
     id: '',
     userName: '',
     userEmail: '',
+    uploads: '',
     // userType: '' -> 차후 어드민 계정, 카카오 로그인 계정 구분 시 활용 가능
   });
 
@@ -25,26 +26,25 @@ function Mypage() {
 
   const getUserinfo = () => {
     axios
-      .get(`http://localhost:8080/userinfo`, {
-        headers: { authorization: `Beraer ${localStorage.user}` },
+      .get(`http://localhost:8080/mypages/auth`, {
+        headers: { authorization: `Bearer ${localStorage.user}` },
         withCredentials: true,
       })
       .then((res) => {
         console.log(res);
         setUserinfo({
-          ...userinfo,
           id: res.data.data.id,
           userName: res.data.data.userName,
           userEmail: res.data.data.userEmail,
-          // userType: res.data.data.userType
+          uploads: res.data.data.uploads,
         });
       });
   };
 
   const handleWithdrawal = () => {
     axios
-      .delete(`http://localhost:8080/mypages/withdrawal`, {
-        headers: { authorization: `Beraer ${localStorage.user}` },
+      .delete(`${process.env.REACT_APP_API_URL}/mypages/withdrawal`, {
+        headers: { authorization: `Bearer ${localStorage.user}` },
         withCredentials: true,
       })
       .then((res) => {
@@ -52,7 +52,6 @@ function Mypage() {
         history('/');
         // TODO: Modal로 알리기
         setModalOpen(true);
-        alert('회원탈퇴가 완료되었습니다.');
       });
   };
 
@@ -61,7 +60,9 @@ function Mypage() {
   };
 
   useEffect(() => {
-    getUserinfo();
+    if (localStorage.getItem('user')) {
+      getUserinfo();
+    }
   }, []);
 
   return (
@@ -96,11 +97,13 @@ function Mypage() {
 
           <button onClick={handleWithdrawal}>회원탈퇴</button>
           {modalOpen ? (
-            <Modal handleModal={modalHandler}>회원탈퇴가 완료되었습니다.</Modal>
+            <ConfirmModal handleModal={modalHandler}>
+              회원탈퇴가 완료되었습니다.
+            </ConfirmModal>
           ) : null}
         </>
       ) : (
-        <div>'non-login'</div>
+        <div>non-login</div>
       )}
     </>
   );

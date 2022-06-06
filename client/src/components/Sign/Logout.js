@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
-import Modal from '../Modal/Modals';
+import ConfirmModal from '../Modal/ConfirmModals';
 import * as React from 'react';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
@@ -17,17 +17,15 @@ function Logout() {
 
   const handleLogout = () => {
     axios
-      .get(`http://localhost:8080/users/logout`, {
-        headers: { authorization: `Beraer ${localStorage.getItem('user')}` },
+      .get(`${process.env.REACT_APP_API_URL}/users/logout`, {
+        headers: { authorization: `Bearer ${localStorage.getItem('user')}` },
         withCredentials: true,
       })
       .then((res) => {
         console.log(res);
         localStorage.removeItem('user');
-        // setUserinfos(null);
-        // setIsLogin(false);
-        navigate('/');
         setModalOpen(true);
+        navigate('/');
       })
       .catch((err) => {
         console.log(err);
@@ -43,7 +41,9 @@ function Logout() {
         </Button>
       </Stack>
       {modalOpen ? (
-        <Modal handleModal={modalHandler}>로그아웃 되었습니다.</Modal>
+        <ConfirmModal handleModal={modalHandler}>
+          로그아웃 되었습니다.
+        </ConfirmModal>
       ) : null}
     </>
   );

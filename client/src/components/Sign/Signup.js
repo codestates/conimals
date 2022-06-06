@@ -6,7 +6,7 @@ import {
   nicknameValidator,
   emailValidator,
 } from '../../utils/validator';
-import Modal from '../Modal/Modals';
+import ConfirmModal from '../Modal/ConfirmModals';
 
 const axios = require('axios');
 
@@ -39,7 +39,6 @@ function Signup() {
     setConfirmPasswordError(false);
     setEmailError(false);
     setUsernameError(false);
-    console.log({ ...userinfo });
     if (
       !emailValidator(userinfo.userEmail) ||
       !nicknameValidator(userinfo.userName) ||
@@ -61,7 +60,7 @@ function Signup() {
     } else {
       axios
         .post(
-          `http://localhost:8080/users/signup`,
+          `${process.env.REACT_APP_API_URL}/users/signup`,
           {
             userName: userinfo.userName,
             userEmail: userinfo.userEmail,
@@ -134,9 +133,9 @@ function Signup() {
       </div>
 
       {modalOpen ? (
-        <Modal handleModal={modalHandler}>
+        <ConfirmModal handleModal={modalHandler}>
           축하합니다. 회원가입이 되었습니다!
-        </Modal>
+        </ConfirmModal>
       ) : null}
     </>
   );
