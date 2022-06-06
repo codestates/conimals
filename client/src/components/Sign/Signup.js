@@ -17,11 +17,10 @@ function Signup() {
     userName: '',
     userEmail: '',
     password: '',
-    retypePassword: '',
   });
 
-  const [passwordError, setPasswordError] = useState(false);
-  const [confirmPasswordError, setConfirmPasswordError] = useState(false);
+  const [passwordError, setPasswordError] = useState('');
+  const [confirmPasswordError, setConfirmPasswordError] = useState('');
   const [emailError, setEmailError] = useState(false);
   const [usernameError, setUsernameError] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);

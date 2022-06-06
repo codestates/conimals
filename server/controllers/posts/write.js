@@ -12,7 +12,7 @@ module.exports = async (req, res) => {
   const verify = isAuthorized(req);
   if (verify) {
     const { userId, title, content, image } = req.body;
-    if (!userId || !title || !content) {
+    if (!title || !content) {
       return res.status(400).json({ message: '다시 한 번 확인해주세요' });
     } else {
       await posts
