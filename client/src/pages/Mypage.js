@@ -31,7 +31,6 @@ function Mypage() {
         withCredentials: true,
       })
       .then((res) => {
-        console.log(res);
         setUserinfo({
           id: res.data.data.id,
           userId: res.data.data.id,

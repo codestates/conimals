@@ -12,7 +12,6 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsTo(models.users, {
         foreignKey: 'userId',
         sourceKey: 'id',
-        as: 'userInfo',
       });
       this.hasMany(models.postComments, {
         foreignKey: 'postId',
