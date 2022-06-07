@@ -16,9 +16,9 @@ const KakaoOauth = () => {
   // 서버에 인가코드 전달
   const kakao = (code) => {
     axios
-      .get(
-        `https://kauth.kakao.com/oauth/authorize?client_id=${process.env.REACT_APP_KAKAO_REST_API_KEY}&redirect_uri=${process.env.REACT_APP_KAKAO_REDIRECT_URI}&response_type=${code}&state=state;`,
-        null,
+      .post(
+        `${process.env.REACT_APP_API_URL}/users/oauth/kakao/callback?code=${code}`,
+        { data: code },
         {
           headers: {
             authorization: code,
@@ -27,7 +27,6 @@ const KakaoOauth = () => {
         }
       )
       .then((res) => {
-        console.log(res);
         localStorage.setItem('token', res.data.token);
         navigate('/');
       });

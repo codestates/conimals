@@ -19,28 +19,23 @@ module.exports = async (req, res) => {
         Authorization: `Bearer ${token.data.access_token}`,
       },
     });
-    const { userEmail, profile } = kakaoUserInfo.data.kakao_account;
-    const userInfo = await users.findOne({
-      where: { userEmail },
+    const newUserInfo = await users.findOrCreate({
+      where: { kakaoId: kakaoUserInfo.data.id },
+      defaults: {
+        kakaoId: `${kakaoUserInfo.data.id}`,
+        userName: kakaoUserInfo.data.kakao_account.profile.nickname,
+      },
     });
-    if (!userInfo) {
-      const newUserInfo = await users.create({
-        userEmail: userEmail,
-        userName: profile.nickname,
-      });
-      const payload = { newUserInfo };
-      const accessToken = generateAccessToken(payload);
-      return res
-        .status(200)
-        .cookie('jwt', accessToken, {
-          httpOnly: 'true',
-          sameSite: 'none',
-          secure: 'true',
-        })
-        .json({ token: accessToken, message: '카카오 로그인 성공' });
-    } else {
-      res.redirect('/');
-    }
+    const payload = { newUserInfo };
+    const accessToken = generateAccessToken(payload);
+    return res
+      .status(200)
+      .cookie('jwt', accessToken, {
+        httpOnly: 'true',
+        sameSite: 'none',
+        secure: 'true',
+      })
+      .json({ token: accessToken, message: '카카오 로그인 성공' });
   } catch (err) {
     return res.status(500).json({ message: '서버 에러' });
   }
