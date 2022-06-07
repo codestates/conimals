@@ -34,6 +34,7 @@ function Mypage() {
         console.log(res);
         setUserinfo({
           id: res.data.data.id,
+          userId: res.data.data.id,
           userName: res.data.data.userName,
           userEmail: res.data.data.userEmail,
           uploads: res.data.data.uploads,
