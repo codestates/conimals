@@ -12,7 +12,7 @@ const KakaoOauth = () => {
       kakao(code);
     }
   }, []);
-  // ${process.env.REACT_APP_KAKAO_REDIRECT_URI}
+
   // 서버에 인가코드 전달
   const kakao = (code) => {
     axios

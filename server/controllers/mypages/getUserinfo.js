@@ -10,12 +10,17 @@ module.exports = async (req, res) => {
       attributes: ['id', 'userName', 'userEmail', 'password'],
       where: { id: verify.id },
     });
-    const { userId } = req.body;
-    const uploads = posts.findAll({
-      attributes: ['id', 'title', 'content', 'image'],
-      where: { userId },
-      order: [['createdAt']],
-    });
+    // const { userName } = req.query;
+    // const uploads = await posts.findAll({
+    //   attributes: ['title', 'content', 'image'],
+    //   include: [
+    //     {
+    //       model: users,
+    //     },
+    //   ],
+    //   where: { userName },
+    //   order: [['createdAt']],
+    // });
     if (!userInfo) {
       return res.status(401).json({ message: '권한이 없습니다' });
     } else {
@@ -25,7 +30,6 @@ module.exports = async (req, res) => {
           id,
           userName,
           userEmail,
-          uploads,
         },
         message: '회원 정보 조회에 성공하였습니다',
       });

@@ -24,6 +24,7 @@ const fs = require('fs');
 const path = require('path');
 
 const uploadsController = require('../controllers/posts/uploads');
+const boardsController = require('../controllers/posts/boards');
 const writeController = require('../controllers/posts/write');
 const editController = require('../controllers/posts/edit');
 const deleteController = require('../controllers/posts/delete');
@@ -31,6 +32,7 @@ const commentController = require('../controllers/posts/comment');
 const editCommentController = require('../controllers/posts/editComment');
 const deleteCommentController = require('../controllers/posts/deleteComment');
 
+router.get('/boards', boardsController);
 router.post('/write', writeController);
 router.patch('/edit', editController);
 router.delete('/:postId', deleteController);
