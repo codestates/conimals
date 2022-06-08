@@ -24,6 +24,7 @@ module.exports = async (req, res) => {
     if (!userInfo) {
       return res.status(401).json({ message: '권한이 없습니다' });
     } else {
+      // Promise.all([uploads, likes]).then(([uploads, likes]) => {
       const { id, userName, userEmail } = userInfo;
       return res.status(200).json({
         data: {

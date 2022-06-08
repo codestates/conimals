@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
 import { ProgressBar } from 'react-bootstrap';
 
-import { ContainerRow, UDContainer } from '../../components/Container';
+import styled from 'styled-components';
+import { UDContainer } from '../../components/Container';
 import SignsModal from '../../components/Modal/SignsModal';
 
 const QuestionDiv = styled.div`
@@ -111,7 +111,7 @@ function Test() {
         navigate('/results1');
         checkGuest();
       }
-      if (70 <= score < 80) {
+      if (70 <= score || score < 80) {
         navigate('/results2');
         checkGuest();
       }
@@ -129,7 +129,7 @@ function Test() {
         navigate('/results1');
         checkGuest();
       }
-      if (70 <= score < 80) {
+      if (70 <= score || score < 80) {
         navigate('/results2');
         checkGuest();
       }
@@ -146,7 +146,7 @@ function Test() {
         <SignsModal />
       ) : (
         <>
-          {localStorage.getItem('user') ? (
+          {localStorage.getItem('user') || localStorage.getItem('kakao') ? (
             <>
               <ProgressBar now={progress} label={`${count}`} />
               {isQ1 ? (

@@ -5,10 +5,12 @@ import Nav from './components/Nav';
 import Footer from './components/Footer';
 import Main from './pages/Main';
 import ConimalsMap from './pages/Map';
+
 import Test from './pages/Test/Test';
 import TestResults1 from './pages/Test/TestResults1';
 import TestResults2 from './pages/Test/TestResults2';
 import TestResults3 from './pages/Test/TestResults3';
+
 import Login from './components/Sign/Login';
 import Mypage from './pages/Mypage';
 import Signup from './components/Sign/Signup';

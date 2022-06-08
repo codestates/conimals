@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Logout from './Sign/Logout';
 
 function Nav() {
   return (
@@ -14,6 +15,7 @@ function Nav() {
       <Link to='/test'>
         <button>test</button>
       </Link>
+      <Logout />
     </>
   );
 }

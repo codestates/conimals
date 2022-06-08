@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import ConfirmModal from '../Modal/ConfirmModals';
 import passwordValidator from '../../utils/validator';
+import Loading from '../../utils/LoadingIndicator';
 
 function ModifyPassword() {
   const [newPassword, setNewPassword] = useState({
@@ -12,6 +13,7 @@ function ModifyPassword() {
 
   const [errMsg, setErrMsg] = useState('');
   const [modalOpen, setModalOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const modalHandler = () => {
     setModalOpen(false);
@@ -22,6 +24,7 @@ function ModifyPassword() {
   };
 
   const handleNewPassword = () => {
+    setLoading(true);
     axios
       .patch(
         `${process.env.REACT_APP_API_URL}/mypages/password`,
@@ -35,11 +38,12 @@ function ModifyPassword() {
         }
       )
       .then((res) => {
-        // TODO: Modal 알림 띄우기
         setModalOpen(true);
+        setLoading(false);
       })
       .catch((err) => {
         console.error(err);
+        setLoading(false);
       });
   };
 
@@ -51,6 +55,7 @@ function ModifyPassword() {
 
   return (
     <>
+      {loading ? <Loading /> : null}
       <div>비밀번호 변경</div>
       <input
         placeholder='기존 비밀번호를 입력해주세요'
