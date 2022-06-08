@@ -1,11 +1,20 @@
 .login-all {
-  width: 100vw;
+  width: 55vw;
+  height: 55vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: whitesmoke;
+  background: url(../../assets/LoginVector.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-color: whitesmoke; */
+  position: relative;
+  z-index: 10;
+  left: 20%;
+  transform: translate(0%, 0%);
+  transition: all ease 0.5s;
   /* display: table-cell; */
 }
 
@@ -19,18 +28,33 @@
 .input {
   margin-top: 3%;
   width: 30vw;
-  height: 3vh;
+  height: 5vh;
+  font-size: 15px;
+  border: 0;
+  border-radius: 10px;
+  outline: none;
+  padding-left: 10px;
+  background-color: rgb(253, 253, 253);
+}
+
+.kakao-img {
+  width: 30vw;
+  height: auto;
 }
 
 .login-text {
   margin: 1%;
-}
-
-.link-signup {
+  font-size: 20px;
   text-align: left;
 }
 
-.btn {
+.line {
+  margin: 2%;
+  border-right: 1px solid gray;
+  width: 30vw;
+}
+
+/* .btn {
   position: relative;
   border: none;
   display: inline-block;
@@ -41,18 +65,19 @@
   text-decoration: none;
   font-weight: 600;
   transition: 0.25s;
-  cursor: auto;
-}
-
-.btn {
   background-color: aliceblue;
   color: #1e6b7b;
+  cursor: auto;
+} */
+
+.signup-line {
+  margin-top: 2%;
+  text-align: left;
 }
 
-.link-signup {
-  display: flex;
-  flex-direction: row;
-  text-align: right;
+.signup-link {
+  margin-left: 3vw;
   text-decoration: underline;
   font-family: 'Noto Sans KR';
+  text-align: right;
 }

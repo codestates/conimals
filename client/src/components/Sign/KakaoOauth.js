@@ -5,16 +5,17 @@ import axios from 'axios';
 const KakaoOauth = () => {
   const navigate = useNavigate();
 
-  // 인가코드 가져오기
   useEffect(() => {
     const code = new URL(window.location.href).searchParams.get('code');
     if (code) {
       kakao(code);
     }
-  }, []);
-  // ${process.env.REACT_APP_KAKAO_REDIRECT_URI}
-  // 서버에 인가코드 전달
+  });
+
   const kakao = (code) => {
+    if (localStorage.getItem('user')) {
+      localStorage.removeItem('user');
+    }
     axios
       .post(
         `${process.env.REACT_APP_API_URL}/users/oauth/kakao/callback?code=${code}`,
@@ -27,7 +28,7 @@ const KakaoOauth = () => {
         }
       )
       .then((res) => {
-        localStorage.setItem('token', res.data.token);
+        localStorage.setItem('kakao', res.data.token);
         navigate('/');
       });
   };

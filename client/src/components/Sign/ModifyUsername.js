@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 import ConfirmModal from '../Modal/ConfirmModals';
+import Loading from '../../utils/LoadingIndicator';
 
 function ModifyUsername() {
   const [newUsername, setNewUsername] = useState({
@@ -9,6 +10,7 @@ function ModifyUsername() {
     newUsername: '',
   });
   const [modalOpen, setModalOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const modalHandler = () => {
     setModalOpen(false);
@@ -19,6 +21,7 @@ function ModifyUsername() {
   };
 
   const handleNewUsername = () => {
+    setLoading(true);
     axios
       .patch(
         `http://localhost:8080/mypages/username`,
@@ -32,14 +35,17 @@ function ModifyUsername() {
       )
       .then((res) => {
         setModalOpen(true);
+        setLoading(false);
       })
       .catch((err) => {
         console.error(err);
+        setLoading(false);
       });
   };
 
   return (
     <>
+      {loading ? <Loading /> : null}
       <input
         placeholder='변경하실 닉네임를 입력해주세요'
         onChange={handleInputValue('newUsername')}

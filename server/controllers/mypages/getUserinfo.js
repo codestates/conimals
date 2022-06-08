@@ -10,22 +10,23 @@ module.exports = async (req, res) => {
       attributes: ['id', 'userName', 'userEmail', 'password'],
       where: { id: verify.id },
     });
-    const { userId } = req.body;
-    const uploads = posts.findAll({
-      attributes: ['id', 'title', 'content', 'image'],
-      where: { userId },
+    const uploads = await posts.findAll({
+      attributes: ['id', 'title', 'content'],
+      where: { userId: 'NULL' },
       order: [['createdAt']],
     });
+    console.log(uploads);
     if (!userInfo) {
       return res.status(401).json({ message: '권한이 없습니다' });
     } else {
+      // Promise.all([uploads, likes]).then(([uploads, likes]) => {
       const { id, userName, userEmail } = userInfo;
       return res.status(200).json({
         data: {
           id,
           userName,
           userEmail,
-          uploads,
+          ...uploads,
         },
         message: '회원 정보 조회에 성공하였습니다',
       });

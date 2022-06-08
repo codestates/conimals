@@ -5,9 +5,11 @@ import * as React from 'react';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
+import Loading from '../../utils/LoadingIndicator';
 
 function Logout() {
   const [modalOpen, setModalOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const modalHandler = () => {
     setModalOpen(false);
@@ -16,25 +18,46 @@ function Logout() {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/users/logout`, {
-        headers: { authorization: `Bearer ${localStorage.getItem('user')}` },
-        withCredentials: true,
-      })
-      .then((res) => {
-        console.log(res);
-        localStorage.removeItem('user');
-        setModalOpen(true);
-        navigate('/');
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    setLoading(true);
+    if (localStorage.kakao) {
+      localStorage.removeItem('kakao');
+      setModalOpen(true);
+      navigate('/');
+      setLoading(false);
+      // axios
+      //   .get(`${process.env.REACT_APP_API_URL}/users/logout`, {
+      //     headers: { authorization: `Bearer ${localStorage.getItem('kakao')}` },
+      //     withCredentials: true,
+      //   })
+      //   .then((res) => {
+      //     localStorage.removeItem('kakao');
+      //     setModalOpen(true);
+      //     navigate('/');
+      //   })
+      //   .catch((err) => {
+      //     console.log(err);
+      //   });
+    } else {
+      axios
+        .get(`${process.env.REACT_APP_API_URL}/users/logout`, {
+          headers: { authorization: `Bearer ${localStorage.getItem('user')}` },
+          withCredentials: true,
+        })
+        .then((res) => {
+          localStorage.removeItem('user');
+          setModalOpen(true);
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.log(err);
+          setLoading(false);
+        });
+    }
   };
 
   return (
     <>
-      {/* <button onClick={handleLogout}>logout</button> */}
+      {loading ? <Loading /> : null}
       <Stack spacing={2} direction='row'>
         <Button variant='outlined' onClick={handleLogout}>
           로그아웃

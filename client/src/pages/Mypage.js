@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 import ConfirmModal from '../components/Modal/ConfirmModals';
@@ -7,8 +6,6 @@ import ModifyUsername from '../components/Sign/ModifyUsername';
 import ModifyPassword from '../components/Sign/ModifyPassword';
 
 function Mypage() {
-  const history = useNavigate();
-
   const [userinfo, setUserinfo] = useState({
     id: '',
     userName: '',
@@ -25,24 +22,53 @@ function Mypage() {
   };
 
   const getUserinfo = () => {
-    axios
-      .get(`http://localhost:8080/mypages/auth`, {
-        headers: { authorization: `Bearer ${localStorage.user}` },
-        withCredentials: true,
-      })
-      .then((res) => {
-        console.log(res);
-        setUserinfo({
-          id: res.data.data.id,
-          userId: res.data.data.id,
-          userName: res.data.data.userName,
-          userEmail: res.data.data.userEmail,
-          uploads: res.data.data.uploads,
+    if (localStorage.kakao) {
+      axios
+        .get(`${process.env.REACT_APP_API_URL}/mypages/auth`, {
+          headers: { authorization: `Bearer ${localStorage.kakao}` },
+          withCredentials: true,
+        })
+        .then((res) => {
+          console.log(res);
+          setUserinfo({
+            id: res.data.data.id,
+            userId: res.data.data.id,
+            userName: res.data.data.userName,
+            userEmail: res.data.data.userEmail,
+            uploads: res.data.data.uploads,
+          });
         });
-      });
+    } else {
+      axios
+        .get(`${process.env.REACT_APP_API_URL}/mypages/auth`, {
+          headers: { authorization: `Bearer ${localStorage.user}` },
+          withCredentials: true,
+        })
+        .then((res) => {
+          console.log(res);
+          setUserinfo({
+            id: res.data.data.id,
+            userId: res.data.data.id,
+            userName: res.data.data.userName,
+            userEmail: res.data.data.userEmail,
+            uploads: res.data.data.uploads,
+          });
+        });
+    }
   };
 
   const handleWithdrawal = () => {
+    if (localStorage.kakao) {
+      axios
+        .delete(`${process.env.REACT_APP_API_URL}/mypages/withdrawal`, {
+          headers: { authorization: `Bearer ${localStorage.kakao}` },
+          withCredentials: true,
+        })
+        .then((res) => {
+          localStorage.removeItem('kakao');
+          setModalOpen(true);
+        });
+    }
     axios
       .delete(`${process.env.REACT_APP_API_URL}/mypages/withdrawal`, {
         headers: { authorization: `Bearer ${localStorage.user}` },
@@ -50,9 +76,8 @@ function Mypage() {
       })
       .then((res) => {
         localStorage.removeItem('user');
-        history('/');
-        // TODO: Modal로 알리기
         setModalOpen(true);
+        console.log(res);
       });
   };
 
@@ -61,7 +86,7 @@ function Mypage() {
   };
 
   useEffect(() => {
-    if (localStorage.getItem('user')) {
+    if (localStorage.getItem('user') || localStorage.getItem('kakao')) {
       getUserinfo();
     }
   }, []);
@@ -71,7 +96,7 @@ function Mypage() {
     // 수정 완료 버튼 클릭시 axios 전송, .then => 수정 불가 필드로 전환
     <>
       <div>Mypage</div>
-      {localStorage.getItem('user') ? (
+      {localStorage.getItem('user') || localStorage.getItem('kakao') ? (
         <>
           <div>{`${userinfo.userName}님의 마이페이지 입니다.`}</div>
           {modifyMode ? (
@@ -104,7 +129,7 @@ function Mypage() {
           ) : null}
         </>
       ) : (
-        <div>non-login</div>
+        <div>non-logined</div>
       )}
     </>
   );
