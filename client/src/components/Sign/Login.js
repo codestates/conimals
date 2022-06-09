@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Logout from './Logout';
 import axios from 'axios';
+
 import ConfirmModal from '../Modal/ConfirmModals';
-import KakaoLoginImg from '../../img/kakao_login_medium_narrow.png';
+import KakaoLoginImg from '../../img/kakao_login_large_wide.png';
+import Logo from '../../assets/Conimals_logo_horizontal1.png';
+import Loading from '../../utils/LoadingIndicator';
 
 import * as React from 'react';
 import Stack from '@mui/material/Stack';
@@ -13,7 +14,6 @@ import './Login.css';
 // 로그인 성공, 실패 Modal 알림 띄우기
 function Login() {
   const inputRef = useRef(null);
-  const navigate = useNavigate();
 
   const [loginInfo, setLoginInfo] = useState({
     userEmail: '',
@@ -21,6 +21,7 @@ function Login() {
   });
   const [modalOpen, setModalOpen] = useState(false);
   const [modalMsg, setModalMsg] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const modalHandler = () => {
     setModalOpen(false);
@@ -43,6 +44,7 @@ function Login() {
   }, []);
 
   const handleLogin = () => {
+    setLoading(true);
     const { userEmail, password } = loginInfo;
     axios
       .post(
@@ -62,52 +64,70 @@ function Login() {
         }
         setModalOpen(true);
         setModalMsg('로그인 되었습니다!');
+        setLoading(false);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        setLoading(false);
+      });
   };
 
   return (
-    // <ContainerRow>
-    //   <UDContainer>
     <>
-      <div className='login-all'>
-        <h2 className='login-title'>Conimals</h2>
-        <div className='login-text'>
-          이메일
-          <br />
-          <input
-            className='input'
-            onChange={handleInputValue('userEmail')}
-            ref={inputRef}
+      {loading ? <Loading /> : null}
+      <div>
+        <div className='login-all'>
+          <img src={Logo} alt='coniamls-logo'></img>
+          <h2>로그인</h2>
+          <div className='login-text'>
+            이메일
+            <br />
+            <input
+              className='input'
+              type='email'
+              placeholder='conimals@gmail.com'
+              onChange={handleInputValue('userEmail')}
+              ref={inputRef}
+            />
+          </div>
+
+          <div className='login-text'>
+            비밀번호
+            <br />
+            <input
+              placeholder='8자 이상의 영문과 숫자'
+              className='input'
+              onChange={handleInputValue('password')}
+            />
+          </div>
+          {/* <button className='btn' onClick={handleLogin}>
+          로그인
+        </button> */}
+          {/* 상단: CSS 버튼 / 하단: MUI 버튼  */}
+          <Stack className='btn-mui' direction='row'>
+            <Button variant='contained' sx={{ mt: 1 }} onClick={handleLogin}>
+              로그인
+            </Button>
+          </Stack>
+          <span className='signup-line'>
+            Conimals가 처음이신가요?
+            <a href='/signup' className='signup-link'>
+              회원가입
+            </a>
+          </span>
+          <hr className='line' />
+          <img
+            className='kakao-img'
+            src={KakaoLoginImg}
+            alt='kakao-login-img'
+            onClick={kakaoLoginHandler}
           />
         </div>
-        <div className='login-text'>
-          비밀번호
-          <br />
-          <input className='input' onChange={handleInputValue('password')} />
-        </div>
-        <button className='btn' onClick={handleLogin}>
-          로그인
-        </button>
-        {/* 상단: CSS 버튼 / 하단: MUI 버튼  */}
-        <Stack className='btn-mui' direction='row'>
-          <Button variant='contained' onClick={handleLogin}>
-            로그인
-          </Button>
-        </Stack>
-        <img src={KakaoLoginImg} onClick={kakaoLoginHandler} />
-        <Logout />
-        Conimals가 처음이신가요?
-        <span className='link-signup'>
-          <a href='/signup'>회원가입</a>
-        </span>
         {modalOpen ? (
           <ConfirmModal handleModal={modalHandler}>{modalMsg}</ConfirmModal>
         ) : null}
       </div>
     </>
-    //   {/* </UDContainer>
-    // </ContainerRow> */}
   );
 }
 

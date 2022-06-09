@@ -1,19 +1,15 @@
-a:link {
-  color: rgb(95, 62, 16);
-  text-decoration: none;
-}
-a:visited {
-  color: black;
-  text-decoration: none;
-}
-a:hover {
-  color: rgb(95, 62, 16);
-  text-decoration: underline;
+/* a:link {
+  color: rgb(255, 119, 230);
+} */
+/* a:visited {
+  color: rgb(255, 119, 230);
+} */
+/* a:hover {
+  color: rgb(255, 119, 230);
 }
 a:active {
-  color: rgb(95, 62, 16);
-  text-decoration: none;
-}
+  color: rgb(255, 119, 230);
+} */
 
 .ft {
   width: 100%;

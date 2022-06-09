@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import {
   passwordValidator,
   passwordMatchValidator,
@@ -7,12 +6,12 @@ import {
   emailValidator,
 } from '../../utils/validator';
 import ConfirmModal from '../Modal/ConfirmModals';
+import Loading from '../../utils/LoadingIndicator';
+import './Signup.css';
 
 const axios = require('axios');
 
 function Signup() {
-  const navigate = useNavigate();
-
   const [userinfo, setUserinfo] = useState({
     userName: '',
     userEmail: '',
@@ -24,6 +23,7 @@ function Signup() {
   const [emailError, setEmailError] = useState(false);
   const [usernameError, setUsernameError] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const modalHandler = () => {
     setModalOpen(false);
@@ -38,6 +38,7 @@ function Signup() {
     setConfirmPasswordError(false);
     setEmailError(false);
     setUsernameError(false);
+    setLoading(true);
     if (
       !emailValidator(userinfo.userEmail) ||
       !nicknameValidator(userinfo.userName) ||
@@ -46,15 +47,19 @@ function Signup() {
     ) {
       if (!emailValidator(userinfo.userEmail)) {
         setEmailError(true);
+        setLoading(false);
       }
       if (!nicknameValidator(userinfo.userName)) {
         setUsernameError(true);
+        setLoading(false);
       }
       if (!passwordValidator(userinfo.password)) {
         setPasswordError(true);
+        setLoading(false);
       }
       if (!passwordMatchValidator(userinfo.password, userinfo.retypePassword)) {
         setConfirmPasswordError(true);
+        setLoading(false);
       }
     } else {
       axios
@@ -72,14 +77,15 @@ function Signup() {
           }
         )
         .then((res) => console.log(res));
-      // TODO: Modal로 구현하기
       setModalOpen(true);
+      setLoading(false);
     }
   };
 
   return (
     <>
-      <div className='signupPage'>
+      {loading ? <Loading /> : null}
+      <div className='signup-page'>
         <div className='desc input-title'>이메일</div>
         {emailError ? (
           <div className='validate-text'>이메일 형식에 맞춰 작성해주세요.</div>
