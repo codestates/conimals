@@ -36,6 +36,8 @@ app.get('/', function (req, res) {
   res.send('Hello World!');
 });
 
+app.use('/posts/uploads', express.static('uploads'));
+
 /* 서버에러 */
 app.use((err, req, res, next) => {
   console.log(err.stack);

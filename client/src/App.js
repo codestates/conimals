@@ -16,8 +16,9 @@ import Mypage from './pages/Mypage';
 import Signup from './components/Sign/Signup';
 import KakaoOauth from './components/Sign/KakaoOauth';
 import Posts from './pages/post/Posts';
-import NewPost from './pages/post/NewPost';
+import Write from './pages/post/Write';
 import EditPost from './pages/post/EditPost';
+import View from './pages/post/View';
 
 function App() {
   return (
@@ -37,7 +38,8 @@ function App() {
         <Route path='/signup' element={<Signup />} />
         <Route path='/oauth/kakao/callback' element={<KakaoOauth />} />
         <Route path='/posts' element={<Posts />} />
-        <Route path='/new' element={<NewPost />} />
+        <Route path='/view/:id' element={<View />} />
+        <Route path='/write' element={<Write />} />
         <Route path='/edit' element={<EditPost />} />
       </Routes>
 
