@@ -23,55 +23,55 @@ module.exports = async (req, res) => {
     res.status(500).send('Failed to get Posts');
     console.error(e);
   }
-  // const { lastId } = req.query;
-  // if (!lastId) {
-  //   await posts
-  //     .findAll({
-  //       include: [
-  //         {
-  //           model: users,
-  //           required: true,
-  //           attributes: ['id', 'userName'],
-  //         },
-  //       ],
-  //       attributes: ['id', 'title', 'image', 'createdAt', 'updatedAt'],
-  //       order: [['id']],
-  //       limit: 9,
-  //     })
-  //     .then((data) => {
-  //       const post = data.map((el) => el.get({ plain: true }));
-  //       res.status(200).send({ message: '요청을 받아왔습니다', data: post });
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //       res
-  //         .status(500)
-  //         .json({ message: '서버로부터 요청을 받아오지 못했습니다' });
-  //     });
-  // } else {
-  //   await posts
-  //     .findAll({
-  //       where: { id: { [Op.lt]: lastId } },
-  //       include: [
-  //         {
-  //           model: users,
-  //           required: true,
-  //           attributes: ['id', 'userName'],
-  //         },
-  //       ],
-  //       attributes: ['id', 'title', 'image', 'createdAt', 'updatedAt'],
-  //       order: [['id']],
-  //       limit: 9,
-  //     })
-  //     .then((data) => {
-  //       const post = data.map((el) => el.get({ plain: true }));
-  //       res.status(200).send({ message: '요청을 받아왔습니다', data: post });
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //       res
-  //         .status(500)
-  //         .json({ message: '서버로부터 요청을 받아오지 못했습니다' });
-  //     });
-  // }
+  //   const { lastId } = req.query;
+  //   if (!lastId) {
+  //     await posts
+  //       .findAll({
+  //         include: [
+  //           {
+  //             model: users,
+  //             required: true,
+  //             attributes: ['id', 'userName'],
+  //           },
+  //         ],
+  //         attributes: ['id', 'title', 'image', 'createdAt', 'updatedAt'],
+  //         order: [['id']],
+  //         limit: 9,
+  //       })
+  //       .then((data) => {
+  //         const post = data.map((el) => el.get({ plain: true }));
+  //         res.status(200).send({ message: '요청을 받아왔습니다', data: post });
+  //       })
+  //       .catch((err) => {
+  //         console.log(err);
+  //         res
+  //           .status(500)
+  //           .json({ message: '서버로부터 요청을 받아오지 못했습니다' });
+  //       });
+  //   } else {
+  //     await posts
+  //       .findAll({
+  //         where: { id: { [Op.lt]: lastId } },
+  //         include: [
+  //           {
+  //             model: users,
+  //             required: true,
+  //             attributes: ['id', 'userName'],
+  //           },
+  //         ],
+  //         attributes: ['id', 'title', 'image', 'createdAt', 'updatedAt'],
+  //         order: [['id']],
+  //         limit: 9,
+  //       })
+  //       .then((data) => {
+  //         const post = data.map((el) => el.get({ plain: true }));
+  //         res.status(200).send({ message: '요청을 받아왔습니다', data: post });
+  //       })
+  //       .catch((err) => {
+  //         console.log(err);
+  //         res
+  //           .status(500)
+  //           .json({ message: '서버로부터 요청을 받아오지 못했습니다' });
+  //       });
+  //   }
 };
