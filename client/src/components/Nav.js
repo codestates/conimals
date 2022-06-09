@@ -15,6 +15,15 @@ function Nav() {
       <Link to='/test'>
         <button>test</button>
       </Link>
+      <Link to='/posts'>
+        <button>posts</button>
+      </Link>
+      <Link to='/write'>
+        <button>write</button>
+      </Link>
+      <Link to='/edit'>
+        <button>edit</button>
+      </Link>
       <Logout />
     </>
   );

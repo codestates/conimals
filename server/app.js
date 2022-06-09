@@ -3,13 +3,11 @@ const app = express();
 const cors = require('cors');
 const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
 
 const { sequelize } = require('./models');
 
 const indexRouter = require('./routes');
-
-app.use(express.urlencoded({ extended: false }));
-// extended meaning what
 
 app.use(
   cors({
@@ -21,10 +19,15 @@ app.use(
 );
 app.use(express.json());
 app.use(cookieParser());
+app.use(bodyParser.json());
 app.use(
   morgan(':method :url :status :res[content-length] - :response-time ms')
 );
 // 미들웨어 안에 미들웨어 검색 모건 옵션 찾아보기
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
+// extended meaning what
 
 app.use('/', indexRouter);
 
@@ -32,6 +35,8 @@ app.get('/', function (req, res) {
   res.header('Access-Control-Allow-Origin', '*');
   res.send('Hello World!');
 });
+
+app.use('/posts/uploads', express.static('uploads'));
 
 /* 서버에러 */
 app.use((err, req, res, next) => {

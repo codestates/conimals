@@ -10,7 +10,7 @@ const KakaoOauth = () => {
     if (code) {
       kakao(code);
     }
-  });
+  }, []);
 
   const kakao = (code) => {
     if (localStorage.getItem('user')) {
