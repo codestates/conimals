@@ -5,9 +5,16 @@ import {
   nicknameValidator,
   emailValidator,
 } from '../../utils/validator';
+
+import Logo from '../../assets/Conimals_logo_horizontal1.png';
 import ConfirmModal from '../Modal/ConfirmModals';
 import Loading from '../../utils/LoadingIndicator';
+import SignupsSvgImg from '../../assets/signup.svg';
+import SignupsImg from '../../assets/signup.png';
 import './Signup.css';
+
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 
 const axios = require('axios');
 
@@ -85,56 +92,77 @@ function Signup() {
   return (
     <>
       {loading ? <Loading /> : null}
-      <div className='signup-page'>
-        <div className='desc input-title'>이메일</div>
-        {emailError ? (
-          <div className='validate-text'>이메일 형식에 맞춰 작성해주세요.</div>
-        ) : null}
-        <input
-          type='text'
-          className='input-signup'
-          placeholder='example@gmail.com'
-          onChange={handleInputValue('userEmail')}
-        />
-        <div className='desc input-title'>닉네임</div>
-        <input
-          type='text'
-          className='input-signup'
-          placeholder='Petmily'
-          onChange={handleInputValue('userName')}
-          maxLength='12'
-        />
-        {usernameError ? (
-          <div className='validate-text'>
-            1~12자의 영문, 숫자, 한글이 사용 가능 합니다.
+      <div id='signup'>
+        <img src={SignupsImg} alt='signup-img' className='signup-img'></img>
+        <div className='signup-page'>
+          <img src={Logo} alt='coniamls-logo'></img>
+          <h2>회원가입</h2>
+          <div className='desc input-title'>이메일</div>
+          {emailError ? (
+            <div className='validate-text'>
+              이메일 형식에 맞춰 작성해주세요.
+            </div>
+          ) : null}
+          <input
+            type='text'
+            className='input-signup'
+            placeholder='example@gmail.com'
+            onChange={handleInputValue('userEmail')}
+          />
+          <div className='desc input-title'>닉네임</div>
+          <input
+            type='text'
+            className='input-signup'
+            placeholder='Petmily'
+            onChange={handleInputValue('userName')}
+            maxLength='12'
+          />
+          {usernameError ? (
+            <div className='validate-text'>
+              1~12자의 영문, 숫자, 한글이 사용 가능 합니다.
+            </div>
+          ) : null}
+          <div className='desc input-title'>비밀번호</div>
+          {passwordError ? (
+            <div className='validate-text'>
+              8자 이상의 영문, 숫자를 입력해야 합니다.
+            </div>
+          ) : null}
+          <input
+            type='text'
+            className='input-signup'
+            placeholder='8자 이상의 영문, 숫자를 입력해주세요'
+            onChange={handleInputValue('password')}
+          />
+          <div className='desc input-title'>비밀번호 확인</div>
+          {confirmPasswordError ? (
+            <div className='validate-text'>비밀번호가 다릅니다.</div>
+          ) : null}
+          <input
+            type='text'
+            className='input-signup'
+            placeholder='8자 이상의 영문, 숫자를 입력해주세요'
+            onChange={handleInputValue('retypePassword')}
+          />
+          <br />
+          <Stack className='btn-mui' direction='row'>
+            <Button
+              className='btn-mui'
+              variant='contained'
+              color='secondary'
+              onClick={onSubmit}
+            >
+              회원가입
+            </Button>
+          </Stack>
+
+          <div className='signup-login'>
+            이미 회원이신가요?{' '}
+            <a className='signup-login-link' href='/login'>
+              로그인
+            </a>
           </div>
-        ) : null}
-        <div className='desc input-title'>비밀번호</div>
-        {passwordError ? (
-          <div className='validate-text'>
-            8자 이상의 영문, 숫자를 입력해야 합니다.
-          </div>
-        ) : null}
-        <input
-          type='text'
-          className='input-signup'
-          placeholder='8자 이상의 영문, 숫자를 입력해주세요'
-          onChange={handleInputValue('password')}
-        />
-        <div className='desc input-title'>비밀번호 확인</div>
-        {confirmPasswordError ? (
-          <div className='validate-text'>비밀번호가 다릅니다.</div>
-        ) : null}
-        <input
-          type='text'
-          className='input-signup'
-          placeholder='8자 이상의 영문, 숫자를 입력해주세요'
-          onChange={handleInputValue('retypePassword')}
-        />
-        <br />
-        <button className='signup-btn' onClick={onSubmit}>
-          회원가입
-        </button>
+        </div>
       </div>
 
       {modalOpen ? (

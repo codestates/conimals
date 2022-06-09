@@ -1,17 +1,68 @@
+#signup {
+  display: flex;
+  flex-direction: row;
+  grid-template-columns: 1fr 1fr;
+}
+
+.signup-img {
+  width: 50%;
+  height: auto;
+}
+
 .signup-page {
-  margin-top: 5%;
   width: 55vw;
   height: 55vw;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  background: url(../../assets/LoginVector.png);
+  /* justify-content: center; */
   background-repeat: no-repeat;
   background-size: cover;
-  /* background-color: whitesmoke; */
   position: relative;
   z-index: 10;
-  transform: translate(50%, 0%);
+  transform: translate(0%, 0%);
+}
+
+.input-title {
+  margin-top: 5%;
+  font-size: 20px;
+  text-align: left;
+}
+
+.input-signup {
+  margin-top: 2%;
+  width: 30vw;
+  height: 5vh;
+  font-size: 15px;
+  border: 0;
+  border-radius: 10px;
+  outline: none;
+  padding-left: 10px;
+  background-color: rgb(253, 253, 253);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.signup-login {
+  width: 30vw;
+  margin-top: 5%;
+  text-align: center;
+}
+
+.signup-login-link {
+  margin-left: 5%;
+}
+
+.signup-login-link a:link {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+.signup-login-link a:visited {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+.signup-login-link a:hover {
+  color: bisque;
+}
+.signup-login-link a:active {
+  color: bisque;
 }

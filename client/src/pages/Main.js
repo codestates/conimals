@@ -79,6 +79,7 @@ function Main() {
           </TextExtra>
         </Text1>
         <BackgroundImg2 />
+
         {/* </Area1> */}
 
         {/* <Area2> */}
