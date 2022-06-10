@@ -20,9 +20,12 @@ import Write from './pages/post/Write';
 import EditPost from './pages/post/EditPost';
 import View from './pages/post/View';
 
+import GlobalStyle from './GlobalStyle';
+
 function App() {
   return (
     <BrowserRouter>
+      <GlobalStyle />
       <Nav />
 
       <Routes>

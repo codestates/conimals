@@ -5,7 +5,6 @@ import Logout from './Sign/Logout';
 function Nav() {
   return (
     <>
-      Nav
       <Link to='/login'>
         <button>Login</button>
       </Link>
