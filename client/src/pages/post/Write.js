@@ -16,7 +16,6 @@ const NewPostWrap = styled.div`
 
 const Write = () => {
   const [imageSrc, setImageSrc] = useState([]);
-
   const [newPost, setNewPost] = useState({
     title: '',
     content: '',
