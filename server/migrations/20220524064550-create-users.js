@@ -23,7 +23,7 @@ module.exports = {
       kakaoId: {
         type: Sequelize.STRING,
       },
-      kakaoOauthToken: {
+      kakaoProfileImage: {
         type: Sequelize.STRING,
       },
       createdAt: {

@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
       password: DataTypes.STRING,
       admin: { type: DataTypes.BOOLEAN, defaultValue: 0 },
       kakaoId: DataTypes.STRING,
-      kakaoOauthToken: DataTypes.STRING,
+      kakaoProfileImage: DataTypes.STRING,
     },
     {
       sequelize,
