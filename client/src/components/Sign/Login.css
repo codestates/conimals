@@ -1,3 +1,6 @@
+button {
+  cursor: pointer;
+}
 .login-all {
   width: 55vw;
   height: 55vw;
@@ -37,6 +40,7 @@
 .kakao-img {
   width: 30vw;
   height: auto;
+  cursor: pointer;
 }
 
 .login-text {

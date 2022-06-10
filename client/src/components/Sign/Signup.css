@@ -1,37 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
 #signup {
   display: flex;
   flex-direction: row;
-  grid-template-columns: 1fr 1fr;
+  text-align: center;
+  align-items: center;
 }
 
 .signup-img {
-  width: 50%;
+  width: 100%;
   height: auto;
 }
 
 .signup-page {
   width: 55vw;
   height: 55vw;
-  display: flex;
   flex-direction: column;
-  align-items: center;
-  /* justify-content: center; */
-  background-repeat: no-repeat;
-  background-size: cover;
+  justify-content: center;
   position: relative;
   z-index: 10;
-  transform: translate(0%, 0%);
+}
+
+.signup-logo {
+  width: 35%;
 }
 
 .input-title {
   margin-top: 5%;
+  margin-left: 20%;
   font-size: 20px;
   text-align: left;
 }
 
 .input-signup {
   margin-top: 2%;
-  width: 30vw;
+  width: 60%;
   height: 5vh;
   font-size: 15px;
   border: 0;
@@ -44,25 +47,47 @@
 
 .signup-login {
   width: 30vw;
-  margin-top: 5%;
-  text-align: center;
+  margin-top: 2%;
+  margin-left: 20%;
+}
+
+.validate-text {
+  color: rgb(146, 17, 17);
+  font-size: 15px;
+  margin-top: 2%;
 }
 
 .signup-login-link {
   margin-left: 5%;
 }
 
-.signup-login-link a:link {
-  color: rgb(255, 255, 255);
+.signup-login a:link {
+  color: rgb(124, 124, 124);
   text-decoration: none;
 }
-.signup-login-link a:visited {
-  color: rgb(255, 255, 255);
+.signup-login a:visited {
+  color: rgb(124, 124, 124);
   text-decoration: none;
 }
-.signup-login-link a:hover {
+.signup-login a:hover {
   color: bisque;
 }
-.signup-login-link a:active {
+.signup-login a:active {
   color: bisque;
+}
+
+.btn {
+  position: relative;
+  border: none;
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: 15px;
+  margin-top: 30px;
+  font-family: sans-serif;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.25s;
+  background-color: indianred;
+  color: #ffffff;
 }

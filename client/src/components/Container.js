@@ -15,6 +15,10 @@ export const ContainerRow = styled.div`
   width: 100%;
 `;
 
+export const JCContainer = styled(Container)`
+  justify-content: center; // 상하 가운데로 정렬
+`;
+
 export const ResultContainer = styled(Container)`
   justify-content: center; // 상하 가운데로 정렬
 `;

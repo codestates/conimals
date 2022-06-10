@@ -14,14 +14,14 @@
 }
 
 .container {
-  width: 100vw;
+  width: 100%;
   height: 200px;
   margin-top: 200px;
   background-color: rgb(93, 137, 179);
   display: grid;
   grid-template-columns: 1fr 1fr 2fr 1fr;
   grid-gap: 1rem;
-  padding: 1rem;
+  padding: 2rem;
 }
 
 .recommend-site {
@@ -82,4 +82,5 @@
 
 .copyright {
   color: white;
+  margin-left: 5%;
 }

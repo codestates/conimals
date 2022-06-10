@@ -4,6 +4,7 @@ import axios from 'axios';
 import ConfirmModal from '../components/Modal/ConfirmModals';
 import ModifyUsername from '../components/Sign/ModifyUsername';
 import ModifyPassword from '../components/Sign/ModifyPassword';
+import { Container } from '../components/Container';
 
 function Mypage() {
   const [userinfo, setUserinfo] = useState({
@@ -82,7 +83,7 @@ function Mypage() {
   };
 
   const handleModifyMode = () => {
-    setModifyMode(true);
+    setModifyMode(!modifyMode);
   };
 
   useEffect(() => {
@@ -108,20 +109,33 @@ function Mypage() {
             </>
           ) : (
             <>
-              닉네임: <input value={userinfo.userName} disabled />
               <br />
-              비밀번호:{' '}
-              <input value={userinfo.password} type='password' disabled />
-              <br />
+              <div>
+                <div>
+                  닉네임: <input value={userinfo.userName} disabled />
+                </div>
+                <div>
+                  이메일:{' '}
+                  <input value={userinfo.userEmail} type='email' disabled />
+                </div>
+                <div>
+                  비밀번호:{' '}
+                  <input value={userinfo.password} type='password' disabled />
+                </div>
+              </div>
             </>
           )}
           {/* // TODO: 탈퇴 버튼 클릭 시 확인 / 취소 comfirm 창 표출, 분기에 따른 취소 가능 */}
           <br />
-          {modifyMode ? null : (
+
+          {modifyMode ? (
+            <button onClick={handleModifyMode}>수정완료</button>
+          ) : (
             <button onClick={handleModifyMode}>회원정보 수정</button>
           )}
-
-          <button onClick={handleWithdrawal}>회원탈퇴</button>
+          <div className='withdrawal'>
+            <button onClick={handleWithdrawal}>회원탈퇴</button>
+          </div>
           {modalOpen ? (
             <ConfirmModal handleModal={modalHandler}>
               회원탈퇴가 완료되었습니다.
@@ -129,7 +143,9 @@ function Mypage() {
           ) : null}
         </>
       ) : (
-        <div>non-logined</div>
+        <Container>
+          <div>non-login</div>
+        </Container>
       )}
     </>
   );

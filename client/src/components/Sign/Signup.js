@@ -13,9 +13,6 @@ import SignupsSvgImg from '../../assets/signup.svg';
 import SignupsImg from '../../assets/signup.png';
 import './Signup.css';
 
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
-
 const axios = require('axios');
 
 function Signup() {
@@ -93,22 +90,25 @@ function Signup() {
     <>
       {loading ? <Loading /> : null}
       <div id='signup'>
-        <img src={SignupsImg} alt='signup-img' className='signup-img'></img>
+        <div>
+          <img src={SignupsImg} alt='signup-img' className='signup-img'></img>
+        </div>
         <div className='signup-page'>
-          <img src={Logo} alt='coniamls-logo'></img>
+          <img src={Logo} alt='coniamls-logo' className='signup-logo'></img>
           <h2>회원가입</h2>
           <div className='desc input-title'>이메일</div>
-          {emailError ? (
-            <div className='validate-text'>
-              이메일 형식에 맞춰 작성해주세요.
-            </div>
-          ) : null}
+
           <input
             type='text'
             className='input-signup'
             placeholder='example@gmail.com'
             onChange={handleInputValue('userEmail')}
           />
+          {emailError ? (
+            <div className='validate-text'>
+              이메일 형식에 맞춰 작성해주세요.
+            </div>
+          ) : null}
           <div className='desc input-title'>닉네임</div>
           <input
             type='text'
@@ -123,38 +123,33 @@ function Signup() {
             </div>
           ) : null}
           <div className='desc input-title'>비밀번호</div>
-          {passwordError ? (
-            <div className='validate-text'>
-              8자 이상의 영문, 숫자를 입력해야 합니다.
-            </div>
-          ) : null}
+
           <input
             type='text'
             className='input-signup'
             placeholder='8자 이상의 영문, 숫자를 입력해주세요'
             onChange={handleInputValue('password')}
           />
-          <div className='desc input-title'>비밀번호 확인</div>
-          {confirmPasswordError ? (
-            <div className='validate-text'>비밀번호가 다릅니다.</div>
+          {passwordError ? (
+            <div className='validate-text'>
+              8자 이상의 영문, 숫자를 입력해야 합니다.
+            </div>
           ) : null}
+          <div className='desc input-title'>비밀번호 확인</div>
+
           <input
             type='text'
             className='input-signup'
             placeholder='8자 이상의 영문, 숫자를 입력해주세요'
             onChange={handleInputValue('retypePassword')}
           />
+          {confirmPasswordError ? (
+            <div className='validate-text'>비밀번호가 다릅니다.</div>
+          ) : null}
           <br />
-          <Stack className='btn-mui' direction='row'>
-            <Button
-              className='btn-mui'
-              variant='contained'
-              color='secondary'
-              onClick={onSubmit}
-            >
-              회원가입
-            </Button>
-          </Stack>
+          <button className='btn' onClick={onSubmit}>
+            회원가입
+          </button>
 
           <div className='signup-login'>
             이미 회원이신가요?{' '}

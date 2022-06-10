@@ -33,10 +33,13 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <img src={logo}></img>
-        <div className='copyright'>
-          <div>COPYRIGHT 2022 Conimals.,</div>
-          <div>ALL RIGHTS RESERVED.</div>
+
+        <div className='4/4'>
+          <img src={logo}></img>
+          <div className='copyright'>
+            <div>COPYRIGHT 2022 Conimals.,</div>
+            <div>ALL RIGHTS RESERVED.</div>
+          </div>
         </div>
       </div>
     </>
