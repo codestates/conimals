@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router';
-import { UDContainer } from '../../components/Container';
+import { ResultContainer } from '../../components/Container';
 import styled from 'styled-components';
 
 const ResultInfo = styled.div`
@@ -14,7 +14,7 @@ export default function TestResults1() {
   const [username, setUsername] = useState('guest');
   return (
     <>
-      <UDContainer>
+      <ResultContainer>
         <h1>반려동물과 함께 할 준비가 충분히 되셨군요!</h1>
         <div>{`${username}님과 함께 할 친구를`}</div>
         <div>저희가 안내드리는 동물 보호단체에서 확인해보세요!</div>
@@ -32,7 +32,7 @@ export default function TestResults1() {
             참고해 주세요.
           </div>
         </ResultInfo>
-      </UDContainer>
+      </ResultContainer>
     </>
   );
 }

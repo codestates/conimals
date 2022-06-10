@@ -3,8 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { ProgressBar } from 'react-bootstrap';
 
 import styled from 'styled-components';
-import { UDContainer } from '../../components/Container';
+import { TestContainer } from '../../components/Container';
 import SignsModal from '../../components/Modal/SignsModal';
+import TestVector from '../../assets/TestVector';
 
 const QuestionDiv = styled.div`
   background-color: lightcoral;
@@ -19,6 +20,9 @@ const QuestionDiv = styled.div`
 const Select = styled.div`
   font-size: 2rem;
   background-color: lightgray;
+  @media screen and (max-width: 760px) {
+    font-size: 1rem;
+  }
 `;
 
 const checkGuest = () => {
@@ -148,9 +152,10 @@ function Test() {
         <>
           {localStorage.getItem('user') || localStorage.getItem('kakao') ? (
             <>
+              <TestVector />
               <ProgressBar now={progress} label={`${count}`} />
               {isQ1 ? (
-                <UDContainer>
+                <TestContainer>
                   <QuestionDiv>
                     <div>Q1.</div>
                     현재 함께 거주 중인 가구원 수가 어떻게 되시나요?
@@ -165,11 +170,11 @@ function Test() {
                       <div>B. 2인 이상이 함께 거주합니다.</div>
                     </div>
                   </Select>
-                </UDContainer>
+                </TestContainer>
               ) : (
                 <>
                   {isQ2 ? (
-                    <UDContainer>
+                    <TestContainer>
                       <QuestionDiv>
                         <div>Q2.</div>
                         거주 환경의 타입은 어떻게 되시나요?
@@ -189,11 +194,11 @@ function Test() {
                           <div>C. 마당이 딸린 전원주택입니다.</div>
                         </div>
                       </Select>
-                    </UDContainer>
+                    </TestContainer>
                   ) : (
                     <>
                       {isQ3 ? (
-                        <UDContainer>
+                        <TestContainer>
                           <QuestionDiv>
                             <div>Q3.</div>
                             반려동물과 함께 정기적인 산책과 놀이, 훈련 등을 할
@@ -209,11 +214,11 @@ function Test() {
                               <div>B. 시간적 여유가 많지 않습니다.</div>
                             </div>
                           </Select>
-                        </UDContainer>
+                        </TestContainer>
                       ) : (
                         <>
                           {isQ4 ? (
-                            <UDContainer>
+                            <TestContainer>
                               <QuestionDiv>
                                 <div>Q4.</div>
                                 반려동물에게 들어가는 양육비는 월 평균 15만원
@@ -229,11 +234,11 @@ function Test() {
                                   <div>B. 부담스러운 편이다.</div>
                                 </div>
                               </Select>
-                            </UDContainer>
+                            </TestContainer>
                           ) : (
                             <>
                               {isQ5 ? (
-                                <UDContainer>
+                                <TestContainer>
                                   <QuestionDiv>
                                     <div>Q5.</div>
                                     본인 또는 가족 구성원이 반려동물 관련 알러지
@@ -249,7 +254,7 @@ function Test() {
                                       <div>B. 아니오.</div>
                                     </div>
                                   </Select>
-                                </UDContainer>
+                                </TestContainer>
                               ) : null}
                             </>
                           )}

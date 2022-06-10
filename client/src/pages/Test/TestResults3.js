@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router';
-import { UDContainer } from '../../components/Container';
+import { ResultContainer } from '../../components/Container';
 import styled from 'styled-components';
 
 const ResultInfo = styled.div`
@@ -15,7 +15,7 @@ export default function TestResults1() {
 
   return (
     <>
-      <UDContainer>
+      <ResultContainer>
         <h1>반려동물을 위한 좋은 환경은 무엇일까요?</h1>
 
         <div>{`${username}님을 위한 조건을 알아보기 위해`}</div>
@@ -35,7 +35,7 @@ export default function TestResults1() {
             참고해 주세요.
           </div>
         </ResultInfo>
-      </UDContainer>
+      </ResultContainer>
     </>
   );
 }

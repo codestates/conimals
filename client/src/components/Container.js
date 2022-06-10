@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import TestBG from '../assets/TestBg.png';
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column; // 아이템들 세로로 정렬
@@ -13,6 +15,15 @@ export const ContainerRow = styled.div`
   width: 100%;
 `;
 
-export const UDContainer = styled(Container)`
+export const JCContainer = styled(Container)`
   justify-content: center; // 상하 가운데로 정렬
+`;
+
+export const ResultContainer = styled(Container)`
+  justify-content: center; // 상하 가운데로 정렬
+`;
+
+export const TestContainer = styled(Container)`
+  justify-content: center; // 상하 가운데로 정렬
+  background: url(../assets/TestBg.png);
 `;

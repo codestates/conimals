@@ -1,3 +1,6 @@
+button {
+  cursor: pointer;
+}
 .login-all {
   width: 55vw;
   height: 55vw;
@@ -9,13 +12,10 @@
   background: url(../../assets/LoginVector.png);
   background-repeat: no-repeat;
   background-size: cover;
-  /* background-color: whitesmoke; */
   position: relative;
   z-index: 10;
-  left: 20%;
-  transform: translate(0%, 0%);
+  transform: translate(50%, 0%);
   transition: all ease 0.5s;
-  /* display: table-cell; */
 }
 
 .login-title {
@@ -40,6 +40,7 @@
 .kakao-img {
   width: 30vw;
   height: auto;
+  cursor: pointer;
 }
 
 .login-text {
@@ -71,8 +72,14 @@
 } */
 
 .signup-line {
+  display: flex;
   margin-top: 2%;
   text-align: left;
+  justify-content: center;
+}
+
+.signup-text {
+  transform: translate(0%, 22%);
 }
 
 .signup-link {

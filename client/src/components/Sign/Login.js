@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 import ConfirmModal from '../Modal/ConfirmModals';
@@ -13,6 +14,7 @@ import './Login.css';
 
 // 로그인 성공, 실패 Modal 알림 띄우기
 function Login() {
+  const navigate = useNavigate();
   const inputRef = useRef(null);
 
   const [loginInfo, setLoginInfo] = useState({
@@ -22,6 +24,10 @@ function Login() {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalMsg, setModalMsg] = useState('');
   const [loading, setLoading] = useState(false);
+
+  const toSignup = () => {
+    navigate('/signup');
+  };
 
   const modalHandler = () => {
     setModalOpen(false);
@@ -105,15 +111,22 @@ function Login() {
         </button> */}
           {/* 상단: CSS 버튼 / 하단: MUI 버튼  */}
           <Stack className='btn-mui' direction='row'>
-            <Button variant='contained' sx={{ mt: 1 }} onClick={handleLogin}>
+            <Button
+              variant='contained'
+              sx={{ mt: 1 }}
+              onClick={handleLogin}
+              color='secondary'
+            >
               로그인
             </Button>
           </Stack>
           <span className='signup-line'>
-            Conimals가 처음이신가요?
-            <a href='/signup' className='signup-link'>
-              회원가입
-            </a>
+            <div className='signup-text'>Conimals가 처음이신가요?</div>
+            <Stack className='btn-mui' direction='row'>
+              <Button sx={{ ml: 8 }} color='secondary' onClick={toSignup}>
+                회원가입
+              </Button>
+            </Stack>
           </span>
           <hr className='line' />
           <img

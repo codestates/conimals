@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import Image from '../../components/Write/Image';
+import ConfirmModal from '../../components/Modal/WriteConfirmModals';
 
 const NewPostSection = styled.section`
   background-color: skyblue;
@@ -20,6 +21,12 @@ const Write = () => {
     title: '',
     content: '',
   });
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalMsg, setModalMsg] = useState('');
+
+  const modalHandler = () => {
+    setModalOpen(false);
+  };
 
   // const submitContents = {
   //   title: newPost.title,
@@ -53,6 +60,8 @@ const Write = () => {
             },
             header
           );
+          setModalOpen(true);
+          setModalMsg('작성 완료!');
         });
     } catch (err) {
       console.log(err);
@@ -91,6 +100,9 @@ const Write = () => {
           </div>
         </NewPostWrap>
       </NewPostSection>
+      {modalOpen ? (
+        <ConfirmModal handleModal={modalHandler}>{modalMsg}</ConfirmModal>
+      ) : null}
     </>
   );
 };

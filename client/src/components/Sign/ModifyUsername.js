@@ -46,11 +46,14 @@ function ModifyUsername() {
   return (
     <>
       {loading ? <Loading /> : null}
-      <input
-        placeholder='변경하실 닉네임를 입력해주세요'
-        onChange={handleInputValue('newUsername')}
-      />
-      <button onClick={handleNewUsername}>닉네임 수정</button>
+      <div>
+        <input
+          placeholder='변경하실 닉네임를 입력해주세요'
+          onChange={handleInputValue('newUsername')}
+        />
+        <br />
+        <button onClick={handleNewUsername}>닉네임 수정</button>
+      </div>
       {modalOpen ? (
         <ConfirmModal handleModal={modalHandler}>
           닉네임 수정이 완료되었습니다.

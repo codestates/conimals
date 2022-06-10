@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useLocation } from 'react-router';
 import styled from 'styled-components';
 
-import { UDContainer } from '../../components/Container';
+import { ResultContainer } from '../../components/Container';
 
 const img = styled.div`
   width: 100%;
@@ -21,7 +21,7 @@ export default function TestResults1() {
   return (
     <>
       <img className='result-image'></img>
-      <UDContainer>
+      <ResultContainer>
         <h1 className='result-title'>반려동물과 혼연일체!</h1>
         <div>지금 바로 입양을 고려해보셔도 되겠네요!</div>
         <div>{`${username}님과 함께 할 친구를`}</div>
@@ -41,7 +41,7 @@ export default function TestResults1() {
             참고해 주세요.
           </div>
         </ResultInfo>
-      </UDContainer>
+      </ResultContainer>
     </>
   );
 }
