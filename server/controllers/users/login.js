@@ -22,7 +22,7 @@ module.exports = async (req, res) => {
     if (!comparedPassword) {
       return res.status(401).json({ message: '올바른 비밀번호가 아닙니다' });
     } else {
-      delete userInfo.dataValues.password; //왜 패스워드를 삭제하는 걸까. 데이터밸류 콘솔 찍어보기
+      delete userInfo.dataValues.password;
       const accessToken = generateAccessToken(userInfo.dataValues);
       sendAccessToken(res, accessToken);
       return res

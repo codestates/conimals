@@ -14,19 +14,17 @@ import { useParams } from 'react-router-dom';
 const View = () => {
   const [selectedPost, setSelectedPost] = useState('');
   const { id } = useParams();
-  console.log(id);
 
   const getDetail = async () => {
     const json = await (
-      await fetch(`http://localhost:8080/posts/${id}`)
+      await fetch(`http://localhost:8080/posts/view/${id}`)
     ).json();
-    setSelectedPost(json.data);
+    setSelectedPost(json.data[0]);
   };
 
   useEffect(() => {
     getDetail();
   }, []);
-  console.log(selectedPost);
 
   return (
     <>
@@ -43,10 +41,6 @@ const View = () => {
                 <div className='postUsername'>작성자</div>
                 <div className='viewWriter'>{selectedPost.username}</div>
               </div>
-              <div className='postImage'>
-                <div className='viewImage'>사진</div>
-                <img className='viewImage' src={selectedPost.image} />
-              </div>
               <div className='postTitle'>
                 <div className='viewTitle'>제목</div>
                 <div className='viewTitle'>{selectedPost.title}</div>
@@ -54,6 +48,10 @@ const View = () => {
               <div className='postContent'>
                 <div className='viewContent'>내용</div>
                 <div className='viewContent'>{selectedPost.content}</div>
+              </div>
+              <div className='postImage'>
+                <div className='viewImage'>사진</div>
+                <img className='viewImage' src={selectedPost.image} />
               </div>
             </>
           ) : (

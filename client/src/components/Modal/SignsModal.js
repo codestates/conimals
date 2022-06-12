@@ -72,7 +72,6 @@ export const TextPoint = styled.div`
 
 const gusetMode = () => {
   localStorage.setItem('user', 'guest');
-  console.log(localStorage);
   window.location.replace('/test');
 };
 

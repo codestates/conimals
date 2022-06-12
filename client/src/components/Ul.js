@@ -15,11 +15,13 @@ const PostsPageUl = styled.ul`
 
 const Ul = ({ post }) => {
   return (
-    <PostsPageUl>
-      {post.map((item) => {
-        return <Li key={item.id} item={item} />;
-      })}
-    </PostsPageUl>
+    <>
+      <PostsPageUl>
+        {post.map((item) => {
+          return <Li key={item.id} item={item} />;
+        })}
+      </PostsPageUl>
+    </>
   );
 };
 
