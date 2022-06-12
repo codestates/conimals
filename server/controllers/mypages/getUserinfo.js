@@ -7,7 +7,7 @@ module.exports = async (req, res) => {
     return res.status(400).json({ message: '유효하지 않은 요청입니다' });
   } else {
     const userInfo = await users.findOne({
-      attributes: ['id', 'userName', 'userEmail', 'password'],
+      attributes: ['id', 'userName', 'userEmail'],
       where: { id: verify.id },
     });
     const uploads = await posts.findAll();
