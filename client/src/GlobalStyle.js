@@ -7,9 +7,13 @@ const GlobalStyle = createGlobalStyle`
   *, *::before, *::after {
     margin: 0;
   }
+  
+  a {
+    text-decoration: none;
+    color: #000;
+  }
 
   body {
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
     font-family: 'Noto Sans KR', sans-serif;
     background-color: #FFFCFD;
     box-sizing: border-box;
