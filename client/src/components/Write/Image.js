@@ -1,7 +1,8 @@
 import React, { useRef, useState } from 'react';
+import { Button } from '@mui/material';
 
 function Image({ setImages }) {
-  const inputImageRef = useRef(null);
+  const inputImageRef = useRef(false);
   const [imageSrc, setImageSrc] = useState('');
 
   const clickHandler = () => {
@@ -29,25 +30,37 @@ function Image({ setImages }) {
         aria-hidden='true'
         onClick={clickHandler}
       >
-        <input
-          type='file'
-          name='image'
-          className='insert-image'
-          accept='image/jpg,image/png,image/jpeg'
-          onChange={imageUploadHandler}
-          ref={inputImageRef}
-        />
-        <img src={imageSrc} alt='preview-img' style={{ width: '200px' }} />
+        {imageSrc ? (
+          imageSrc && (
+            <Button
+              type='button'
+              variant='contained'
+              className='btn-delete-image'
+              onClick={deleteImageHandler}
+            >
+              삭제
+            </Button>
+          )
+        ) : (
+          <label htmlFor='contained-button-file'>
+            <input
+              type='file'
+              name='image'
+              style={{ display: 'none' }}
+              accept='image/jpg,image/png,image/jpeg'
+              onChange={imageUploadHandler}
+              ref={inputImageRef}
+            />
+            <Button variant='contained'>사진 올리기</Button>
+          </label>
+        )}
+
+        {imageSrc ? (
+          <img src={imageSrc} alt='preview-img' style={{ width: '200px' }} />
+        ) : (
+          ''
+        )}
       </div>
-      {imageSrc && (
-        <button
-          type='button'
-          className='btn-delete-image'
-          onClick={deleteImageHandler}
-        >
-          삭제
-        </button>
-      )}
     </div>
   );
 }

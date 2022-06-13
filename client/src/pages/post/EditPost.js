@@ -1,26 +1,30 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import axios from 'axios';
+import { TextField, Button } from '@mui/material';
 
 const EditSection = styled.section`
-  background-color: skyblue;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const EditWrap = styled.div`
-  background-color: yellow;
-  grid-column: 2 / 12;
+  text-align: center;
+  width: 860px;
 `;
 
 const EditPost = () => {
   const [edited, setEdited] = useState([]);
+  const { id } = useParams();
 
-  useEffect(() => {
-    axios
-      .get(`http://localhost:3004/dummy/${edited.id}`)
-      .then((res) => setEdited(res.data))
-      .catch((err) => console.log(err));
+  useEffect(async () => {
+    const json = await (
+      await fetch(`${process.env.REACT_APP_API_URL}/posts/view/${id}`)
+    ).json();
+    setEdited(json.data[0]);
   }, []);
 
   const onEditChange = (e) => {
@@ -29,12 +33,12 @@ const EditPost = () => {
     });
   };
 
+  // 현재 아직 수정 버튼 관련 내용은 수정이 필요합니다
   const onSubmit = (e) => {
     axios
       .post(
-        `http://localhost:3004/dummy/${edited.id}`,
+        `${process.env.REACT_APP_API_URL}/dummy/${edited.id}`,
         {
-          username: edited.username,
           title: edited.title,
           content: edited.content,
           image: edited.image,
@@ -48,42 +52,50 @@ const EditPost = () => {
       .catch((err) => console.log(err));
   };
 
+  const imageUrl = `${process.env.REACT_APP_API_URL}/posts/${edited.image}`;
+
   return (
     <>
       <EditSection className='editedSection'>
         <EditWrap>
-          <h1>내용 수정</h1>
-          <div className='editPostId'>글번호: {edited.id}</div>
-          <div className='editUsername'>작성자: {edited.username}</div>
-          <div className='editTitle'>
-            <label htmlFor='title'>
-              제목
-              <input
-                className='editedTitle'
-                type='text'
-                title='title'
-                value={edited.title}
-                onChange={onEditChange}
-              ></input>
-            </label>
-          </div>
-          <div className='editContent'>
-            <label htmlFor='content'>
-              내용
-              <textarea
-                className='editedContent'
-                type='text'
-                content='content'
-                value={edited.content}
-                onChange={onEditChange}
-              ></textarea>
-            </label>
-          </div>
-          <div className='editButton'>
-            <button className='editedButton' type='submit' onClick={onSubmit}>
-              수정
-            </button>
-          </div>
+          <TextField
+            id='standard-basic'
+            variant='standard'
+            fullWidth
+            margin='normal'
+            inputProps={{ style: { fontSize: 34 } }}
+            placeholder='제목을 입력하세요'
+            type='text'
+            maxLength={70}
+            value={edited.title}
+            onChange={onEditChange}
+          ></TextField>
+
+          {imageUrl ? (
+            <img
+              src={imageUrl}
+              alt='uploaded-img'
+              style={{ width: '200px' }}
+            ></img>
+          ) : (
+            ''
+          )}
+
+          <TextField
+            id='outlined-basic'
+            variant='outlined'
+            fullWidth
+            multiline={true}
+            rows={8}
+            margin='normal'
+            placeholder='간단히 설명해주세요 (최대 500자)'
+            maxLength={500}
+            value={edited.content}
+            onChange={onEditChange}
+          ></TextField>
+          <Button variant='contained' type='button' onClick={onSubmit}>
+            수정
+          </Button>
         </EditWrap>
       </EditSection>
     </>

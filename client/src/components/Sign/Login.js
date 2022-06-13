@@ -73,7 +73,6 @@ function Login() {
         setLoading(false);
       })
       .catch((err) => {
-        console.log(err);
         setLoading(false);
       });
   };
@@ -101,6 +100,7 @@ function Login() {
             비밀번호
             <br />
             <input
+              type='password'
               placeholder='8자 이상의 영문과 숫자'
               className='input'
               onChange={handleInputValue('password')}

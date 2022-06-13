@@ -3,13 +3,13 @@ import Li from './Li';
 import styled from 'styled-components';
 
 const PostsPageUl = styled.ul`
-  background-color: skyblue;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
   justify-items: center;
   grid-column-gap: 4%;
-  grid-row-gap: 2%;
-  width: 100%;
+  grid-row-gap: 4%;
+  max-width: 1200px;
+  margin: 30px auto;
   height: max-content;
 `;
 

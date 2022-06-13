@@ -3,28 +3,12 @@ import axios from 'axios';
 import ResultVector from '../../assets/TestResultVector';
 import ResultVector2 from '../../assets/TestResultVector2';
 import {
-  ResultContainer,
+  TestContainer,
   ResultInfo,
   ResultText,
   InnerText,
 } from '../../components/Container';
-import styled from 'styled-components';
-
-const Button = styled.div`
-  position: relative;
-  border: none;
-  display: inline-block;
-  padding: 15px 30px;
-  border-radius: 15px;
-  margin-top: 30px;
-  font-family: sans-serif;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-  text-decoration: none;
-  font-weight: 600;
-  transition: 0.25s;
-  background-color: indianred;
-  color: #ffffff;
-`;
+import { Button } from '../../components/Button';
 
 export default function TestResults1() {
   const [username, setUsername] = useState('guest');
@@ -59,16 +43,16 @@ export default function TestResults1() {
 
   return (
     <>
-      <ResultContainer>
+      <TestContainer>
         <ResultVector />
         <ResultText>
           <ResultVector2 />
           <h2>반려동물을 위한 좋은 환경은 무엇일까요?</h2>
           <InnerText>
             <h3>
-              {`${username}님의 환경에 맞는 조건을 알아보시려면`}
+              {username}님의 환경에 맞는 조건을
               <br />
-              저희가 안내하는 동물보호단체에서 제공하는
+              알아보시려면 동물보호단체에서 제공하는
               <br />
               입양 조건을 확인해보세요!
             </h3>
@@ -86,7 +70,7 @@ export default function TestResults1() {
             </h6>
           </ResultInfo>
         </ResultText>
-      </ResultContainer>
+      </TestContainer>
     </>
   );
 }

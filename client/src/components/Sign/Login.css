@@ -12,10 +12,6 @@
   position: relative;
   z-index: 10;
   transform: translate(50%, 0%);
-  transition: all ease 0.5s;
-}
-
-.login-title {
 }
 
 .btn {
