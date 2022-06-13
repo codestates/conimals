@@ -1,34 +1,74 @@
-import React, {  } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
+import ConfirmModal from '../Modal/ConfirmModals';
+import * as React from 'react';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+import { useNavigate } from 'react-router-dom';
+import Loading from '../../utils/LoadingIndicator';
 
 function Logout() {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const modalHandler = () => {
+    setModalOpen(false);
+  };
+
+  const navigate = useNavigate();
 
   const handleLogout = () => {
-    
-    axios.get(
-      `${process.env.REACT_APP_API_URL}/users/logout`, 
-    {
-      headers: { authorization: `${localStorage.getItem('user')}`},
-      withCredentials: true,
+    setLoading(true);
+    if (localStorage.kakao) {
+      localStorage.removeItem('kakao');
+      setModalOpen(true);
+      navigate('/');
+      setLoading(false);
+      // axios
+      //   .get(`${process.env.REACT_APP_API_URL}/users/logout`, {
+      //     headers: { authorization: `Bearer ${localStorage.getItem('kakao')}` },
+      //     withCredentials: true,
+      //   })
+      //   .then((res) => {
+      //     localStorage.removeItem('kakao');
+      //     setModalOpen(true);
+      //     navigate('/');
+      //   })
+      //   .catch((err) => {
+      //     console.log(err);
+      //   });
+    } else {
+      axios
+        .get(`${process.env.REACT_APP_API_URL}/users/logout`, {
+          headers: { authorization: `Bearer ${localStorage.getItem('user')}` },
+          withCredentials: true,
+        })
+        .then((res) => {
+          localStorage.removeItem('user');
+          setModalOpen(true);
+          setLoading(false);
+        })
+        .catch((err) => {
+          setLoading(false);
+        });
     }
-    ).then((res) => {
-      localStorage.removeItem('user')
-      console.log(localStorage)
-      // setUserinfos(null);
-      // setIsLogin(false);
-      // navigate('/');
-      alert('로그아웃 되었습니다.');
-    })
-    .catch(err => {
-      console.log(err);
-    });
   };
 
   return (
-    <button onClick={handleLogout}>logout</button>
-  )
+    <>
+      {loading ? <Loading /> : null}
+      <Stack spacing={2} direction='row'>
+        <Button variant='outlined' onClick={handleLogout}>
+          로그아웃
+        </Button>
+      </Stack>
+      {modalOpen ? (
+        <ConfirmModal handleModal={modalHandler}>
+          로그아웃 되었습니다.
+        </ConfirmModal>
+      ) : null}
+    </>
+  );
 }
-
-
 
 export default Logout;

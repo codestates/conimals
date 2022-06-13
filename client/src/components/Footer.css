@@ -1,0 +1,88 @@
+.team-link a:link {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+.team-link a:visited {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+.team-link a:hover {
+  color: bisque;
+}
+.team-link a:active {
+  color: bisque;
+}
+
+.container {
+  width: 100%;
+  height: 200px;
+  margin-top: 200px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr 1fr;
+  grid-gap: 1rem;
+  padding: 2rem;
+}
+
+.recommend-site {
+  color: #ffffff;
+  text-align: left;
+  font-size: 15px;
+}
+
+.recommend-site-title {
+  color: #ffffff;
+  text-align: left;
+  padding: 10px 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.policy {
+  color: #ffffff;
+  text-align: left;
+  padding: 10px 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.team-petmily {
+  width: 100%;
+  margin: 0 auto;
+  color: white;
+}
+
+.team-link {
+  color: #ffffff;
+  padding: 10px 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.team-name-link {
+  text-align: center;
+}
+
+#team-member {
+  display: flex;
+  font-size: 15px;
+}
+
+.team-member2 {
+  margin-left: 15%;
+  text-align: center;
+}
+
+.team-member3 {
+  margin-left: 15%;
+  text-align: center;
+}
+
+.team-member4 {
+  margin-left: 15%;
+  text-align: center;
+}
+
+.copyright {
+  color: white;
+  margin-left: 5%;
+}

@@ -1,18 +1,19 @@
 require('dotenv').config();
 const bcrypt = require('bcrypt');
 const { sign, verify } = require('jsonwebtoken');
+const { users } = require('../../models');
 
 module.exports = {
   generateAccessToken: (data) => {
-    return sign(data, process.env.ACCESS_SECRET, {expiresIn: '10h'});
+    return sign(data, process.env.ACCESS_SECRET, { expiresIn: '10h' });
   },
 
   sendAccessToken: (res, accessToken) => {
     res.cookie('jwt', accessToken, {
       sameSite: 'none',
       secure: 'true',
-      httpOnly: 'true'
-    })
+      httpOnly: 'true',
+    });
   },
 
   removeAccessToken: (res) => {
@@ -20,10 +21,10 @@ module.exports = {
   },
 
   isAuthorized: (req) => {
-    const authorization = req.headers['authorization'];
-    if(!authorization) return null;
+    const authorization = req.headers['authorization'].split(' ')[1];
+    if (!authorization) return null;
     const token = authorization;
-    if(!token) return null;
+    if (!token) return null;
     return verify(token, process.env.ACCESS_SECRET);
   },
 
@@ -33,5 +34,5 @@ module.exports = {
 
   comparePassword: (loginPassword, databasePassword) => {
     return bcrypt.compareSync(loginPassword, databasePassword);
-  }
-}
+  },
+};

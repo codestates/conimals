@@ -4,11 +4,11 @@ const router = express.Router();
 const signupController = require('../controllers/users/signup');
 const loginController = require('../controllers/users/login');
 const logoutController = require('../controllers/users/logout');
-// const kakaoController = require('../controllers/users/kakaoLogin');
+const kakaoController = require('../controllers/users/kakaoLogin');
 
-router.post('/signup', signupController); 
+router.post('/signup', signupController);
 router.post('/login', loginController);
 router.get('/logout', logoutController);
-// router.post('/kakao/callback', kakaoController.kakao);
+router.post('/oauth/kakao/callback', kakaoController);
 
 module.exports = router;

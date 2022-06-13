@@ -4,3 +4,4 @@ config/config.js
 key.pem
 cert.pem
 server/.env.example
+server/uploads
