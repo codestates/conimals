@@ -83,7 +83,7 @@ function Login() {
       <div>
         <div className='login-all'>
           <img src={Logo} alt='coniamls-logo'></img>
-          <h2>로그인</h2>
+          <h3>로그인</h3>
           <div className='login-text'>
             이메일
             <br />

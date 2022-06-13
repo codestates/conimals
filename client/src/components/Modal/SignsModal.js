@@ -84,8 +84,8 @@ export default function SignsModal({ handleModal }) {
             event.stopPropagation();
           }}
         >
-          <h1>앗 아직 회원이 아니시군요!</h1>
-          <div>걱정 마세요!</div>
+          <h2>앗 아직 회원이 아니시군요!</h2>
+          <h4>걱정 마세요!</h4>
           <div>
             비회원도 <span>게스트 모드</span>로
             <div>양육 적합 테스트에 1회 참여가가능합니다.</div>

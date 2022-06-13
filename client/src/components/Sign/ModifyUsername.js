@@ -3,6 +3,23 @@ import axios from 'axios';
 
 import ConfirmModal from '../Modal/ConfirmModals';
 import Loading from '../../utils/LoadingIndicator';
+import styled from 'styled-components';
+
+const Button = styled.div`
+  position: relative;
+  border: none;
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: 15px;
+  margin-top: 30px;
+  font-family: sans-serif;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.25s;
+  background-color: indianred;
+  color: #ffffff;
+`;
 
 function ModifyUsername() {
   const [newUsername, setNewUsername] = useState({
@@ -52,7 +69,7 @@ function ModifyUsername() {
           onChange={handleInputValue('newUsername')}
         />
         <br />
-        <button onClick={handleNewUsername}>닉네임 수정</button>
+        <Button onClick={handleNewUsername}>닉네임 수정</Button>
       </div>
       {modalOpen ? (
         <ConfirmModal handleModal={modalHandler}>

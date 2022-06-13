@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-import TestBG from '../assets/TestBg.png';
-
 export const Container = styled.div`
   display: flex;
   flex-direction: column; // 아이템들 세로로 정렬
@@ -19,11 +17,33 @@ export const JCContainer = styled(Container)`
   justify-content: center; // 상하 가운데로 정렬
 `;
 
-export const ResultContainer = styled(Container)`
-  justify-content: center; // 상하 가운데로 정렬
+export const TestContainer = styled(Container)`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 `;
 
-export const TestContainer = styled(Container)`
-  justify-content: center; // 상하 가운데로 정렬
-  background: url(../assets/TestBg.png);
+export const ResultContainer = styled(Container)`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+`;
+export const ResultInfo = styled.div`
+  /* display: flex; */
+  position: relative;
+  color: gainsboro;
+  font-size: 0.1rem;
+  text-align: center;
+  margin-top: 10%;
+  z-index: 2;
+`;
+
+export const ResultText = styled.div`
+  text-align: center;
+  margin: 5%;
+  z-index: 2;
+`;
+
+export const InnerText = styled.div`
+  margin-top: 5%;
 `;
