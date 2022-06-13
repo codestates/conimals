@@ -71,6 +71,7 @@ export default function TestResults1() {
           </ResultInfo>
         </ResultText>
       </TestContainer>
+
     </>
   );
 }

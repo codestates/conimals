@@ -13,5 +13,5 @@ router.get('/', function (req, res) {
 router.use('/users', usersRouter);
 router.use('/mypages', mypagesRouter);
 router.use('/posts', postsRouter);
-
+//
 module.exports = router;

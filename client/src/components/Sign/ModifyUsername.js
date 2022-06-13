@@ -7,6 +7,7 @@ import { MypageContainer2 } from '../Container';
 import { EditInput, Line } from '../Input';
 import { Button } from '../Button';
 
+
 function ModifyUsername() {
   const [newUsername, setNewUsername] = useState({
     username: '',
@@ -63,6 +64,7 @@ function ModifyUsername() {
           <Button onClick={handleNewUsername}>닉네임 변경</Button>
         </div>
       </MypageContainer2>
+
 
       {modalOpen ? (
         <ConfirmModal handleModal={modalHandler}>

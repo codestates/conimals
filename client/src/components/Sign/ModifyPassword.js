@@ -8,6 +8,7 @@ import { MypageContainer2 } from '../Container';
 import { EditInput, Line } from '../Input';
 import { Button } from '../Button';
 
+
 function ModifyPassword() {
   const [newPassword, setNewPassword] = useState({
     password: '',
@@ -86,6 +87,7 @@ function ModifyPassword() {
         ) : null}
         <Line />
       </MypageContainer2>
+
     </>
   );
 }

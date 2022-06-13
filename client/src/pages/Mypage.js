@@ -16,6 +16,7 @@ import MypageVector from '../assets/MypageVector';
 
 const TextContainer = styled.div`
   flex-direction: column;
+
 `;
 
 function Mypage() {
@@ -67,7 +68,6 @@ function Mypage() {
         });
     }
   };
-
   const handleModifyMode = () => {
     setModifyMode(!modifyMode);
   };
@@ -138,6 +138,7 @@ function Mypage() {
               </MypageContainer2>
             </TextContainer>
           </MypageContainer>
+
         </>
       ) : (
         <>'non-logined'</>

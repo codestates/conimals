@@ -17,10 +17,10 @@ module.exports = {
     dialect: 'mysql',
   },
   production: {
-    username: 'root',
+    username: 'admin',
     password: process.env.DATABASE_PASSWORD,
     database: 'conimals',
-    host: '127.0.0.1',
+    host: 'theconimals-database.cv8xyyitpqcj.ap-northeast-2.rds.amazonaws.com',
     dialect: 'mysql',
   },
 };
