@@ -9,27 +9,39 @@ export const Container = styled.div`
 `;
 
 export const ContainerRow = styled.div`
-  display: flex; // 아이템들 가로로 정렬
+  display: flex;
   width: 100%;
 `;
 
 export const JCContainer = styled(Container)`
-  justify-content: center; // 상하 가운데로 정렬
+  justify-content: center;
 `;
 
 export const TestContainer = styled(Container)`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  width: 100%;
 `;
 
-export const ResultContainer = styled(Container)`
+export const MypageContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  margin-top: 5%;
+  z-index: 2;
+  overflow-x: hidden;
+  height: 100vh;
 `;
+
+export const MypageContainer2 = styled.div`
+  margin: 2%;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+`;
+
 export const ResultInfo = styled.div`
-  /* display: flex; */
   position: relative;
   color: gainsboro;
   font-size: 0.1rem;

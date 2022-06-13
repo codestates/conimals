@@ -41,7 +41,7 @@ function Nav() {
           <Link to='/test'>
             <button>적합 테스트</button>
           </Link>
-          <Link to='/test'>
+          <Link to='/map'>
             <button>동물 보호소 찾기</button>
           </Link>
           <Link to='/login'>
