@@ -5,24 +5,33 @@ import styled from 'styled-components';
 const Li = ({ item }) => {
   const parsedDate = new Date(item.createdAt).toLocaleDateString('ko-kr');
 
-  const imgUrl = 'http://localhost:8080/posts/' + `${item.image}`;
+  const imgUrl = `${process.env.REACT_APP_API_URL}/posts/${item.image}`;
 
   return (
     <>
-      <PostsPageList className='item'>
-        <div>{item.id}</div>
-        <PostsImage className='postsThumbnail'>
-          <img src={imgUrl} className='animalPicture' alt='abandoned animals' />
-        </PostsImage>
-        <PostsInfo>
-          <PostsTitle className='postTitle'>
-            <Link to={`/view/${item.id}`}>{item.title}</Link>
-          </PostsTitle>
-          <div className='postUserInfo'>
-            <span className='postUserName'>{item.username}</span>
-            <span className='postCreatedAt'>{parsedDate}</span>
-          </div>
-        </PostsInfo>
+      <PostsPageList>
+        <Link to={`/view/${item.id}`}>
+          <PostsBlock>
+            <PostsImage>
+              <img
+                src={imgUrl}
+                className='animalPicture'
+                alt='abandoned animals'
+              />
+            </PostsImage>
+            <PostsInfo>
+              <PostsTitle>
+                <h5>{item.title}</h5>
+              </PostsTitle>
+              <PostWriterNDate>
+                <li className='postUserName'>
+                  {item.username ? `${item.username}` : '작성자'}
+                </li>
+                <li className='postCreatedAt'>{parsedDate}</li>
+              </PostWriterNDate>
+            </PostsInfo>
+          </PostsBlock>
+        </Link>
       </PostsPageList>
     </>
   );
@@ -31,39 +40,51 @@ const Li = ({ item }) => {
 export default Li;
 
 const PostsPageList = styled.li`
-  background-color: orange;
-  width: 100%;
-  padding: 1rem;
-  overflow: hidden;
+  width: 16rem;
   display: flex;
   justify-content: center;
   flex-direction: column;
 `;
 
-const PostsImage = styled.div`
+const PostsBlock = styled.div`
   width: 16rem;
-  height: 16rem;
+`;
+
+const PostsImage = styled.div`
+  width: 100%;
+  height: 12rem;
   overflow: hidden;
-  padding: 1rem;
-  overflow: hidden;
+  border-radius: 10px;
   position: relative;
-  margin: 0 auto;
   img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
     position: absolute;
-    max-width: 100%;
-    height: auto;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
+
+  ${PostsPageList}:hover & img {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.1);
+    transition: transform 0.5s ease-in-out;
+  }
 `;
 
 const PostsInfo = styled.div`
-  background-color: green;
-  padding: 1rem;
+  padding: 0.5rem 0 1rem;
 `;
 
 const PostsTitle = styled.div`
-  background-color: yellow;
-  padding: 1rem 0 1rem;
+  padding: 0.5rem 0 0.5rem;
+  border-bottom: 1px solid #d7d7d7;
+`;
+
+const PostWriterNDate = styled.ul`
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: space-between;
 `;

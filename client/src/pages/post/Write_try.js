@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import Image from '../../components/Write/Image';
 import ConfirmModal from '../../components/Modal/WriteConfirmModals';
-import { TextField, Button } from '@mui/material';
+import { TextField } from '@mui/material';
+import '@toast-ui/editor/dist/toastui-editor.css';
 
 const NewPostSection = styled.section`
   width: 100%;
@@ -39,6 +40,8 @@ const Write = () => {
     setNewPost({ ...newPost, [key]: e.target.value });
   };
 
+  console.log(imageSrc[0]);
+
   const onSubmit = async () => {
     try {
       const fd = new FormData();
@@ -59,6 +62,7 @@ const Write = () => {
           );
           setModalOpen(true);
           setModalMsg('작성 완료!');
+          setModalOpen();
         });
     } catch (err) {
       console.log(err);
@@ -96,10 +100,11 @@ const Write = () => {
             value={newPost.content}
             onChange={handleInput('content')}
           ></TextField>
-
-          <Button variant='contained' type='button' onClick={onSubmit}>
-            저장
-          </Button>
+          <div className='postButton'>
+            <button className='newPostButton' type='button' onClick={onSubmit}>
+              저장
+            </button>
+          </div>
         </NewPostWrap>
       </NewPostSection>
       {modalOpen ? (
