@@ -12,7 +12,9 @@ export default function Footer() {
           <br />
           <div>동물보호관리시스템</div>
         </div>
-        <div className='policy'>개인정보처리방침</div>
+        <div className='policy'>
+          <a>개인정보처리방침</a>
+        </div>
         <div className='team-petmily'>
           <div className='team-text'>
             <div className='team-link'>
@@ -21,8 +23,7 @@ export default function Footer() {
                 <div>
                   코드스테이츠 Software Engineering Bootcamp 38기 Final Project
                 </div>
-                <br />
-                <div>Team Petmily</div>
+                <div className='team-name-link'>Team Petmily</div>
               </a>
             </div>
             <div id='team-member'>

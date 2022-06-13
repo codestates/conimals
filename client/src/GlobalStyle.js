@@ -71,6 +71,16 @@ const GlobalStyle = createGlobalStyle`
     display: inline;
     font-weight: 400;
   }
+
+  button {
+    cursor: pointer;
+  }
+/* 수평 스크롤 막기 */
+  html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 `;
 
 export default GlobalStyle;

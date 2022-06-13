@@ -1,10 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import ConfirmModal from '../components/Modal/ConfirmModals';
 import ModifyUsername from '../components/Sign/ModifyUsername';
 import ModifyPassword from '../components/Sign/ModifyPassword';
+import Withdrawal from '../utils/Withdrawal';
+import Loading from '../utils/LoadingIndicator';
 import { Container } from '../components/Container';
+import styled from 'styled-components';
+
+const Button = styled.div`
+  position: relative;
+  border: none;
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: 15px;
+  margin-top: 30px;
+  font-family: sans-serif;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.25s;
+  background-color: indianred;
+  color: #ffffff;
+  cursor: pointer;
+`;
 
 function Mypage() {
   const [userinfo, setUserinfo] = useState({
@@ -12,17 +31,13 @@ function Mypage() {
     userName: '',
     userEmail: '',
     uploads: '',
-    // userType: '' -> 차후 어드민 계정, 카카오 로그인 계정 구분 시 활용 가능
   });
 
   const [modifyMode, setModifyMode] = useState(false);
-  const [modalOpen, setModalOpen] = useState(false);
-
-  const modalHandler = () => {
-    setModalOpen(false);
-  };
+  const [loading, setLoading] = useState(false);
 
   const getUserinfo = () => {
+    setLoading(true);
     if (localStorage.kakao) {
       axios
         .get(`${process.env.REACT_APP_API_URL}/mypages/auth`, {
@@ -30,7 +45,7 @@ function Mypage() {
           withCredentials: true,
         })
         .then((res) => {
-          console.log(res);
+          setLoading(false);
           setUserinfo({
             id: res.data.data.id,
             userId: res.data.data.id,
@@ -46,7 +61,7 @@ function Mypage() {
           withCredentials: true,
         })
         .then((res) => {
-          console.log(res);
+          setLoading(false);
           setUserinfo({
             id: res.data.data.id,
             userId: res.data.data.id,
@@ -56,30 +71,6 @@ function Mypage() {
           });
         });
     }
-  };
-
-  const handleWithdrawal = () => {
-    if (localStorage.kakao) {
-      axios
-        .delete(`${process.env.REACT_APP_API_URL}/mypages/withdrawal`, {
-          headers: { authorization: `Bearer ${localStorage.kakao}` },
-          withCredentials: true,
-        })
-        .then((res) => {
-          localStorage.removeItem('kakao');
-          setModalOpen(true);
-        });
-    }
-    axios
-      .delete(`${process.env.REACT_APP_API_URL}/mypages/withdrawal`, {
-        headers: { authorization: `Bearer ${localStorage.user}` },
-        withCredentials: true,
-      })
-      .then((res) => {
-        localStorage.removeItem('user');
-        setModalOpen(true);
-        console.log(res);
-      });
   };
 
   const handleModifyMode = () => {
@@ -93,54 +84,43 @@ function Mypage() {
   }, []);
 
   return (
-    // 회원 정보 수정 버튼 클릭 시 수정 가능 필드로 전환, 수정 완료 버튼으로 버튼 교체
-    // 수정 완료 버튼 클릭시 axios 전송, .then => 수정 불가 필드로 전환
     <>
-      <div>Mypage</div>
+      {loading ? <Loading /> : null}
       {localStorage.getItem('user') || localStorage.getItem('kakao') ? (
         <>
-          <div>{`${userinfo.userName}님의 마이페이지 입니다.`}</div>
-          {modifyMode ? (
-            <>
-              <ModifyPassword />
-              <br />
-              <ModifyUsername />
-              <br />
-            </>
-          ) : (
-            <>
-              <br />
-              <div>
+          <Container>
+            <h2>{`마이페이지`}</h2>
+            {modifyMode ? (
+              <>
+                <ModifyPassword />
+                <br />
+                <ModifyUsername />
+                <br />
+              </>
+            ) : (
+              <>
+                <br />
                 <div>
-                  닉네임: <input value={userinfo.userName} disabled />
+                  <div>
+                    닉네임 <input value={userinfo.userName} disabled />
+                  </div>
+                  <div>
+                    이메일{' '}
+                    <input value={userinfo.userEmail} type='email' disabled />
+                  </div>
                 </div>
-                <div>
-                  이메일:{' '}
-                  <input value={userinfo.userEmail} type='email' disabled />
-                </div>
-                <div>
-                  비밀번호:{' '}
-                  <input value={userinfo.password} type='password' disabled />
-                </div>
-              </div>
-            </>
-          )}
-          {/* // TODO: 탈퇴 버튼 클릭 시 확인 / 취소 comfirm 창 표출, 분기에 따른 취소 가능 */}
-          <br />
+              </>
+            )}
+            <br />
 
-          {modifyMode ? (
-            <button onClick={handleModifyMode}>수정완료</button>
-          ) : (
-            <button onClick={handleModifyMode}>회원정보 수정</button>
-          )}
-          <div className='withdrawal'>
-            <button onClick={handleWithdrawal}>회원탈퇴</button>
-          </div>
-          {modalOpen ? (
-            <ConfirmModal handleModal={modalHandler}>
-              회원탈퇴가 완료되었습니다.
-            </ConfirmModal>
-          ) : null}
+            {modifyMode ? (
+              <Button onClick={handleModifyMode}>수정완료</Button>
+            ) : (
+              <Button onClick={handleModifyMode}>회원정보 수정</Button>
+            )}
+            <br />
+            <Withdrawal />
+          </Container>
         </>
       ) : (
         <Container>

@@ -54,10 +54,13 @@
 
 .team-link {
   color: #ffffff;
-  text-align: left;
   padding: 10px 0;
   font-size: 20px;
   font-weight: bold;
+}
+
+.team-name-link {
+  text-align: center;
 }
 
 #team-member {
