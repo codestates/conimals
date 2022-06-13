@@ -45,7 +45,7 @@ function App() {
         <Route path='/posts' element={<Posts />} />
         <Route path='/view/:id' element={<View />} />
         <Route path='/write' element={<Write />} />
-        <Route path='/edit' element={<EditPost />} />
+        <Route path='/edit/:id' element={<EditPost />} />
       </Routes>
 
       <Footer />

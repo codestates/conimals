@@ -72,7 +72,6 @@ function Mypage() {
         });
     }
   };
-
   const handleModifyMode = () => {
     setModifyMode(!modifyMode);
   };
