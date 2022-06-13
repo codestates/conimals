@@ -86,6 +86,7 @@ router.post(
 // });
 
 const boardsController = require('../controllers/posts/boards');
+const viewController = require('../controllers/posts/view');
 const writeController = require('../controllers/posts/write');
 const editController = require('../controllers/posts/edit');
 const deleteController = require('../controllers/posts/delete');
@@ -95,6 +96,7 @@ const deleteCommentController = require('../controllers/posts/deleteComment');
 const users = require('../models/users');
 
 router.get('/boards', boardsController);
+router.get('/view/:id', viewController);
 router.post('/write', writeController);
 router.patch('/edit', editController);
 router.delete('/:postId', deleteController);

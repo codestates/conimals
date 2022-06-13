@@ -5,6 +5,7 @@ import Nav from './components/Nav';
 import Footer from './components/Footer';
 import Main from './pages/Main';
 import ConimalsMap from './pages/Map';
+// import Policy from './utils/policy';
 
 import Test from './pages/Test/Test';
 import TestResults1 from './pages/Test/TestResults1';
@@ -20,6 +21,7 @@ import Write from './pages/post/Write';
 import EditPost from './pages/post/EditPost';
 import View from './pages/post/View';
 
+// import policy from './utils/policy.html';
 import GlobalStyle from './GlobalStyle';
 
 function App() {
@@ -43,7 +45,7 @@ function App() {
         <Route path='/posts' element={<Posts />} />
         <Route path='/view/:id' element={<View />} />
         <Route path='/write' element={<Write />} />
-        <Route path='/edit' element={<EditPost />} />
+        <Route path='/edit/:id' element={<EditPost />} />
       </Routes>
 
       <Footer />

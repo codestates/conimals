@@ -5,10 +5,12 @@ export const Background = styled.div`
   position: relative;
   justify-content: center;
   display: inline-block;
-  width: 100%;
+  text-align: center;
+  width: 70%;
   height: 95%;
   margin-top: 5%;
   z-index: 1;
+  transform: translate(40%, 0%);
 `;
 
 export default function TestVector() {

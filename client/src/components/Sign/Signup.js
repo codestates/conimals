@@ -9,7 +9,7 @@ import {
 import Logo from '../../assets/Conimals_logo_horizontal1.png';
 import ConfirmModal from '../Modal/ConfirmModals';
 import Loading from '../../utils/LoadingIndicator';
-import SignupsSvgImg from '../../assets/signup.svg';
+// import SignupsSvgImg from '../../assets/signup.svg';
 import SignupsImg from '../../assets/signup.png';
 import './Signup.css';
 
@@ -94,8 +94,10 @@ function Signup() {
           <img src={SignupsImg} alt='signup-img' className='signup-img'></img>
         </div>
         <div className='signup-page'>
-          <img src={Logo} alt='coniamls-logo' className='signup-logo'></img>
-          <h2>회원가입</h2>
+          <div>
+            <img src={Logo} alt='coniamls-logo' className='signup-logo'></img>
+          </div>
+          <h3>회원가입</h3>
           <div className='desc input-title'>이메일</div>
 
           <input

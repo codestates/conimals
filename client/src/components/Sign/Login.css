@@ -1,6 +1,3 @@
-button {
-  cursor: pointer;
-}
 .login-all {
   width: 55vw;
   height: 55vw;
@@ -79,7 +76,7 @@ button {
 }
 
 .signup-text {
-  transform: translate(0%, 22%);
+  transform: translate(0%, 30%);
 }
 
 .signup-link {
