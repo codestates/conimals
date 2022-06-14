@@ -5,9 +5,8 @@ export const Background = styled.div`
   position: relative;
   display: inline-block;
   width: 100%;
-  height: 95%;
-  margin-top: 5%;
-  z-index: 1;
+  height: 100%;
+  z-index: 0;
 `;
 
 export default function BackgroundImg1() {
