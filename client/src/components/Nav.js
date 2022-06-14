@@ -7,10 +7,10 @@ import styled from 'styled-components';
 const Header = styled.header`
   width: 100%;
   height: 96px;
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 10;
-  background-color: #fffcfd;
+  background-color: #fffffcde;
 `;
 
 const NavBlock = styled.div`
@@ -28,6 +28,17 @@ const LogoStyle = styled.div`
   }
 `;
 
+const NavButton = styled.button`
+  border: none;
+  background: none;
+  display: block;
+  padding: 1rem;
+  cursor: pointer;
+  h5 {
+    font-weight: 500;
+  }
+`;
+
 function Nav() {
   return (
     <>
@@ -39,23 +50,30 @@ function Nav() {
             </LogoStyle>
           </Link>
           <Link to='/test'>
-            <button>적합 테스트</button>
+            <NavButton>
+              <h5>적합 테스트</h5>
+            </NavButton>
           </Link>
-          <Link to='/test'>
-            <button>동물 보호소 찾기</button>
+          <Link to='/map'>
+            <NavButton>
+              <h5>동물 보호소 찾기</h5>
+            </NavButton>
+          </Link>
+          <Link to='/posts'>
+            <NavButton>
+              <h5>입양 정보 게시판</h5>
+            </NavButton>
           </Link>
           <Link to='/login'>
-            <button>Login</button>
+            <NavButton>
+              <h5>Login</h5>
+            </NavButton>
           </Link>
           <Logout />
           <Link to='/mypage'>
-            <button>Mypage</button>
-          </Link>
-          <Link to='/posts'>
-            <button>게시판</button>
-          </Link>
-          <Link to='/write'>
-            <button>write</button>
+            <NavButton>
+              <h5>Mypage</h5>
+            </NavButton>
           </Link>
         </NavBlock>
       </Header>

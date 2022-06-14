@@ -28,6 +28,7 @@ export const ResultContainer = styled(Container)`
   flex-direction: row;
   justify-content: center;
 `;
+
 export const ResultInfo = styled.div`
   /* display: flex; */
   position: relative;
