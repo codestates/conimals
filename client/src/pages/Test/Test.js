@@ -67,7 +67,7 @@ function Test() {
 
   const [score, setScore] = useState(40);
   const [progress, setProgress] = useState(20);
-  const [count, setCount] = useState('1 / 5');
+  const [count] = useState('');
   const [select, setSelect] = useState({
     size: null,
     space: null,
@@ -80,55 +80,46 @@ function Test() {
       setIsQ1(false);
       setScore(score + 5);
       setProgress(progress + 20);
-      setCount('2 / 5');
     }
     if (key === 'q1-b') {
       setIsQ1(false);
       setScore(score + 10);
       setProgress(progress + 20);
-      setCount('2 / 5');
     }
     if (key === 'q2-a') {
       setIsQ2(false);
       setScore(score + 10);
       setProgress(progress + 20);
-      setCount('3 / 5');
     }
     if (key === 'q2-b') {
       setIsQ2(false);
       setScore(score + 5);
       setProgress(progress + 20);
-      setCount('3 / 5');
     }
     if (key === 'q2-c') {
       setIsQ2(false);
       setScore(score + 20);
       setProgress(progress + 20);
-      setCount('3 / 5');
     }
     if (key === 'q3-a') {
       setIsQ3(false);
       setScore(score + 10);
       setProgress(progress + 20);
-      setCount('4 / 5');
     }
     if (key === 'q3-b') {
       setIsQ3(false);
       setScore(score + 5);
       setProgress(progress + 20);
-      setCount('4 / 5');
     }
     if (key === 'q4-a') {
       setIsQ4(false);
       setScore(score + 10);
       setProgress(progress + 20);
-      setCount('5 / 5');
     }
     if (key === 'q4-b') {
       setIsQ4(false);
       setScore(score + 5);
       setProgress(progress + 20);
-      setCount('5 / 5');
     }
     if (key === 'q5-a') {
       setIsQ5(false);
