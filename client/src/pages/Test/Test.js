@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import { ProgressBar } from 'react-bootstrap';
 
 import styled from 'styled-components';
 import { TestContainer } from '../../components/Container';
@@ -33,6 +32,7 @@ const Select = styled.div`
   color: white;
   cursor: pointer;
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.25s;
   @media screen and (max-width: 760px) {
     font-size: 1rem;
   }
@@ -67,7 +67,6 @@ function Test() {
 
   const [score, setScore] = useState(40);
   const [progress, setProgress] = useState(20);
-  const [count] = useState('');
   const [select, setSelect] = useState({
     size: null,
     space: null,
@@ -159,7 +158,7 @@ function Test() {
 
   return (
     <>
-      <ProgressBar progress={progress}>{count}</ProgressBar>
+      <ProgressBar progress={progress} />
       {localStorage.getItem('guest') ? (
         <SignsModal />
       ) : (
@@ -172,6 +171,7 @@ function Test() {
                   <TestText>
                     <QuestionDiv>
                       <h3>Q1.</h3>
+                      <br />
                       <br />
                       <h3>현재 함께 거주 중인</h3>
                       <br />
@@ -197,6 +197,7 @@ function Test() {
                       <TestText>
                         <QuestionDiv>
                           <h3>Q2.</h3>
+                          <br />
                           <br />
                           <h3>거주 환경의 타입은</h3>
                           <br />
@@ -228,13 +229,14 @@ function Test() {
                             <QuestionDiv>
                               <h3>Q3.</h3>
                               <br />
+                              <br />
                               <h3>반려동물과 함께 정기적인</h3>
                               <br />
                               <h3>산책과 놀이, 훈련 등을 할 수 있나요?</h3>
                             </QuestionDiv>
                             <Select onClick={handleSelect('q3-a')}>
                               <div>
-                                <h4>A. 매일 1시간 이상 가능합니다.</h4>
+                                <h4>A. 매일 30분 이상 가능합니다.</h4>
                               </div>
                             </Select>
                             <Select onClick={handleSelect('q3-b')}>
@@ -252,6 +254,7 @@ function Test() {
                               <TestText>
                                 <QuestionDiv>
                                   <h3>Q4.</h3>
+                                  <br />
                                   <br />
                                   <h3>
                                     반려동물에게 들어가는 양육비는
@@ -279,6 +282,7 @@ function Test() {
                                     <QuestionDiv>
                                       <h3>
                                         Q5.
+                                        <br />
                                         <br />
                                         본인 또는 가족 구성원이
                                         <br />

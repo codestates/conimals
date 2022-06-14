@@ -1,31 +1,27 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import styled from 'styled-components';
 
 import ModifyUsername from '../components/Sign/ModifyUsername';
 import ModifyPassword from '../components/Sign/ModifyPassword';
+import { EditInput, Line } from '../components/Input';
+import { MypageContainer, MypageContainer2 } from '../components/Container';
+import { EditButton } from '../components/Button';
+
 import Withdrawal from '../utils/Withdrawal';
 import Loading from '../utils/LoadingIndicator';
-import { Container } from '../components/Container';
-import styled from 'styled-components';
 
-const Button = styled.div`
-  position: relative;
-  border: none;
-  display: inline-block;
-  padding: 15px 30px;
-  border-radius: 15px;
-  margin-top: 30px;
-  font-family: sans-serif;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-  text-decoration: none;
-  font-weight: 600;
-  transition: 0.25s;
-  background-color: indianred;
-  color: #ffffff;
-  cursor: pointer;
+import MypageVector from '../assets/MypageVector';
+
+const TextContainer = styled.div`
+  flex-direction: column;
+
 `;
 
 function Mypage() {
+  const navigate = useNavigate();
+
   const [userinfo, setUserinfo] = useState({
     id: '',
     userName: '',
@@ -87,44 +83,65 @@ function Mypage() {
       {loading ? <Loading /> : null}
       {localStorage.getItem('user') || localStorage.getItem('kakao') ? (
         <>
-          <Container>
-            <h2>{`마이페이지`}</h2>
-            {modifyMode ? (
-              <>
-                <ModifyPassword />
+          <MypageContainer>
+            <MypageVector />
+            <TextContainer>
+              <MypageContainer2>
+                <h3>{`${userinfo.userName}님의 마이페이지`}</h3>
                 <br />
-                <ModifyUsername />
                 <br />
-              </>
-            ) : (
-              <>
-                <br />
-                <div>
-                  <div>
-                    닉네임 <input value={userinfo.userName} disabled />
-                  </div>
-                  <div>
-                    이메일{' '}
-                    <input value={userinfo.userEmail} type='email' disabled />
-                  </div>
-                </div>
-              </>
-            )}
-            <br />
+              </MypageContainer2>
+              <br />
+              {modifyMode ? (
+                <>
+                  <ModifyUsername />
+                  <br />
 
-            {modifyMode ? (
-              <Button onClick={handleModifyMode}>수정완료</Button>
-            ) : (
-              <Button onClick={handleModifyMode}>회원정보 수정</Button>
-            )}
-            <br />
-            <Withdrawal />
-          </Container>
+                  <ModifyPassword />
+                  <br />
+                </>
+              ) : (
+                <>
+                  <MypageContainer2>
+                    <div>
+                      <h4>닉네임 </h4>
+                    </div>
+                    <EditInput value={userinfo.userName} disabled />
+                    <br />
+                    <br />
+                    <div>
+                      <h4>이메일 </h4>
+                    </div>
+                    <EditInput
+                      value={userinfo.userEmail}
+                      type='email'
+                      disabled
+                    />
+                  </MypageContainer2>
+                </>
+              )}
+              <MypageContainer2>
+                {modifyMode ? (
+                  <>
+                    <EditButton onClick={handleModifyMode}>수정완료</EditButton>
+                    <br />
+                  </>
+                ) : (
+                  <>
+                    <EditButton onClick={handleModifyMode}>
+                      회원정보 수정
+                    </EditButton>
+                    <Line />
+                  </>
+                )}
+                <Withdrawal />
+              </MypageContainer2>
+            </TextContainer>
+          </MypageContainer>
+
         </>
       ) : (
-        <Container>
-          <div>non-login</div>
-        </Container>
+        <>'non-logined'</>
       )}
     </>
   );
