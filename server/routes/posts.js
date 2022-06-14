@@ -98,7 +98,7 @@ const users = require('../models/users');
 router.get('/boards', boardsController);
 router.get('/view/:id', viewController);
 router.post('/write', writeController);
-router.patch('/edit', editController);
+router.patch('/edit/:postId', editController);
 router.delete('/:postId', deleteController);
 router.post('/comment', commentController);
 router.patch('/comment', editCommentController);
