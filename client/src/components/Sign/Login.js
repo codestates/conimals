@@ -54,7 +54,7 @@ function Login() {
     const { userEmail, password } = loginInfo;
     axios
       .post(
-        `http://localhost:8080/users/login`,
+        `${process.env.REACT_APP_API_URL}/users/login`,
         { userEmail: userEmail, password: password },
         {
           headers: { 'Content-Type': 'application/json' },
