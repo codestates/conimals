@@ -7,6 +7,7 @@ import { Button } from '@mui/material';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 
 const PostsSection = styled.section`
+  margin-top: 100px;
   width: 100%;
 `;
 
@@ -14,6 +15,7 @@ const ControlBlock = styled.div`
   width: 1200px;
   margin: 20px auto;
   display: flex;
+  justify-content: flex-end;
 `;
 
 const Posts = () => {
