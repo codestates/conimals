@@ -35,14 +35,14 @@
 ### 정민규
 
 - Position: Full-Stack
-- Stack : React.js, Styled-Component
+- Stack : React.js, Javascript, CSS, Styled-Component
 - main kick: 
 
 ### 박선교 
 
 - Position: Front-end
 - Stack : React.js, Javascript, CSS, Styled-Component
-- main kick: 회원가입, 로그인, 로그아웃, 마이페이지, 회원 정보 수정, 카카오 Oauth 로그인, 반려동물 적합도 테스트 페이지, 게스트 모드 진입 Modal
+- main kick: 회원가입, 로그인, 로그아웃, 마이페이지, 회원 정보 수정, 카카오 Oauth 로그인, 반려동물 적합도 테스트 페이지, Modal, 게스트 모드
 
 ## Deploy(임시)
 [Conimals](https://client.conimals.net/)
