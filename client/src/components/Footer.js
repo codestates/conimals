@@ -30,6 +30,7 @@ export default function Footer() {
             <div>동물보호관리시스템</div>
           </div>
           <div className='policy'>개인정보처리방침</div>
+          <div></div>
           <div className='team-petmily'>
             <div className='team-text'>
               <div className='team-link'>

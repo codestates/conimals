@@ -3,26 +3,24 @@ import styled from 'styled-components';
 
 export const Background = styled.div`
   position: relative;
-  justify-content: center;
+  /* justify-content: center; */
   display: inline-block;
   text-align: center;
-  width: 70%;
-  height: 95%;
+  width: 100vw;
+  height: auto;
   margin-top: 5%;
   z-index: 1;
-  transform: translate(40%, 0%);
+  transform: translate(30%, 0%);
+  @media screen and (max-width: 450px) {
+    transform: translate(55%, 0%);
+    height: 300px;
+  }
 `;
 
 export default function TestVector() {
   return (
     <Background>
-      <svg
-        width='792'
-        height='767'
-        viewBox='0 0 792 767'
-        fill='none'
-        xmlns='http://www.w3.org/2000/svg'
-      >
+      <svg viewBox='0 0 792 767' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <path
           fillRule='evenodd'
           clipRule='evenodd'

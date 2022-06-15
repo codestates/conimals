@@ -11,6 +11,9 @@ export const BigInput = styled.input`
   padding-left: 10px;
   background-color: rgb(253, 253, 253);
   box-shadow: none;
+  @media screen and (max-width: 450px) {
+    width: 100%;
+  }
 `;
 
 export const ShadowBigInput = styled(BigInput)`

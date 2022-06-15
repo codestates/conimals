@@ -20,6 +20,23 @@ export const Button = styled.button`
   }
 `;
 
+export const MainButton = styled(Button)`
+  margin-top: 0px;
+  border-radius: 0px;
+  background-color: skyblue;
+
+  &:hover {
+    background-color: steelblue;
+  }
+`;
+
+export const MainButton2 = styled(MainButton)`
+  background-color: indianred;
+  &:hover {
+    background-color: firebrick;
+  }
+`;
+
 export const WithdrawalButton = styled(Button)`
   padding: 1px 5px;
   margin-top: 30px;

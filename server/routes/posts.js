@@ -6,8 +6,8 @@ const path = require('path');
 const AWS = require('aws-sdk');
 const multerS3 = require('multer-s3');
 
-const { isAuthorized } = require('../controllers/tokenFunctions');
-const { posts, likes } = require('../models');
+// const { isAuthorized } = require('../controllers/tokenFunctions');
+// const { posts, likes } = require('../models');
 
 const uploadsController = require('../controllers/posts/uploads');
 
@@ -50,41 +50,6 @@ router.post(
   }
 );
 
-// const upload2 = multer();
-// router.post('/', isAuthorized, upload2.none(), async (req, res, next) => {
-//   try {
-//     console.log(req.user);
-//     const post = await posts.create({
-//       content: req.body.content,
-//       img: req.body.url,
-//       UserId: req.user.id,
-//     });
-//   } catch (error) {
-//     console.error(error);
-//     next(error);
-//   }
-// });
-
-// const uploads = multer({
-//   dest: 'uploads/',
-//   storage: multer.diskStorage({
-//     destination: (req, file, cb) => {
-//       cb(null, 'uploads/');
-//     },
-//     filename: (req, file, cb) => {
-//       // 파일 확장자 추출
-//       const ext = path.extname(file.originalname);
-
-//       // 파일 이름
-//       const basename = path.basename(file.originalname, ext);
-
-//       // 파일이름 + 시간 + 확장자명
-//       cb(null, basename + Date.now() + '-' + ext);
-//     },
-//     limits: { fileSize: 10 * 1024 * 1024 }, // 10MB
-//   }),
-// });
-
 const boardsController = require('../controllers/posts/boards');
 const viewController = require('../controllers/posts/view');
 const writeController = require('../controllers/posts/write');
@@ -93,7 +58,9 @@ const deleteController = require('../controllers/posts/delete');
 const commentController = require('../controllers/posts/comment');
 const editCommentController = require('../controllers/posts/editComment');
 const deleteCommentController = require('../controllers/posts/deleteComment');
-const users = require('../models/users');
+const likeController = require('../controllers/likes/likes');
+const unlikeController = require('../controllers/likes/unlikes');
+// const users = require('../models/users');
 
 router.get('/boards', boardsController);
 router.get('/view/:id', viewController);
@@ -150,6 +117,41 @@ router.delete('/:postId/like', async (req, res, next) => {
 // router.post('/img', uploads.single('img'), (req, res) => {
 //   console.log(req.file);
 //   res.json({ url: `/img/${req.file.filename}` });
+// });
+
+// const upload2 = multer();
+// router.post('/', isAuthorized, upload2.none(), async (req, res, next) => {
+//   try {
+//     console.log(req.user);
+//     const post = await posts.create({
+//       content: req.body.content,
+//       img: req.body.url,
+//       UserId: req.user.id,
+//     });
+//   } catch (error) {
+//     console.error(error);
+//     next(error);
+//   }
+// });
+
+// const uploads = multer({
+//   dest: 'uploads/',
+//   storage: multer.diskStorage({
+//     destination: (req, file, cb) => {
+//       cb(null, 'uploads/');
+//     },
+//     filename: (req, file, cb) => {
+//       // 파일 확장자 추출
+//       const ext = path.extname(file.originalname);
+
+//       // 파일 이름
+//       const basename = path.basename(file.originalname, ext);
+
+//       // 파일이름 + 시간 + 확장자명
+//       cb(null, basename + Date.now() + '-' + ext);
+//     },
+//     limits: { fileSize: 10 * 1024 * 1024 }, // 10MB
+//   }),
 // });
 
 // 단일 파일 업로드

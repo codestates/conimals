@@ -5,7 +5,7 @@ import ResultVector from '../../assets/TestResultVector';
 import ResultVector2 from '../../assets/TestResultVector2';
 
 import {
-  TestContainer,
+  ResultContainer,
   ResultInfo,
   ResultText,
   InnerText,
@@ -45,7 +45,7 @@ export default function TestResults1() {
 
   return (
     <>
-      <TestContainer>
+      <ResultContainer>
         <ResultVector />
         <ResultText>
           <ResultVector2 />
@@ -54,11 +54,12 @@ export default function TestResults1() {
           <br />
           <InnerText>
             <h3>
-              지금 바로 입양을 고려해보셔도 되겠네요!
+              지금 바로 입양을 고려해보세요!
+              <br />
               <br />
               {username}님과 함께 할 친구를
               <br />
-              저희가 안내해드리는 동물 보호단체에서 확인해보세요!
+              동물 보호단체에서 확인해보세요!
             </h3>
           </InnerText>
           <br />
@@ -78,7 +79,7 @@ export default function TestResults1() {
             </h6>
           </ResultInfo>
         </ResultText>
-      </TestContainer>
+      </ResultContainer>
     </>
   );
 }

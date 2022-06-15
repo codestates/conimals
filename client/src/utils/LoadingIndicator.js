@@ -1,5 +1,5 @@
 import React from 'react';
-import Spinner from '../assets/Ball-1s-200px.gif';
+import Spinner from '../assets/Ball.gif';
 import styled from 'styled-components';
 
 export const Background = styled.div`
