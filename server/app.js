@@ -58,7 +58,7 @@ sequelize
   });
 
 /* 서버 포트 설정 */
-const port = 80;
+const port = 8080;
 app.listen(port, function () {
   console.log('server on! http://localhost:' + port);
 });
