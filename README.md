@@ -41,8 +41,8 @@
 ### 박선교 
 
 - Position: Front-end
-- Stack : React.js, Styled-Component
-- main kick: 
+- Stack : React.js, Javascript, CSS, Styled-Component
+- main kick: 회원가입, 로그인, 로그아웃, 마이페이지, 회원 정보 수정, 카카오 Oauth 로그인, 반려동물 적합도 테스트 페이지, 게스트 모드 진입 Modal
 
 ## Deploy(임시)
-[Conimals]()
+[Conimals](https://client.conimals.net/)
