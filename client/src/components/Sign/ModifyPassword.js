@@ -4,23 +4,10 @@ import axios from 'axios';
 import ConfirmModal from '../Modal/ConfirmModals';
 import passwordValidator from '../../utils/validator';
 import Loading from '../../utils/LoadingIndicator';
-import styled from 'styled-components';
+import { MypageContainer2 } from '../Container';
+import { EditInput, Line } from '../Input';
+import { Button } from '../Button';
 
-const Button = styled.div`
-  position: relative;
-  border: none;
-  display: inline-block;
-  padding: 15px 30px;
-  border-radius: 15px;
-  margin-top: 30px;
-  font-family: sans-serif;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-  text-decoration: none;
-  font-weight: 600;
-  transition: 0.25s;
-  background-color: indianred;
-  color: #ffffff;
-`;
 
 function ModifyPassword() {
   const [newPassword, setNewPassword] = useState({
@@ -73,27 +60,34 @@ function ModifyPassword() {
   return (
     <>
       {loading ? <Loading /> : null}
-      <div>비밀번호 변경</div>
-      <input
-        placeholder='기존 비밀번호를 입력해주세요'
-        onChange={handleInputValue('password')}
-      />
-      <br />
-      <input
-        placeholder='변경하실 비밀번호를 입력해주세요'
-        onChange={handleInputValue('newPassword')}
-        onBlur={() => checkPasswordBlur}
-      />
-      <br />
-      {errMsg}
-      <br />
-      <Button onClick={handleNewPassword}>비밀번호 수정</Button>
-      <br />
-      {modalOpen ? (
-        <ConfirmModal handleModal={modalHandler}>
-          비밀번호 수정이 완료되었습니다.
-        </ConfirmModal>
-      ) : null}
+      <MypageContainer2>
+        <div>
+          <h4>비밀번호 변경</h4>
+        </div>
+        <br />
+        <EditInput
+          type='password'
+          placeholder='기존 비밀번호를 입력해주세요'
+          onChange={handleInputValue('password')}
+        />
+        <br />
+        <EditInput
+          type='password'
+          placeholder='변경하실 비밀번호를 입력해주세요'
+          onChange={handleInputValue('newPassword')}
+          onBlur={() => checkPasswordBlur}
+        />
+        {errMsg}
+        <br />
+        <Button onClick={handleNewPassword}>비밀번호 변경</Button>
+        {modalOpen ? (
+          <ConfirmModal handleModal={modalHandler}>
+            비밀번호 수정이 완료되었습니다.
+          </ConfirmModal>
+        ) : null}
+        <Line />
+      </MypageContainer2>
+
     </>
   );
 }

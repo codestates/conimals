@@ -1,5 +1,8 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+
+import { Button, EditButton, GuestButton } from '../Button';
 
 export const ModalContainer = styled.div`
   text-align: center;
@@ -23,51 +26,62 @@ export const ModalBackdrop = styled.div`
   z-index: 998;
 `;
 
-export const ModalBtn = styled.button`
-  padding: 5px;
-  color: black;
-  border-radius: 20px;
-  background-color: white;
-  cursor: pointer;
-  position: absolute;
-  top: 2.5%;
-  right: 1%;
-`;
-
 export const ModalView = styled.div.attrs((props) => ({
   role: 'dialog',
 }))`
+  /* background: url('../../assets/LoginVector.png'); */
+  background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: white;
   width: 40rem;
   height: 30rem;
   border-radius: 1rem;
   position: relative;
+  > div.close-btn {
+    position: absolute;
+    top: 2px;
+    right: 7px;
+    cursor: pointer;
+    color: black;
+    font-size: 2rem;
+  }
 `;
 
-export const SignButton = styled.div`
+export const SignButton = styled.button`
+  width: 30%;
   margin: 5%;
   position: relative;
-  border: none;
-  display: inline-block;
-  padding: 20px 30px;
+  /* border: none; */
+  padding: 1% 5%;
   border-radius: 15px;
   font-family: sans-serif;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-  text-decoration: none;
   font-weight: 600;
   transition: 0.25s;
   cursor: pointer;
   z-index: 999;
 `;
 
-export const TextPoint = styled.div`
+export const TextPoint = styled.span`
   color: blueviolet;
   display: flex;
   flex-direction: column;
+`;
+
+export const Container = styled.span`
+  display: flex;
+  text-align: center;
+  width: 35%;
+`;
+
+export const ButtonMargin = styled.span`
+  margin-left: 10%;
+`;
+
+export const Title = styled.span`
+  margin-bottom: 3%;
 `;
 
 const gusetMode = () => {
@@ -76,6 +90,7 @@ const gusetMode = () => {
 };
 
 export default function SignsModal({ handleModal }) {
+  const navigate = useNavigate();
   return (
     <ModalContainer>
       <ModalBackdrop onClick={handleModal}>
@@ -84,20 +99,36 @@ export default function SignsModal({ handleModal }) {
             event.stopPropagation();
           }}
         >
-          <h2>앗 아직 회원이 아니시군요!</h2>
-          <h4>걱정 마세요!</h4>
-          <div>
-            비회원도 <span>게스트 모드</span>로
-            <div>양육 적합 테스트에 1회 참여가가능합니다.</div>
-          </div>
-          <SignButton onClick={gusetMode}>게스트 모드 시작</SignButton>
-          <div>또는</div>
-          <a href='/signup'>
-            <SignButton>회원가입</SignButton>
-          </a>
-          <a href='/login'>
-            <SignButton>로그인</SignButton>
-          </a>
+          <>
+            <div className='close-btn' onClick={() => navigate('/')}>
+              &times;
+            </div>
+            <Title>
+              <h3>앗 아직 회원이 아니시군요!</h3>
+            </Title>
+            <Title>
+              <div>
+                <h4>걱정 마세요!</h4>
+              </div>
+              <br />
+              <TextPoint>비회원도 게스트 모드로</TextPoint>
+              <div>양육 적합 테스트에 1회 참여가 가능합니다.</div>
+            </Title>
+            <GuestButton onClick={gusetMode}>게스트 모드 시작</GuestButton>
+            <br />
+            <div>또는</div>
+          </>
+          <Container>
+            <a href='/signup'>
+              <Button>회원가입</Button>
+            </a>
+            <ButtonMargin>
+              <a href='/login'>
+                <EditButton>로그인</EditButton>
+              </a>
+            </ButtonMargin>
+          </Container>
+
         </ModalView>
       </ModalBackdrop>
     </ModalContainer>

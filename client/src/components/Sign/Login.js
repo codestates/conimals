@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -6,11 +7,30 @@ import ConfirmModal from '../Modal/ConfirmModals';
 import KakaoLoginImg from '../../img/kakao_login_large_wide.png';
 import Logo from '../../assets/Conimals_logo_horizontal1.png';
 import Loading from '../../utils/LoadingIndicator';
+import LoginVector from '../../assets/LoginVector';
+import {
+  LoginContainer,
+  KakaoLogin,
+  LoginField,
+} from '../../components/Container';
+import { Button, GuestButton } from '../../components/Button';
+import { BigInput } from '../Input';
 
-import * as React from 'react';
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
-import './Login.css';
+import styled from 'styled-components';
+
+export const SignupButton = styled.h3`
+  margin-left: 5%;
+`;
+
+export const SignupLine = styled.div`
+  margin: 5%;
+`;
+
+export const LoginText = styled.div`
+  margin-top: 5%;
+  font-size: 20px;
+  text-align: left;
+`;
 
 // 로그인 성공, 실패 Modal 알림 띄우기
 function Login() {
@@ -80,15 +100,17 @@ function Login() {
   return (
     <>
       {loading ? <Loading /> : null}
-      <div>
-        <div className='login-all'>
+      <LoginContainer>
+        <LoginVector />
+        <LoginField>
           <img src={Logo} alt='coniamls-logo'></img>
-          <h3>로그인</h3>
-          <div className='login-text'>
-            이메일
+          <div>
+            <h3>로그인</h3>
+          </div>
+          <div>
+            <LoginText>이메일</LoginText>
             <br />
-            <input
-              className='input'
+            <BigInput
               type='email'
               placeholder='conimals@gmail.com'
               onChange={handleInputValue('userEmail')}
@@ -96,49 +118,38 @@ function Login() {
             />
           </div>
 
-          <div className='login-text'>
-            비밀번호
+          <div>
+            <LoginText>비밀번호</LoginText>
             <br />
-            <input
+            <BigInput
+              type='password'
               placeholder='8자 이상의 영문과 숫자'
               className='input'
               onChange={handleInputValue('password')}
             />
           </div>
-          {/* <button className='btn' onClick={handleLogin}>
-          로그인
-        </button> */}
-          {/* 상단: CSS 버튼 / 하단: MUI 버튼  */}
-          <Stack className='btn-mui' direction='row'>
-            <Button
-              variant='contained'
-              sx={{ mt: 1 }}
-              onClick={handleLogin}
-              color='secondary'
-            >
-              로그인
-            </Button>
-          </Stack>
-          <span className='signup-line'>
-            <div className='signup-text'>Conimals가 처음이신가요?</div>
-            <Stack className='btn-mui' direction='row'>
-              <Button sx={{ ml: 8 }} color='secondary' onClick={toSignup}>
-                회원가입
-              </Button>
-            </Stack>
-          </span>
+          <div>
+            <Button onClick={handleLogin}>로그인</Button>
+          </div>
+          <SignupLine>
+            <span>
+              Conimals가 처음이신가요?
+              <SignupButton>
+                <GuestButton onClick={toSignup}>회원가입</GuestButton>
+              </SignupButton>
+            </span>
+          </SignupLine>
           <hr className='line' />
-          <img
-            className='kakao-img'
+          <KakaoLogin
             src={KakaoLoginImg}
             alt='kakao-login-img'
             onClick={kakaoLoginHandler}
           />
-        </div>
+        </LoginField>
         {modalOpen ? (
           <ConfirmModal handleModal={modalHandler}>{modalMsg}</ConfirmModal>
         ) : null}
-      </div>
+      </LoginContainer>
     </>
   );
 }

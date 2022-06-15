@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { dummydata } from '../lib/dummydata';
 
 const MarkerWithCustomOverlayStyle = styled.div`
+  margin-top: 100px;
   .customoverlay {
     position: relative;
     bottom: 85px;
