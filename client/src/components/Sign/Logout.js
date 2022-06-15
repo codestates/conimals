@@ -59,7 +59,7 @@ function Logout() {
     <>
       {loading ? <Loading /> : null}
       <NavButton>
-        <h5>로그아웃</h5>
+        <h5 onClick={handleLogout}>Logout</h5>
       </NavButton>
       {modalOpen ? (
         <ConfirmModal handleModal={modalHandler}>

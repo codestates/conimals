@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
 
 export const ModalContainer = styled.div`
   text-align: center;
@@ -57,10 +56,9 @@ export const ModalView = styled.div.attrs((props) => ({
 `;
 
 export default function ConfirmModal({ handleModal, children }) {
-  const navigate = useNavigate();
   return (
     <ModalContainer>
-      <div onClick={() => navigate('/')}>
+      <div onClick={() => window.location.replace('/')}>
         <ModalBackdrop onClick={handleModal}>
           <ModalView
             onClick={(event) => {
@@ -68,7 +66,7 @@ export default function ConfirmModal({ handleModal, children }) {
             }}
           >
             {children}
-            <div onClick={() => navigate('/')}>
+            <div onClick={() => window.location.replace('/')}>
               <ModalBtn onClick={handleModal}>확인</ModalBtn>
             </div>
           </ModalView>
