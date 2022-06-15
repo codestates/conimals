@@ -28,7 +28,6 @@ export const ModalBtn = styled.button`
   margin-top: 5px;
   color: black;
   background-color: white;
-  cursor: pointer;
   z-index: 999;
   position: relative;
   border: none;
@@ -39,8 +38,8 @@ export const ModalBtn = styled.button`
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
   text-decoration: none;
   font-weight: 600;
-  transition: 0.25s;
-  cursor: auto;
+  margin-top: 15%;
+  cursor: pointer;
 `;
 
 export const ModalView = styled.div.attrs((props) => ({

@@ -3,23 +3,10 @@ import axios from 'axios';
 
 import ConfirmModal from '../Modal/ConfirmModals';
 import Loading from '../../utils/LoadingIndicator';
-import styled from 'styled-components';
+import { MypageContainer2 } from '../Container';
+import { EditInput, Line } from '../Input';
+import { Button } from '../Button';
 
-const Button = styled.div`
-  position: relative;
-  border: none;
-  display: inline-block;
-  padding: 15px 30px;
-  border-radius: 15px;
-  margin-top: 30px;
-  font-family: sans-serif;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-  text-decoration: none;
-  font-weight: 600;
-  transition: 0.25s;
-  background-color: indianred;
-  color: #ffffff;
-`;
 
 function ModifyUsername() {
   const [newUsername, setNewUsername] = useState({
@@ -63,19 +50,28 @@ function ModifyUsername() {
   return (
     <>
       {loading ? <Loading /> : null}
-      <div>
-        <input
+      <MypageContainer2>
+        <div>
+          <h4>닉네임 변경 </h4>
+        </div>
+        <EditInput
+          type='text'
           placeholder='변경하실 닉네임를 입력해주세요'
           onChange={handleInputValue('newUsername')}
         />
-        <br />
-        <Button onClick={handleNewUsername}>닉네임 수정</Button>
-      </div>
+
+        <div>
+          <Button onClick={handleNewUsername}>닉네임 변경</Button>
+        </div>
+      </MypageContainer2>
+
+
       {modalOpen ? (
         <ConfirmModal handleModal={modalHandler}>
           닉네임 수정이 완료되었습니다.
         </ConfirmModal>
       ) : null}
+      <Line />
     </>
   );
 }

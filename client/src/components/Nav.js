@@ -28,7 +28,7 @@ const LogoStyle = styled.div`
   }
 `;
 
-const NavButton = styled.button`
+export const NavButton = styled.button`
   border: none;
   background: none;
   display: block;
@@ -64,17 +64,22 @@ function Nav() {
               <h5>입양 정보 게시판</h5>
             </NavButton>
           </Link>
-          <Link to='/login'>
-            <NavButton>
-              <h5>Login</h5>
-            </NavButton>
-          </Link>
-          <Logout />
-          <Link to='/mypage'>
-            <NavButton>
-              <h5>Mypage</h5>
-            </NavButton>
-          </Link>
+          {localStorage.getItem('user') || localStorage.getItem('kakao') ? (
+            <Logout />
+          ) : (
+            <Link to='/login'>
+              <NavButton>
+                <h5>Login</h5>
+              </NavButton>
+            </Link>
+          )}
+          {localStorage.getItem('user') || localStorage.getItem('kakao') ? (
+            <Link to='/mypage'>
+              <NavButton>
+                <h5>Mypage</h5>
+              </NavButton>
+            </Link>
+          ) : null}
         </NavBlock>
       </Header>
     </>

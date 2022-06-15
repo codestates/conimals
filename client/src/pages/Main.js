@@ -7,7 +7,7 @@ import { ReactComponent as UnderBlob } from '../assets/UnderBlob.svg';
 import { ReactComponent as DogWithPlayBlob } from '../assets/DogWithPlayBlob.svg';
 
 import { Link } from 'react-router-dom';
-import { Button } from '@mui/material';
+import { MainButton, MainButton2 } from '../components/Button';
 
 function Main() {
   return (
@@ -61,9 +61,7 @@ function Main() {
               <StyledH3>입양 전 고려 사항들을 가볍게 진단해봅니다.</StyledH3>
               <ButtonPosition>
                 <Link to='/test'>
-                  <Button variant='contained' type='button'>
-                    테스트 하러 가기
-                  </Button>
+                  <MainButton>테스트 하러 가기</MainButton>
                 </Link>
               </ButtonPosition>
             </TextBlockRight>
@@ -97,9 +95,7 @@ function Main() {
               <StyledH3>입양을 고려해보세요!</StyledH3>
               <ButtonPosition>
                 <Link to='/map'>
-                  <Button variant='contained' type='button'>
-                    내 주변 보호소 찾기
-                  </Button>
+                  <MainButton2>내 주변 보호소 찾기</MainButton2>
                 </Link>
               </ButtonPosition>
             </TextBlockLeft>
@@ -125,6 +121,7 @@ const Section = styled.section`
   display: flex;
   justify-content: center;
   position: relative;
+  margin-top: 100px;
 `;
 const TextWrapper = styled.div`
   width: 1200px;

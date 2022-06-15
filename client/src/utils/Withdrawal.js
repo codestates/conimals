@@ -2,23 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 import ConfirmModal from '../components/Modal/ConfirmModals';
-import styled from 'styled-components';
+import { WithdrawalButton } from '../components/Button';
 
-const Button = styled.div`
-  position: relative;
-  border: none;
-  display: inline-block;
-  padding: 15px 30px;
-  border-radius: 15px;
-  margin-top: 30px;
-  font-family: sans-serif;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-  text-decoration: none;
-  font-weight: 600;
-  transition: 0.25s;
-  background-color: indianred;
-  color: #ffffff;
-`;
 // useConfirm - confirm 창이 뜨는 이벤트, 상황에 따라 다른 이벤트 부여 가능 //
 const useConfirm = (message = '', onConfirm, onCancel) => {
   if (!onConfirm || typeof onConfirm !== 'function') return;
@@ -68,7 +53,7 @@ export default function UseConfirm() {
   );
   return (
     <>
-      <Button onClick={confirmDelete}>회원탈퇴</Button>
+      <WithdrawalButton onClick={confirmDelete}>회원탈퇴</WithdrawalButton>
       {modalOpen ? (
         <ConfirmModal handleModal={modalHandler}>
           회원탈퇴가 완료되었습니다.

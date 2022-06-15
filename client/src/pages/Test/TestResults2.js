@@ -8,23 +8,7 @@ import {
   ResultText,
   InnerText,
 } from '../../components/Container';
-import styled from 'styled-components';
-
-const Button = styled.div`
-  position: relative;
-  border: none;
-  display: inline-block;
-  padding: 15px 30px;
-  border-radius: 15px;
-  margin-top: 30px;
-  font-family: sans-serif;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-  text-decoration: none;
-  font-weight: 600;
-  transition: 0.25s;
-  background-color: indianred;
-  color: #ffffff;
-`;
+import { Button } from '../../components/Button';
 
 export default function TestResults1() {
   const [username, setUsername] = useState('guest');
@@ -63,12 +47,12 @@ export default function TestResults1() {
         <ResultVector />
         <ResultText>
           <ResultVector2 />
-          <h2>반려동물과 함께 할 준비가 충분히 되셨군요!</h2>
+          <h2>반려동물과 함께 할 준비가 충분하시군요!</h2>
           <InnerText>
             <h3>
-              {`${username}님과 함께 할 친구를`}
+              {username}님과 함께 할 친구를
               <br />
-              저희가 안내드리는 동물 보호단체에서 확인해보세요!
+              동물 보호단체에서 확인해보세요!
             </h3>
           </InnerText>
           <br />
