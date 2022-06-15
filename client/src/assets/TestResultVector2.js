@@ -21,7 +21,7 @@ export const Content2 = styled.div`
 `;
 
 export const Content3 = styled.div`
-  transform: translate(-800%, 900%);
+  transform: translate(-500%, 500%);
 `;
 
 export default function TestResultVector2() {

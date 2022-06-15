@@ -15,7 +15,7 @@ export const Setting1 = styled.div`
 `;
 
 export const Setting2 = styled.div`
-  transform: rotate(180deg);
+  transform: rotate(220deg);
 `;
 
 export const Setting3 = styled.div`
@@ -23,7 +23,7 @@ export const Setting3 = styled.div`
 `;
 
 export const Setting4 = styled.div`
-  transform: translate(2900%, 100%);
+  transform: translate(2900%, 70%);
 `;
 
 export default function MypageVector() {

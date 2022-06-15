@@ -5,7 +5,7 @@ import ResultVector from '../../assets/TestResultVector';
 import ResultVector2 from '../../assets/TestResultVector2';
 
 import {
-  TestContainer,
+  ResultContainer,
   ResultInfo,
   ResultText,
   InnerText,
@@ -45,7 +45,7 @@ export default function TestResults1() {
 
   return (
     <>
-      <TestContainer>
+      <ResultContainer>
         <ResultVector />
         <ResultText>
           <ResultVector2 />
@@ -79,7 +79,7 @@ export default function TestResults1() {
             </h6>
           </ResultInfo>
         </ResultText>
-      </TestContainer>
+      </ResultContainer>
     </>
   );
 }

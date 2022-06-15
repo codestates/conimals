@@ -15,7 +15,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: 'Noto Sans KR', sans-serif;
-    background-color: #FFFCFD;
+    background-color: #FFFFFC;
     box-sizing: border-box;
     scroll-behavior: smooth; 
     margin: 0;

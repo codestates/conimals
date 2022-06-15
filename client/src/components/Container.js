@@ -11,7 +11,7 @@ export const Container = styled.div`
 
 export const LoginContainer = styled.div`
   width: 100vw;
-
+  margin-top: 7%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,14 +35,22 @@ export const TestContainer = styled(Container)`
   flex-direction: row;
   justify-content: center;
   transform: translate(0%, -10%);
+  /* margin-top: 10%; */
+`;
+
+export const ResultContainer = styled(Container)`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  transform: translate(0%, -10%);
+  margin-top: 10%;
 `;
 
 export const MypageContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-top: 5%;
-  z-index: 2;
+  margin-top: 10%;
   overflow-x: hidden;
   height: 100vh;
 `;

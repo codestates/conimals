@@ -8,6 +8,7 @@ import AddBoxIcon from '@mui/icons-material/AddBox';
 
 const PostsSection = styled.section`
   width: 100%;
+  margin-top: 100px;
 `;
 
 const ControlBlock = styled.div`

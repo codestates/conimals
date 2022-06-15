@@ -52,6 +52,10 @@ const ProgressBar = styled.div`
   justify-content: center;
 `;
 
+const PBContainer = styled.div`
+  margin-top: 7%;
+`;
+
 const checkGuest = () => {
   if (localStorage.user === 'guest') {
     localStorage.removeItem('user');
@@ -161,13 +165,15 @@ function Test() {
 
   return (
     <>
-      <ProgressBar progress={progress} />
       {localStorage.getItem('guest') ? (
         <SignsModal />
       ) : (
         <>
           {localStorage.getItem('user') || localStorage.getItem('kakao') ? (
             <>
+              <PBContainer>
+                <ProgressBar progress={progress} />
+              </PBContainer>
               {isQ1 ? (
                 <TestContainer>
                   <TestVector />

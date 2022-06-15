@@ -28,7 +28,6 @@ export const ModalBtn = styled.button`
   margin-top: 5px;
   color: black;
   background-color: white;
-  cursor: pointer;
   z-index: 999;
   position: relative;
   border: none;
