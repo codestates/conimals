@@ -15,7 +15,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: 'Noto Sans KR', sans-serif;
-    background-color: #FFFCFD;
+    background-color: #FFFFFC;
     box-sizing: border-box;
     scroll-behavior: smooth; 
     margin: 0;
@@ -38,6 +38,9 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     display: inline;
     font-weight: 500;
+    /* @media screen and (max-width: 450px) {
+      font-size: 2rem;
+  } */
   }
 
   h3 {
@@ -47,6 +50,9 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     display: inline;
     font-weight: 400;
+    /* @media screen and (max-width: 450px) {
+      font-size: 1.5rem;
+  } */
   }
 
   h4 {

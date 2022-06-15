@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { dummydata } from '../lib/dummydata';
 
 const MarkerWithCustomOverlayStyle = styled.div`
+  margin-top: 100px;
   .customoverlay {
     position: relative;
     bottom: 85px;
@@ -79,8 +80,8 @@ function ConimalsMap() {
           }}
           style={{
             // 지도의 크기
-            width: '100%',
-            height: '98vh',
+            width: '100vw',
+            height: '100vh',
           }}
           level={8} // 지도의 확대 레벨
         >
@@ -94,7 +95,7 @@ function ConimalsMap() {
                   lng: `${markers[i].lng}`,
                 }}
                 image={{
-                  src: 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png', // 마커이미지의 주소입니다
+                  src: 'https://i.ibb.co/3yT5JP8/Conimals-pin.png', // 마커이미지의 주소입니다
                   size: {
                     width: 64,
                     height: 69,

@@ -5,6 +5,7 @@ import * as React from 'react';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
+import { NavButton } from '../Nav';
 import Loading from '../../utils/LoadingIndicator';
 
 function Logout() {
@@ -57,11 +58,9 @@ function Logout() {
   return (
     <>
       {loading ? <Loading /> : null}
-      <Stack spacing={2} direction='row'>
-        <Button variant='outlined' onClick={handleLogout}>
-          로그아웃
-        </Button>
-      </Stack>
+      <NavButton>
+        <h5 onClick={handleLogout}>Logout</h5>
+      </NavButton>
       {modalOpen ? (
         <ConfirmModal handleModal={modalHandler}>
           로그아웃 되었습니다.

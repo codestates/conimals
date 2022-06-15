@@ -10,11 +10,18 @@ const NewPostSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 100px;
 `;
 
 const NewPostWrap = styled.div`
   text-align: center;
   width: 860px;
+`;
+
+const ImageUploadBlock = styled.div`
+  width: 100%;
+  height: 350px;
+  display: flex;
 `;
 
 const Write = () => {
@@ -82,7 +89,9 @@ const Write = () => {
             onChange={handleInput('title')}
           ></TextField>
 
-          <Image setImages={setImageSrc} />
+          <ImageUploadBlock>
+            <Image setImages={setImageSrc} />
+          </ImageUploadBlock>
 
           <TextField
             id='outlined-basic'
