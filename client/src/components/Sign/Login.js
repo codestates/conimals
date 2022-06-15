@@ -146,10 +146,10 @@ function Login() {
             onClick={kakaoLoginHandler}
           />
         </LoginField>
-        {modalOpen ? (
-          <ConfirmModal handleModal={modalHandler}>{modalMsg}</ConfirmModal>
-        ) : null}
       </LoginContainer>
+      {modalOpen ? (
+        <ConfirmModal handleModal={modalHandler}>{modalMsg}</ConfirmModal>
+      ) : null}
     </>
   );
 }

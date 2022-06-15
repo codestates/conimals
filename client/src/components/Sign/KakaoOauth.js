@@ -1,10 +1,7 @@
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const KakaoOauth = () => {
-  const navigate = useNavigate();
-
   useEffect(() => {
     const code = new URL(window.location.href).searchParams.get('code');
     if (code) {
@@ -29,7 +26,7 @@ const KakaoOauth = () => {
       )
       .then((res) => {
         localStorage.setItem('kakao', res.data.token);
-        navigate('/');
+        window.location.replace('/');
       });
   };
 

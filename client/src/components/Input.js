@@ -17,7 +17,7 @@ export const BigInput = styled.input`
 `;
 
 export const ShadowBigInput = styled(BigInput)`
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
 `;
 
 export const EditInput = styled.input`

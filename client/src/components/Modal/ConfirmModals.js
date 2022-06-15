@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export const ModalContainer = styled.div`
+const ModalContainer = styled.div`
   text-align: center;
   width: 100%;
   height: 100%;
 `;
 
-export const ModalBackdrop = styled.div`
+const ModalBackdrop = styled.div`
   position: fixed;
   display: flex;
   justify-content: center;
@@ -18,44 +18,35 @@ export const ModalBackdrop = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  margin: auto;
   background-color: rgba(0, 0, 0, 0.3);
-  z-index: 998;
+  z-index: 500;
 `;
 
-export const ModalBtn = styled.button`
-  margin-top: 5px;
-  color: black;
-  background-color: white;
-  z-index: 999;
-  position: relative;
-  border: none;
-  display: inline-block;
-  padding: 10px 20px;
-  border-radius: 15px;
-  font-family: 'paybooc-Light', sans-serif;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-  text-decoration: none;
-  font-weight: 600;
-  margin-top: 15%;
-  cursor: pointer;
-`;
-
-export const ModalView = styled.div.attrs((props) => ({
-  role: 'dialog',
-}))`
+const ModalView = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   background-color: white;
   width: 25rem;
-  height: 6rem;
+  height: 7rem;
   border-radius: 1rem;
-  position: relative;
 `;
 
-export default function ConfirmModal({ handleModal, children }) {
+const ModalBtn = styled.button`
+  background-color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 1rem;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  margin-top: 1rem;
+  cursor: pointer;
+  h6 {
+    font-weight: 700;
+  }
+`;
+
+const ConfirmModal = ({ handleModal, children }) => {
   return (
     <ModalContainer>
       <div onClick={() => window.location.replace('/')}>
@@ -67,11 +58,15 @@ export default function ConfirmModal({ handleModal, children }) {
           >
             {children}
             <div onClick={() => window.location.replace('/')}>
-              <ModalBtn onClick={handleModal}>확인</ModalBtn>
+              <ModalBtn onClick={handleModal}>
+                <h6>확인</h6>
+              </ModalBtn>
             </div>
           </ModalView>
         </ModalBackdrop>
       </div>
     </ModalContainer>
   );
-}
+};
+
+export default ConfirmModal;

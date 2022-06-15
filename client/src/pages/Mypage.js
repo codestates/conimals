@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import styled from 'styled-components';
 
@@ -16,12 +15,9 @@ import MypageVector from '../assets/MypageVector';
 
 const TextContainer = styled.div`
   flex-direction: column;
-
 `;
 
 function Mypage() {
-  const navigate = useNavigate();
-
   const [userinfo, setUserinfo] = useState({
     id: '',
     userName: '',
@@ -42,6 +38,7 @@ function Mypage() {
         })
         .then((res) => {
           setLoading(false);
+          console.log(res);
           setUserinfo({
             id: res.data.data.id,
             userId: res.data.data.id,
@@ -138,7 +135,6 @@ function Mypage() {
               </MypageContainer2>
             </TextContainer>
           </MypageContainer>
-
         </>
       ) : (
         <>'non-logined'</>

@@ -15,24 +15,23 @@ module.exports = async (req, res) => {
           image: posts.image,
         };
       });
-      const { userId } = req.params;
-      const allComments = await postComments.findAll({
-        where: { userId },
+      // const { userId } = req.params;
+      // const allComments = await postComments.findAll({
+      //   where: { userId },
+      // });
+      // if (allComments) {
+      //   const commentData = allComments.filter((comments) => {
+      //     return {
+      //       id: comments.id,
+      //       comment: comments.comment,
+      //       createdAt: comments.createdAt,
+      //     };
+      //   });
+      res.status(200).json({
+        data,
+        // commentData,
+        message: '게시글과 댓글 조회에 성공하였습니다',
       });
-      if (allComments) {
-        const commentData = allComments.filter((comments) => {
-          return {
-            id: comments.id,
-            comment: comments.comment,
-            createdAt: comments.createdAt,
-          };
-        });
-        res.status(200).json({
-          data,
-          commentData,
-          message: '게시글과 댓글 조회에 성공하였습니다',
-        });
-      }
     } else {
       return res
         .status(404)
