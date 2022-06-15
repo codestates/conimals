@@ -12,62 +12,6 @@ import EditIcon from '@mui/icons-material/Edit';
  * - 조회수 중복 체크 막기도 구현하면 좋음 (쿠키 적용해야 한다고함)
  */
 
-const ViewSection = styled.section`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 100px;
-`;
-
-const ViewWrap = styled.div`
-  width: 860px;
-`;
-
-const PostUpper = styled.div`
-  background: #fce4ec;
-  padding: 1rem;
-`;
-
-const PostTitle = styled.div`
-  margin: 1rem 0;
-  padding: 1rem 0;
-  h3 {
-    font-weight: 700;
-  }
-`;
-
-const PostWriter = styled.div`
-  padding: 1rem 0;
-`;
-
-const ViewContentBlock = styled.div`
-  border: 1px solid #fce4ec;
-  display: flex;
-  padding: 1rem;
-`;
-
-const ViewImage = styled.div`
-  width: 48%;
-  margin-right: 2%;
-
-  img {
-    width: 100%;
-    border-radius: 10px;
-  }
-`;
-
-const ViewContent = styled.div`
-  width: 48%;
-  padding: 1rem;
-`;
-
-const ButtonBlock = styled.div`
-  display: flex;
-  justify-content: right;
-  padding: 0.5rem 0;
-`;
-
 const View = () => {
   const [selectedPost, setSelectedPost] = useState('');
   const { id } = useParams();
@@ -133,3 +77,61 @@ const View = () => {
 };
 
 export default View;
+
+const ViewSection = styled.section`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+`;
+
+const ViewWrap = styled.div`
+  width: 860px;
+`;
+
+const PostUpper = styled.div`
+  background: #fce4ec;
+  padding: 1rem;
+  border-radius: 1rem;
+`;
+
+const PostTitle = styled.div`
+  margin: 1rem 0;
+  padding: 1rem 0;
+  h3 {
+    font-weight: 700;
+  }
+`;
+
+const PostWriter = styled.div`
+  padding: 1rem 0;
+`;
+
+const ViewContentBlock = styled.div`
+  border: 1px solid #fce4ec;
+  display: flex;
+  padding: 1rem;
+  border-radius: 1rem;
+`;
+
+const ViewImage = styled.div`
+  width: 48%;
+  margin-right: 2%;
+
+  img {
+    width: 100%;
+    border-radius: 10px;
+  }
+`;
+
+const ViewContent = styled.div`
+  width: 48%;
+  padding: 1rem;
+`;
+
+const ButtonBlock = styled.div`
+  display: flex;
+  justify-content: right;
+  padding: 0.5rem 0;
+`;
