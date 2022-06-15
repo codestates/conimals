@@ -94,7 +94,7 @@ function ConimalsMap() {
                   lng: `${markers[i].lng}`,
                 }}
                 image={{
-                  src: 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png', // 마커이미지의 주소입니다
+                  src: 'https://i.ibb.co/3yT5JP8/Conimals-pin.png', // 마커이미지의 주소입니다
                   size: {
                     width: 64,
                     height: 69,

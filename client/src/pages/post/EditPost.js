@@ -9,6 +9,7 @@ const EditSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 100px;
 `;
 
 const EditWrap = styled.div`
