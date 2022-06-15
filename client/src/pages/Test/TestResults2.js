@@ -47,12 +47,12 @@ export default function TestResults1() {
         <ResultVector />
         <ResultText>
           <ResultVector2 />
-          <h2>반려동물과 함께 할 준비가 충분히 되셨군요!</h2>
+          <h2>반려동물과 함께 할 준비가 충분하시군요!</h2>
           <InnerText>
             <h3>
               {username}님과 함께 할 친구를
               <br />
-              저희가 안내드리는 동물 보호단체에서 확인해보세요!
+              동물 보호단체에서 확인해보세요!
             </h3>
           </InnerText>
           <br />
