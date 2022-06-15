@@ -6,11 +6,10 @@ const PostsPageUl = styled.ul`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
   justify-items: center;
-  grid-column-gap: 4%;
-  grid-row-gap: 4%;
+  gap: 4%;
   max-width: 1200px;
   margin: 30px auto;
-  height: max-content;
+  height: 1080px;
 `;
 
 const Ul = ({ post }) => {
