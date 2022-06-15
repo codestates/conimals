@@ -1,5 +1,19 @@
 import React, { useRef, useState } from 'react';
 import { Button } from '@mui/material';
+import styled from 'styled-components';
+
+const ImageWrapper = styled.section`
+  margin: 1rem;
+  display: flex;
+`;
+
+const ButtonBlock = styled.div`
+  width: 200px;
+`;
+
+const PreviewBlock = styled.div`
+  width: 400px;
+`;
 
 function Image({ setImages }) {
   const inputImageRef = useRef(false);
@@ -24,42 +38,46 @@ function Image({ setImages }) {
   };
 
   return (
-    <div className='image-wrapper'>
+    <div>
       <div
-        className={imageSrc ? 'image-inner hidden' : 'image-inner'}
+        className={imageSrc ? 'imageHidden' : 'imageInner'}
         aria-hidden='true'
         onClick={clickHandler}
       >
-        {imageSrc ? (
-          imageSrc && (
-            <Button
-              type='button'
-              variant='contained'
-              className='btn-delete-image'
-              onClick={deleteImageHandler}
-            >
-              삭제
-            </Button>
-          )
-        ) : (
-          <label htmlFor='contained-button-file'>
-            <input
-              type='file'
-              name='image'
-              style={{ display: 'none' }}
-              accept='image/jpg,image/png,image/jpeg'
-              onChange={imageUploadHandler}
-              ref={inputImageRef}
-            />
-            <Button variant='contained'>사진 올리기</Button>
-          </label>
-        )}
-
-        {imageSrc ? (
-          <img src={imageSrc} alt='preview-img' style={{ width: '200px' }} />
-        ) : (
-          ''
-        )}
+        <ImageWrapper>
+          <ButtonBlock>
+            {imageSrc ? (
+              imageSrc && (
+                <Button
+                  type='button'
+                  variant='contained'
+                  onClick={deleteImageHandler}
+                >
+                  이미지 삭제
+                </Button>
+              )
+            ) : (
+              <label htmlFor='contained-button-file'>
+                <input
+                  type='file'
+                  name='image'
+                  style={{ display: 'none' }}
+                  accept='image/jpg,image/png,image/jpeg'
+                  onChange={imageUploadHandler}
+                  ref={inputImageRef}
+                />
+                <Button variant='contained'>이미지 업로드</Button>
+              </label>
+            )}
+          </ButtonBlock>
+          <PreviewBlock>
+            {imageSrc ? (
+              <img src={imageSrc} alt='preview' style={{ width: '200px' }} />
+            ) : (
+              ''
+            )}
+          </PreviewBlock>
+        </ImageWrapper>
       </div>
     </div>
   );

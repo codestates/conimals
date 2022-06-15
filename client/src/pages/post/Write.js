@@ -17,6 +17,12 @@ const NewPostWrap = styled.div`
   width: 860px;
 `;
 
+const ImageUploadBlock = styled.div`
+  width: 100%;
+  height: 350px;
+  display: flex;
+`;
+
 const Write = () => {
   const [imageSrc, setImageSrc] = useState([]);
   const [newPost, setNewPost] = useState({
@@ -82,7 +88,9 @@ const Write = () => {
             onChange={handleInput('title')}
           ></TextField>
 
-          <Image setImages={setImageSrc} />
+          <ImageUploadBlock>
+            <Image setImages={setImageSrc} />
+          </ImageUploadBlock>
 
           <TextField
             id='outlined-basic'
