@@ -5,7 +5,7 @@ export const Background = styled.div`
   display: flex;
   width: 50%;
   height: 50%;
-  z-index: 1;
+  z-index: -1;
   justify-content: center;
   transform: translate(-20%, 0%);
 `;

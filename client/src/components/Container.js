@@ -16,7 +16,6 @@ export const LoginContainer = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
-  /* z-index: -1; */
   @media screen and (max-width: 500px) {
     height: 100%;
     transform: translate(15%, 0%);

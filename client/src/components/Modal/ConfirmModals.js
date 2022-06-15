@@ -41,9 +41,7 @@ export const ModalBtn = styled.button`
   cursor: pointer;
 `;
 
-export const ModalView = styled.div.attrs((props) => ({
-  role: 'dialog',
-}))`
+export const ModalView = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
