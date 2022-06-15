@@ -2,8 +2,6 @@ import { useState } from 'react';
 import axios from 'axios';
 import ConfirmModal from '../Modal/ConfirmModals';
 import * as React from 'react';
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
 import { NavButton } from '../Nav';
 import Loading from '../../utils/LoadingIndicator';
@@ -57,19 +55,19 @@ function Logout() {
 
   return (
     <>
-      {loading ? <Loading /> : null}
-      <NavButton>
-<<<<<<< HEAD
-        <h5 onClick={handleLogout}>로그아웃</h5>
-=======
-        <h5 onClick={handleLogout}>Logout</h5>
->>>>>>> 2a3fb0b5b06ed01f5883e80ec447db05e873bba5
-      </NavButton>
-      {modalOpen ? (
-        <ConfirmModal handleModal={modalHandler}>
-          로그아웃 되었습니다.
-        </ConfirmModal>
-      ) : null}
+      <div>
+        {loading ? <Loading /> : null}
+        <NavButton>
+          <h5 onClick={handleLogout}>Logout</h5>
+        </NavButton>
+      </div>
+      <div>
+        {modalOpen ? (
+          <ConfirmModal handleModal={modalHandler}>
+            로그아웃 되었습니다.
+          </ConfirmModal>
+        ) : null}
+      </div>
     </>
   );
 }
