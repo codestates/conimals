@@ -88,7 +88,7 @@ function ConimalsMap() {
           {markers.map((el, i) => (
             <>
               <MapMarker // 마커를 생성합니다
-                key={'marker' + i}
+                key={el.id}
                 onClick={openIf}
                 position={{
                   lat: `${markers[i].lat}`,
@@ -110,7 +110,7 @@ function ConimalsMap() {
               />
               {isOpen && (
                 <CustomOverlayMap //버튼 클릭 관련
-                  key={'custom' + i}
+                  key={el.id}
                   position={{
                     lat: `${markers[i].lat}`,
                     lng: `${markers[i].lng}`,

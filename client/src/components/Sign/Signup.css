@@ -1,60 +1,3 @@
-#signup {
-  display: flex;
-  flex-direction: row;
-  text-align: center;
-  align-items: center;
-}
-
-.signup-img {
-  width: 100%;
-  height: auto;
-}
-
-.signup-page {
-  width: 55vw;
-  height: 55vw;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
-  z-index: 10;
-}
-
-.signup-logo {
-  width: 35%;
-}
-
-.input-title {
-  margin-top: 5%;
-  margin-left: 20%;
-  font-size: 20px;
-  text-align: left;
-}
-
-.input-signup {
-  margin-top: 2%;
-  width: 60%;
-  height: 5vh;
-  font-size: 15px;
-  border: 0;
-  border-radius: 10px;
-  outline: none;
-  padding-left: 10px;
-  background-color: rgb(253, 253, 253);
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
-}
-
-.signup-login {
-  width: 30vw;
-  margin-top: 2%;
-  margin-left: 20%;
-}
-
-.validate-text {
-  color: rgb(146, 17, 17);
-  font-size: 15px;
-  margin-top: 2%;
-}
-
 .signup-login-link {
   margin-left: 5%;
 }
@@ -72,20 +15,4 @@
 }
 .signup-login a:active {
   color: bisque;
-}
-
-.btn {
-  position: relative;
-  border: none;
-  display: inline-block;
-  padding: 15px 30px;
-  border-radius: 15px;
-  margin-top: 30px;
-  font-family: sans-serif;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-  text-decoration: none;
-  font-weight: 600;
-  transition: 0.25s;
-  background-color: indianred;
-  color: #ffffff;
 }
