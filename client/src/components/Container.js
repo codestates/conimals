@@ -89,3 +89,9 @@ export const KakaoLogin = styled.img`
     width: 100%;
   }
 `;
+
+export const PolicyContainer = styled(Container)`
+  text-align: center;
+  width: 70%;
+  margin: 100px auto;
+`;

@@ -8,11 +8,10 @@ import { MypageContainer2 } from '../Container';
 import { EditInput, Line } from '../Input';
 import { Button } from '../Button';
 
-
 function ModifyPassword() {
   const [newPassword, setNewPassword] = useState({
     password: '',
-    newPassword: '',
+    changedPassword: '',
   });
 
   const [errMsg, setErrMsg] = useState('');
@@ -34,7 +33,7 @@ function ModifyPassword() {
         `${process.env.REACT_APP_API_URL}/mypages/password`,
         {
           password: newPassword.password,
-          changedPassword: newPassword.newPassword,
+          changedPassword: newPassword.changedPassword,
         },
         {
           headers: { authorization: `Bearer ${localStorage.user}` },
@@ -74,7 +73,7 @@ function ModifyPassword() {
         <EditInput
           type='password'
           placeholder='변경하실 비밀번호를 입력해주세요'
-          onChange={handleInputValue('newPassword')}
+          onChange={handleInputValue('changedPassword')}
           onBlur={() => checkPasswordBlur}
         />
         {errMsg}
@@ -87,7 +86,6 @@ function ModifyPassword() {
         ) : null}
         <Line />
       </MypageContainer2>
-
     </>
   );
 }

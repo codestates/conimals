@@ -7,7 +7,7 @@ export const Button = styled.button`
   border-radius: 15px;
   margin-top: 15px;
   font-family: sans-serif;
-  box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
   text-decoration: none;
   font-weight: 600;
   transition: 0.25s;

@@ -48,6 +48,7 @@ function Logout() {
           setLoading(false);
         })
         .catch((err) => {
+          localStorage.removeItem('user');
           setLoading(false);
         });
     }

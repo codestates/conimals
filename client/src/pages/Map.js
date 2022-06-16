@@ -110,7 +110,7 @@ function ConimalsMap() {
               />
               {isOpen && (
                 <CustomOverlayMap //버튼 클릭 관련
-                  key={el.id}
+                  key={`Tooltip ${el.id}`}
                   position={{
                     lat: `${markers[i].lat}`,
                     lng: `${markers[i].lng}`,
