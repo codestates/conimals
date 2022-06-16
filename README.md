@@ -20,9 +20,9 @@
 
 ### 조진형
 
-- Position: Full-Stack
+- Position: Back-end
 - Stack : NODE js, EXPRESS, MYSql, Sequelize, AWS
-- main kick: 
+- main kick: multer-S3, AWS CI/CD
 
 ### Team Crew
 
