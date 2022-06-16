@@ -23,7 +23,7 @@ module.exports = async (req, res) => {
           .status(400)
           .json({ message: '기존 비밀번호가 일치하지 않습니다' });
       } else {
-        const hashed = hashPassword(password);
+        const hashed = hashPassword(changedPassword);
         await users
           .update({ password: hashed }, { where: { id: userInfo.id } })
           .then(() => {
