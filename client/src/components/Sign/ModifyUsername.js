@@ -7,7 +7,6 @@ import { MypageContainer2 } from '../Container';
 import { EditInput, Line } from '../Input';
 import { Button } from '../Button';
 
-
 function ModifyUsername() {
   const [newUsername, setNewUsername] = useState({
     username: '',
@@ -28,7 +27,7 @@ function ModifyUsername() {
     setLoading(true);
     axios
       .patch(
-        `http://localhost:8080/mypages/username`,
+        `${process.env.REACT_APP_API_URL}/mypages/username`,
         {
           userName: newUsername.newUsername,
         },
@@ -64,7 +63,6 @@ function ModifyUsername() {
           <Button onClick={handleNewUsername}>닉네임 변경</Button>
         </div>
       </MypageContainer2>
-
 
       {modalOpen ? (
         <ConfirmModal handleModal={modalHandler}>
