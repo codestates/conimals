@@ -22,7 +22,7 @@
 
 - Position: Full-Stack
 - Stack : NODE js, EXPRESS, MYSql, Sequelize, AWS
-- main kick: 회원가입 및 게시글 CRUD
+- main kick: 사용자 및 게시글 CRUD
 
 ### Team Crew
 
