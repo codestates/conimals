@@ -22,7 +22,7 @@
 
 - Position: Full-Stack
 - Stack : NODE js, EXPRESS, MYSql, Sequelize, AWS
-- main kick: 사용자 및 게시글 CRUD
+- main kick: 
 
 ### Team Crew
 
@@ -30,7 +30,7 @@
 
 - Position: Back-end
 - Stack : NODE js, EXPRESS, MYSql, Sequelize, AWS
-- main kick: 
+- main kick: 사용자 및 게시글 CRUD
 
 ### 정민규
 
