@@ -127,6 +127,7 @@ const EditWrap = styled.div`
 `;
 
 const EditPost = () => {
+  const [viewed, setViewed] = useState([]);
   const [edited, setEdited] = useState([]);
   const [modalMsg, setModalMsg] = useState('');
   const [modalOpen, setModalOpen] = useState(false);
@@ -141,52 +142,36 @@ const EditPost = () => {
     const json = await (
       await fetch(`${process.env.REACT_APP_API_URL}/posts/view/${id}`)
     ).json();
-    setEdited(json.data[0]);
+    setViewed(json.data[0]);
   }, []);
 
   const onEditChange = (e) => {
-    setEdited({
+    setViewed({
       [e.target.name]: e.target.value,
     });
   };
 
-  const onSubmit = async () => {
-    try {
-      await axios
-        .patch(
-          `${process.env.REACT_APP_API_URL}/posts/edit`,
-          {
-            title: edited.title,
-            content: edited.content,
-            image: edited.image,
-          },
-          {
-            withCredentials: true,
-          }
-        )
-        .then((res) => {
-          axios.post(
-            `${process.env.REACT_APP_API_URL}/posts/view/${edited.id}`,
-            { ...res.data.data },
-            {
-              headers: {
-                authorization: `Bearer ${localStorage.getItem('user')}`,
-              },
-              withCredentials: true,
-            }
-          );
-        })
-        .then(() => {
-          setModalOpen(true);
-          setModalMsg('수정 완료!');
-          Navigate('/posts/board');
-        });
-    } catch (err) {
-      console.log(err);
-    }
+  const header = {
+    headers: { authorization: `Bearer ${localStorage.getItem('user')}` },
+    withCredentials: true,
   };
 
-  const imageUrl = `${process.env.REACT_APP_API_URL}/posts/${edited.image}`;
+  const onSubmit = async () => {
+    await axios
+      .patch(
+        `${process.env.REACT_APP_API_URL}/edit/${viewed.id}`,
+        {
+          postId: id,
+          title: viewed.title,
+          content: viewed.content,
+        },
+        header
+      )
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
+
+  const imageUrl = `${process.env.REACT_APP_API_URL}/posts/${viewed.image}`;
 
   return (
     <>
@@ -201,7 +186,7 @@ const EditPost = () => {
             placeholder='제목을 입력하세요'
             type='text'
             maxLength={70}
-            value={edited.title}
+            value={viewed.title}
             onChange={onEditChange}
           ></TextField>
 
@@ -224,7 +209,7 @@ const EditPost = () => {
             margin='normal'
             placeholder='간단히 설명해주세요 (최대 500자)'
             maxLength={500}
-            value={edited.content}
+            value={viewed.content}
             onChange={onEditChange}
           ></TextField>
           <Button variant='contained' type='button' onClick={onSubmit}>
