@@ -20,9 +20,9 @@
 
 ### 조진형
 
-- Position: Back-end
+- Position: Full-Stack
 - Stack : NODE js, EXPRESS, MYSql, Sequelize, AWS
-- main kick: multer-S3, AWS CI/CD
+- main kick: 
 
 ### Team Crew
 
@@ -42,7 +42,7 @@
 
 - Position: Front-end
 - Stack : React.js, Javascript, CSS, Styled-Component
-- main kick: 회원가입, 로그인, 로그아웃, 마이페이지, 회원 정보 수정, 카카오 Oauth 로그인, 반려동물 적합도 테스트 페이지, Modal, 게스트 모드
+- main kick: 카카오 Oauth 로그인을 포함한 회원 정보 관련 기능, 게스트 모드
 
 ## Deploy(임시)
 [Conimals](https://client.conimals.net/)
