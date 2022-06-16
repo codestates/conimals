@@ -5,7 +5,7 @@ import Nav from './components/Nav';
 import Footer from './components/Footer';
 import Main from './pages/Main';
 import ConimalsMap from './pages/Map';
-// import Policy from './utils/policy';
+import Policy from './utils/Policy';
 
 import Test from './pages/Test/Test';
 import TestResults1 from './pages/Test/TestResults1';
@@ -16,12 +16,12 @@ import Login from './components/Sign/Login';
 import Mypage from './pages/Mypage';
 import Signup from './components/Sign/Signup';
 import KakaoOauth from './components/Sign/KakaoOauth';
+
 import Posts from './pages/post/Posts';
 import Write from './pages/post/Write';
 import EditPost from './pages/post/EditPost';
 import View from './pages/post/View';
 
-// import policy from './utils/policy.html';
 import GlobalStyle from './GlobalStyle';
 
 function App() {
@@ -33,6 +33,7 @@ function App() {
       <Routes>
         <Route exact path='/' element={<Main />} />
         <Route path='/map' element={<ConimalsMap />} />
+        <Route path='/policy' element={<Policy />} />
         <Route path='/test' element={<Test />} />
         <Route path='/results1' element={<TestResults1 />} />
         <Route path='/results2' element={<TestResults2 />} />
