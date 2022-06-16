@@ -18,6 +18,7 @@ const EditWrap = styled.div`
 `;
 
 const EditPost = () => {
+  const [viewed, setViewed] = useState([]);
   const [edited, setEdited] = useState([]);
   const { id } = useParams();
 
@@ -25,35 +26,36 @@ const EditPost = () => {
     const json = await (
       await fetch(`${process.env.REACT_APP_API_URL}/posts/view/${id}`)
     ).json();
-    setEdited(json.data[0]);
+    setViewed(json.data[0]);
   }, []);
 
   const onEditChange = (e) => {
-    setEdited({
+    setViewed({
       [e.target.name]: e.target.value,
     });
   };
 
-  // 현재 아직 수정 버튼 관련 내용은 수정이 필요합니다
-  const onSubmit = (e) => {
-    axios
-      .post(
-        `${process.env.REACT_APP_API_URL}/dummy/${edited.id}`,
+  const header = {
+    headers: { authorization: `Bearer ${localStorage.getItem('user')}` },
+    withCredentials: true,
+  };
+
+  const onSubmit = async () => {
+    await axios
+      .patch(
+        `${process.env.REACT_APP_API_URL}/edit/${viewed.id}`,
         {
-          title: edited.title,
-          content: edited.content,
-          image: edited.image,
+          postId: id,
+          title: viewed.title,
+          content: viewed.content,
         },
-        {
-          headers: { authorization: `Bearer ${localStorage.getItem('user')}` },
-          withCredentials: true,
-        }
+        header
       )
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
   };
 
-  const imageUrl = `${process.env.REACT_APP_API_URL}/posts/${edited.image}`;
+  const imageUrl = `${process.env.REACT_APP_API_URL}/posts/${viewed.image}`;
 
   return (
     <>
@@ -68,7 +70,7 @@ const EditPost = () => {
             placeholder='제목을 입력하세요'
             type='text'
             maxLength={70}
-            value={edited.title}
+            value={viewed.title}
             onChange={onEditChange}
           ></TextField>
 
@@ -91,7 +93,7 @@ const EditPost = () => {
             margin='normal'
             placeholder='간단히 설명해주세요 (최대 500자)'
             maxLength={500}
-            value={edited.content}
+            value={viewed.content}
             onChange={onEditChange}
           ></TextField>
           <Button variant='contained' type='button' onClick={onSubmit}>

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
+import axios from 'axios';
 
 /**
  * - 해당 글 작성자는 수정 및 삭제 가능
@@ -15,6 +16,7 @@ import EditIcon from '@mui/icons-material/Edit';
 const View = () => {
   const [selectedPost, setSelectedPost] = useState('');
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const getDetail = async () => {
     const json = await (
@@ -25,12 +27,24 @@ const View = () => {
 
   useEffect(() => {
     getDetail();
-  }, []);
+  });
 
   const imageUrl = `${process.env.REACT_APP_API_URL}/posts/${selectedPost.image}`;
   const parsedDate = new Date(selectedPost.createdAt).toLocaleDateString(
     'ko-kr'
   );
+
+  const header = {
+    headers: { authorization: `Bearer ${localStorage.getItem('user')}` },
+    withCredentials: true,
+  };
+
+  const removePost = async () => {
+    await axios
+      .delete(`${process.env.REACT_APP_API_URL}/posts/${id}`, header)
+      .then(navigate(-1))
+      .catch((err) => console.log(err));
+  };
 
   return (
     <>
@@ -52,7 +66,7 @@ const View = () => {
               </PostUpper>
               <ViewContentBlock>
                 <ViewImage>
-                  <img className='viewImage' src={imageUrl} />
+                  <img className='viewImage' alt='viewImg' src={imageUrl} />
                 </ViewImage>
                 <ViewContent>{selectedPost.content}</ViewContent>
               </ViewContentBlock>
@@ -66,7 +80,7 @@ const View = () => {
                 <EditIcon />
               </IconButton>
             </Link>
-            <IconButton aria-label='delete'>
+            <IconButton aria-label='delete' onClick={removePost}>
               <DeleteIcon />
             </IconButton>
           </ButtonBlock>
