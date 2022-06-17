@@ -43,6 +43,9 @@ export const ResultContainer = styled(Container)`
   justify-content: center;
   transform: translate(0%, -10%);
   margin-top: 10%;
+  @media screen and (max-width: 450px) {
+    transform: translate(0%, 0%);
+  }
 `;
 
 export const MypageContainer = styled.div`
@@ -75,6 +78,14 @@ export const ResultText = styled.div`
   margin: 5%;
   z-index: 2;
   word-break: keep-all;
+  @media screen and (max-width: 450px) {
+    h2 {
+      font-size: 32px;
+    }
+    h3 {
+      font-size: 24px;
+    }
+  }
 `;
 
 export const InnerText = styled.div`
