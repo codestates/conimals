@@ -14,6 +14,9 @@
 - third party map api를 이용해 사용자에게 가까운 유기동물보호소의 기본정보와 위치를 제공합니다.
 - 게시판을 이용해 사용자가 키우고 있는 반려동물의 사진을 올리고, 올려진 게시물에 댓글을 생성할 수 있도록 합니다.
 
+## Stack
+![Stack](https://user-images.githubusercontent.com/74191195/174234184-650df995-cd26-4eb9-991d-e2424059220a.png)
+
 ## Team Petmily Members
 
 ### Team Leader
