@@ -183,7 +183,6 @@ const BackGroundBlob = styled(BackGround)`
 `;
 
 const ButtonPosition = styled.div`
-  background: #ddd;
   position: absolute;
   right: 50%;
   transform: translateX(50%);

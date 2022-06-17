@@ -63,7 +63,7 @@ export const MypageContainer2 = styled.div`
 
 export const ResultInfo = styled.div`
   position: relative;
-  color: gainsboro;
+  color: #bbbbbb;
   font-size: 0.1rem;
   text-align: center;
   margin-top: 10%;
@@ -74,6 +74,7 @@ export const ResultText = styled.div`
   text-align: center;
   margin: 5%;
   z-index: 2;
+  word-break: keep-all;
 `;
 
 export const InnerText = styled.div`
@@ -92,6 +93,7 @@ export const KakaoLogin = styled.img`
 
 export const PolicyContainer = styled(Container)`
   text-align: center;
-  width: 70%;
-  margin: 100px auto;
+  max-width: 860px;
+  margin: 120px auto;
+  word-break: keep-all;
 `;
