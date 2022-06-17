@@ -61,7 +61,7 @@ function Main() {
               <StyledH3>입양 전 고려 사항들을 가볍게 진단해봅니다.</StyledH3>
               <ButtonPosition>
                 <Link to='/test'>
-                  <MainButton>테스트 하러 가기</MainButton>
+                  <MainButton>반려생활 적합 테스트 하러 가기</MainButton>
                 </Link>
               </ButtonPosition>
             </TextBlockRight>

@@ -45,7 +45,6 @@ function ModifyPassword() {
         setLoading(false);
       })
       .catch((err) => {
-        console.error(err);
         setLoading(false);
       });
   };

@@ -51,7 +51,7 @@ function Nav() {
           </Link>
           <Link to='/test'>
             <NavButton>
-              <h5>적합 테스트</h5>
+              <h5>반려생활 적합 테스트</h5>
             </NavButton>
           </Link>
           <Link to='/map'>

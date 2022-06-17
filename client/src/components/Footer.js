@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import gitlogo from '../assets/github.png';
 import logo from '../assets/Conimals_logo_horizontal1.png';
-import { ReactComponent as Tistory } from '../assets/Tistory.svg';
+import velog from '../assets/velog.jpg';
+import tistory from '../assets/tistory.png';
 
 const FooterSection = styled.footer`
   width: 100%;
@@ -60,6 +61,12 @@ const Logo = styled.img`
   width: 50px;
 `;
 
+const VLogo = styled.img`
+  width: 35px;
+  border-radius: 40px;
+  transform: translate(15%, -20%);
+`;
+
 const Copyright = styled.div`
   margin-left: 5%;
 `;
@@ -96,16 +103,28 @@ export default function Footer() {
                 </a>
               </TeamMember>
               <TeamMember>
-                정새얀
-                <a href='https://github.com/hsly22xk'>
-                  <Logo src={gitlogo} />
-                </a>
+                {' '}
+                정새얀{' '}
+                <div>
+                  <a href='https://github.com/hsly22xk'>
+                    <Logo src={gitlogo} />
+                  </a>
+                  <a href='https://hsly22xk.tistory.com/'>
+                    <Logo src={tistory} />
+                  </a>
+                </div>
               </TeamMember>
               <TeamMember>
-                박선교
-                <a href='https://github.com/kitch-finn'>
-                  <Logo src={gitlogo} />
-                </a>
+                {' '}
+                박선교{' '}
+                <div>
+                  <a href='https://github.com/kitch-finn'>
+                    <Logo src={gitlogo} />
+                  </a>
+                  <a href='https://velog.io/@sunn'>
+                    <VLogo src={velog} />
+                  </a>
+                </div>
               </TeamMember>
               <TeamMember>
                 정민규

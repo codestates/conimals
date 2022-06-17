@@ -53,6 +53,7 @@ const ProgressBar = styled.div`
   font-size: 1rem;
   display: flex;
   justify-content: center;
+  margin-top: 100px;
 `;
 
 const PBContainer = styled.div`
