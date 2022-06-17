@@ -10,7 +10,7 @@ import Pagination from '../../components/Pagination';
 const PostsSection = styled.section`
   margin-top: 100px;
   width: 100%;
-  margin-top: 120px;
+  margin-top: 180px;
 `;
 
 const ControlBlock = styled.div`

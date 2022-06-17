@@ -121,7 +121,6 @@ const Section = styled.section`
   display: flex;
   justify-content: center;
   position: relative;
-  margin-top: 100px;
 `;
 const TextWrapper = styled.div`
   width: 1200px;

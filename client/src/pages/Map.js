@@ -83,7 +83,7 @@ function ConimalsMap() {
           SetCurPosition(userPosition);
         },
         (err) => {
-          console.log(err);
+          ('');
         },
         { enableHighAccuracy: true, maximumAge: 0, timeout: 5000 }
       );
@@ -111,7 +111,7 @@ function ConimalsMap() {
           {markers.map((el, i) => (
             <>
               <MapMarker // 마커를 생성합니다
-                key={el.id}
+                key={`marker ${el.i}`}
                 onClick={openIf}
                 position={{
                   lat: `${markers[i].lat}`,
@@ -133,7 +133,7 @@ function ConimalsMap() {
               />
               {isOpen && (
                 <CustomOverlayMap //버튼 클릭 관련
-                  key={`Tooltip ${el.id}`}
+                  key={`Tooltip ${el.i}`}
                   position={{
                     lat: `${markers[i].lat}`,
                     lng: `${markers[i].lng}`,
