@@ -53,7 +53,6 @@ function Mypage() {
           withCredentials: true,
         })
         .then((res) => {
-          console.log(res);
           setLoading(false);
           setUserinfo({
             id: res.data.data.id,

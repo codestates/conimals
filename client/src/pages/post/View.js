@@ -27,7 +27,7 @@ const View = () => {
 
   useEffect(() => {
     getDetail();
-  });
+  }, []);
 
   const imageUrl = `${process.env.REACT_APP_API_URL}/posts/${selectedPost.image}`;
   const parsedDate = new Date(selectedPost.createdAt).toLocaleDateString(

@@ -61,8 +61,8 @@ const PBContainer = styled.div`
 `;
 
 const checkGuest = () => {
-  if (localStorage.user === 'guest') {
-    localStorage.removeItem('user');
+  if (localStorage.getItem('first-guest')) {
+    localStorage.removeItem('first-guest');
     localStorage.setItem('guest', 'use');
   }
 };
@@ -173,7 +173,9 @@ function Test() {
         <SignsModal />
       ) : (
         <>
-          {localStorage.getItem('user') || localStorage.getItem('kakao') ? (
+          {localStorage.getItem('user') ||
+          localStorage.getItem('kakao') ||
+          localStorage.getItem('first-guest') ? (
             <>
               <PBContainer>
                 <ProgressBar progress={progress} />
