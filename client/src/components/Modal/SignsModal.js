@@ -29,7 +29,6 @@ export const ModalBackdrop = styled.div`
 export const ModalView = styled.div.attrs((props) => ({
   role: 'dialog',
 }))`
-  /* background: url('../../assets/LoginVector.png'); */
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -53,7 +52,6 @@ export const SignButton = styled.button`
   width: 30%;
   margin: 5%;
   position: relative;
-  /* border: none; */
   padding: 1% 5%;
   border-radius: 15px;
   font-family: sans-serif;
@@ -84,8 +82,23 @@ export const Title = styled.span`
   margin-bottom: 3%;
 `;
 
+export const Close = styled.div`
+  position: absolute;
+  top: 1rem;
+  right: 0.3rem;
+  font-size: 2rem;
+  width: 4rem;
+  height: 4rem;
+  text-align: center;
+  cursor: pointer;
+`;
+
+export const GuestText = styled.div`
+  font-size: 1rem;
+`;
+
 const gusetMode = () => {
-  localStorage.setItem('user', 'guest');
+  localStorage.setItem('first-guest', '1');
   window.location.replace('/test');
 };
 
@@ -99,25 +112,40 @@ export default function SignsModal({ handleModal }) {
             event.stopPropagation();
           }}
         >
-          <>
-            <div className='close-btn' onClick={() => navigate('/')}>
-              &times;
-            </div>
-            <Title>
-              <h3>앗 아직 회원이 아니시군요!</h3>
-            </Title>
-            <Title>
-              <div>
-                <h4>걱정 마세요!</h4>
-              </div>
+          {localStorage.guest === 'use' ? (
+            <>
+              <div onClick={() => navigate('/')}>&times;</div>
+              <Title>
+                <h3>게스트 모드를 이용하셨습니다!</h3>
+              </Title>
+              <Title>
+                <GuestText>
+                  <div>다시 참여하시려면</div>
+                  <br />
+                  <TextPoint>회원가입 또는 로그인을</TextPoint>
+                  <div>진행해주세요.</div>
+                </GuestText>
+              </Title>
+            </>
+          ) : (
+            <>
+              <div onClick={() => navigate('/')}>&times;</div>
+              <Title>
+                <h3>앗 아직 회원이 아니시군요!</h3>
+              </Title>
+              <Title>
+                <div>
+                  <h4>걱정 마세요!</h4>
+                </div>
+                <br />
+                <TextPoint>비회원도 게스트 모드로</TextPoint>
+                <div>양육 적합 테스트에 1회 참여가 가능합니다.</div>
+              </Title>
+              <GuestButton onClick={gusetMode}>게스트 모드 시작</GuestButton>
               <br />
-              <TextPoint>비회원도 게스트 모드로</TextPoint>
-              <div>양육 적합 테스트에 1회 참여가 가능합니다.</div>
-            </Title>
-            <GuestButton onClick={gusetMode}>게스트 모드 시작</GuestButton>
-            <br />
-            <div>또는</div>
-          </>
+              <div>또는</div>
+            </>
+          )}
           <Container>
             <a href='/signup'>
               <Button>회원가입</Button>
@@ -128,7 +156,6 @@ export default function SignsModal({ handleModal }) {
               </a>
             </ButtonMargin>
           </Container>
-
         </ModalView>
       </ModalBackdrop>
     </ModalContainer>
