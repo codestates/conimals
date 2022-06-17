@@ -1,11 +1,42 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import axios from 'axios';
 
 const Li = ({ item }) => {
   const parsedDate = new Date(item.createdAt).toLocaleDateString('ko-kr');
 
   const imgUrl = `${process.env.REACT_APP_API_URL}/posts/${item.image}`;
+
+  const [username, setUsername] = useState('guest');
+
+  const getUserinfo = () => {
+    if (localStorage.kakao) {
+      axios
+        .get(`${process.env.REACT_APP_API_URL}/mypages/auth`, {
+          headers: { authorization: `Bearer ${localStorage.kakao}` },
+          withCredentials: true,
+        })
+        .then((res) => {
+          setUsername(res.data.data.userName);
+        });
+    } else {
+      axios
+        .get(`${process.env.REACT_APP_API_URL}/mypages/auth`, {
+          headers: { authorization: `Bearer ${localStorage.user}` },
+          withCredentials: true,
+        })
+        .then((res) => {
+          setUsername(res.data.data.userName);
+        });
+    }
+  };
+
+  useEffect(() => {
+    if (localStorage.getItem('user') || localStorage.getItem('kakao')) {
+      getUserinfo();
+    }
+  }, []);
 
   return (
     <>
@@ -25,7 +56,7 @@ const Li = ({ item }) => {
               </PostsTitle>
               <PostWriterNDate>
                 <li className='postUserName'>
-                  {item.username ? `${item.username}` : '작성자'}
+                  {username ? `${username}` : '작성자'}
                 </li>
                 <li className='postCreatedAt'>{parsedDate}</li>
               </PostWriterNDate>

@@ -22,8 +22,8 @@ export const Button = styled.button`
 
 export const MainButton = styled(Button)`
   margin-top: 0px;
-  border-radius: 0px;
-  background-color: skyblue;
+  border-radius: 1rem;
+  background-color: #00b0ff;
 
   &:hover {
     background-color: steelblue;

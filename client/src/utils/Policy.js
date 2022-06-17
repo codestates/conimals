@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { PolicyContainer } from '../components/Container';
-import styled from 'styled-components';
 
 export default function Policy() {
   return (

@@ -10,7 +10,7 @@ import Pagination from '../../components/Pagination';
 const PostsSection = styled.section`
   margin-top: 100px;
   width: 100%;
-  margin-top: 100px;
+  margin-top: 120px;
 `;
 
 const ControlBlock = styled.div`
@@ -50,7 +50,11 @@ const Posts = () => {
       <PostsSection>
         <ControlBlock>
           <Link to={`/write`}>
-            <Button variant='contained' startIcon={<AddBoxIcon />}>
+            <Button
+              variant='contained'
+              style={{ backgroundColor: 'orange' }}
+              startIcon={<AddBoxIcon />}
+            >
               <h5>글쓰기</h5>
             </Button>
           </Link>
