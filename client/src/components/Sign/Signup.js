@@ -92,44 +92,34 @@ function Signup() {
     setEmailError(false);
     setUsernameError(false);
     setLoading(true);
-    if (
-      !emailValidator(userinfo.userEmail) ||
-      !nicknameValidator(userinfo.userName) ||
-      !passwordValidator(userinfo.password) ||
-      !passwordMatchValidator(userinfo.password, userinfo.retypePassword)
-    ) {
-      if (!emailValidator(userinfo.userEmail)) {
-        setEmailError(true);
-        setLoading(false);
-      }
-      if (!nicknameValidator(userinfo.userName)) {
-        setUsernameError(true);
-        setLoading(false);
-      }
-      if (!passwordValidator(userinfo.password)) {
-        setPasswordError(true);
-        setLoading(false);
-      }
-      if (!passwordMatchValidator(userinfo.password, userinfo.retypePassword)) {
-        setConfirmPasswordError(true);
-        setLoading(false);
-      }
+    if (!emailValidator(userinfo.userEmail)) {
+      setEmailError(true);
+      setLoading(false);
+    }
+    if (!nicknameValidator(userinfo.userName)) {
+      setUsernameError(true);
+      setLoading(false);
+    }
+    if (!passwordValidator(userinfo.password)) {
+      setPasswordError(true);
+      setLoading(false);
+    }
+    if (!passwordMatchValidator(userinfo.password, userinfo.retypePassword)) {
+      setConfirmPasswordError(true);
+      setLoading(false);
     } else {
-      axios
-        .post(
-          `${process.env.REACT_APP_API_URL}/users/signup`,
-          {
-            userName: userinfo.userName,
-            userEmail: userinfo.userEmail,
-            password: userinfo.password,
-          },
-          {
-            headers: { 'Content-Type': 'application/json' },
-            withCredentials: true,
-            // "rejectUnauthorized": false
-          }
-        )
-        .then((res) => console.log(res));
+      axios.post(
+        `${process.env.REACT_APP_API_URL}/users/signup`,
+        {
+          userName: userinfo.userName,
+          userEmail: userinfo.userEmail,
+          password: userinfo.password,
+        },
+        {
+          headers: { 'Content-Type': 'application/json' },
+          withCredentials: true,
+        }
+      );
       setModalOpen(true);
       setLoading(false);
     }

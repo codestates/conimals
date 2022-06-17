@@ -38,12 +38,13 @@ export const MainButton2 = styled(MainButton)`
 `;
 
 export const WithdrawalButton = styled(Button)`
-  padding: 1px 5px;
   margin-top: 30px;
-  background-color: darkkhaki;
+  background-color: white;
+  border: 3px solid red;
+  color: black;
 
   &:hover {
-    background-color: darkgoldenrod;
+    color: white;
   }
 `;
 

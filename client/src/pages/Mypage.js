@@ -38,7 +38,6 @@ function Mypage() {
         })
         .then((res) => {
           setLoading(false);
-          console.log(res);
           setUserinfo({
             id: res.data.data.id,
             userId: res.data.data.id,
@@ -94,27 +93,34 @@ function Mypage() {
                 <>
                   <ModifyUsername />
                   <br />
-
-                  <ModifyPassword />
-                  <br />
+                  {localStorage.kakao ? null : (
+                    <>
+                      <ModifyPassword />
+                      <br />
+                    </>
+                  )}
                 </>
               ) : (
                 <>
                   <MypageContainer2>
                     <div>
-                      <h4>닉네임 </h4>
+                      <h4>닉네임</h4>
                     </div>
                     <EditInput value={userinfo.userName} disabled />
                     <br />
                     <br />
-                    <div>
-                      <h4>이메일 </h4>
-                    </div>
-                    <EditInput
-                      value={userinfo.userEmail}
-                      type='email'
-                      disabled
-                    />
+                    {userinfo.userEmail ? (
+                      <>
+                        <div>
+                          <h4>이메일</h4>
+                        </div>
+                        <EditInput
+                          value={userinfo.userEmail}
+                          type='email'
+                          disabled
+                        />
+                      </>
+                    ) : null}
                   </MypageContainer2>
                 </>
               )}
@@ -122,7 +128,6 @@ function Mypage() {
                 {modifyMode ? (
                   <>
                     <EditButton onClick={handleModifyMode}>수정완료</EditButton>
-                    <br />
                   </>
                 ) : (
                   <>
@@ -132,6 +137,7 @@ function Mypage() {
                     <Line />
                   </>
                 )}
+                <br />
                 <Withdrawal />
               </MypageContainer2>
             </TextContainer>
