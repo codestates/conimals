@@ -66,7 +66,9 @@ function Image({ setImages }) {
                   onChange={imageUploadHandler}
                   ref={inputImageRef}
                 />
-                <Button variant='contained'>이미지 업로드</Button>
+                <Button variant='contained' style={{ background: '#00b0ff' }}>
+                  이미지 업로드
+                </Button>
               </label>
             )}
           </ButtonBlock>

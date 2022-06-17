@@ -39,6 +39,9 @@ const Select = styled.div`
     font-size: 1rem;
     width: 350px;
   }
+  &:hover {
+    background-color: #e49400;
+  }
 `;
 
 const ProgressBar = styled.div`
