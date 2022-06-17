@@ -42,7 +42,6 @@ export default function UseConfirm() {
       .then((res) => {
         localStorage.removeItem('user');
         setModalOpen(true);
-        console.log(res);
       });
   };
   const cancel = () => {};
