@@ -106,7 +106,12 @@ const Write = () => {
             onChange={handleInput('content')}
           ></TextField>
 
-          <Button variant='contained' type='button' onClick={onSubmit}>
+          <Button
+            variant='contained'
+            type='button'
+            onClick={onSubmit}
+            style={{ background: '#00b0ff' }}
+          >
             저장
           </Button>
         </NewPostWrap>

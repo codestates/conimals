@@ -9,13 +9,11 @@ import {
 import Logo from '../../assets/Conimals_logo_horizontal1.png';
 import ConfirmModal from '../Modal/ConfirmModals';
 import Loading from '../../utils/LoadingIndicator';
-// import SignupsSvgImg from '../../assets/signup.svg';
 import SignupsImg from '../../assets/signup.png';
 import { Button } from '../../components/Button';
 import { ShadowBigInput } from '../Input';
 
 import styled from 'styled-components';
-import './Signup.css';
 
 const axios = require('axios');
 
@@ -36,6 +34,10 @@ const SignupField = styled.div`
   z-index: 9;
 `;
 
+const SignupImg = styled.img`
+  width: 60%;
+`;
+
 const InputTitle = styled.div`
   margin-top: 5%;
   margin-left: 20%;
@@ -50,11 +52,18 @@ const ValidateText = styled.div`
 `;
 
 const SignupLogin = styled.div`
-  width: 30vw;
-  margin-top: 2%;
+  width: 50%;
+  margin-top: 5%;
   margin-left: 20%;
 `;
 
+const LoginLink = styled.a`
+  margin-left: 10%;
+  color: steelblue;
+  &:hover {
+    color: skyblue;
+  }
+`;
 function Signup() {
   const [userinfo, setUserinfo] = useState({
     userName: '',
@@ -83,44 +92,34 @@ function Signup() {
     setEmailError(false);
     setUsernameError(false);
     setLoading(true);
-    if (
-      !emailValidator(userinfo.userEmail) ||
-      !nicknameValidator(userinfo.userName) ||
-      !passwordValidator(userinfo.password) ||
-      !passwordMatchValidator(userinfo.password, userinfo.retypePassword)
-    ) {
-      if (!emailValidator(userinfo.userEmail)) {
-        setEmailError(true);
-        setLoading(false);
-      }
-      if (!nicknameValidator(userinfo.userName)) {
-        setUsernameError(true);
-        setLoading(false);
-      }
-      if (!passwordValidator(userinfo.password)) {
-        setPasswordError(true);
-        setLoading(false);
-      }
-      if (!passwordMatchValidator(userinfo.password, userinfo.retypePassword)) {
-        setConfirmPasswordError(true);
-        setLoading(false);
-      }
+    if (!emailValidator(userinfo.userEmail)) {
+      setEmailError(true);
+      setLoading(false);
+    }
+    if (!nicknameValidator(userinfo.userName)) {
+      setUsernameError(true);
+      setLoading(false);
+    }
+    if (!passwordValidator(userinfo.password)) {
+      setPasswordError(true);
+      setLoading(false);
+    }
+    if (!passwordMatchValidator(userinfo.password, userinfo.retypePassword)) {
+      setConfirmPasswordError(true);
+      setLoading(false);
     } else {
-      axios
-        .post(
-          `${process.env.REACT_APP_API_URL}/users/signup`,
-          {
-            userName: userinfo.userName,
-            userEmail: userinfo.userEmail,
-            password: userinfo.password,
-          },
-          {
-            headers: { 'Content-Type': 'application/json' },
-            withCredentials: true,
-            // "rejectUnauthorized": false
-          }
-        )
-        .then((res) => console.log(res));
+      axios.post(
+        `${process.env.REACT_APP_API_URL}/users/signup`,
+        {
+          userName: userinfo.userName,
+          userEmail: userinfo.userEmail,
+          password: userinfo.password,
+        },
+        {
+          headers: { 'Content-Type': 'application/json' },
+          withCredentials: true,
+        }
+      );
       setModalOpen(true);
       setLoading(false);
     }
@@ -130,9 +129,7 @@ function Signup() {
     <>
       {loading ? <Loading /> : null}
       <SignupContainer>
-        <div>
-          <img src={SignupsImg} alt='signup-img' />
-        </div>
+        <SignupImg src={SignupsImg} alt='signup-img'></SignupImg>
         <SignupField>
           <div>
             <img src={Logo} alt='coniamls-logo' />
@@ -190,10 +187,7 @@ function Signup() {
           <Button onClick={onSubmit}>회원가입</Button>
 
           <SignupLogin>
-            이미 회원이신가요?{' '}
-            <a className='signup-login-link' href='/login'>
-              로그인
-            </a>
+            이미 회원이신가요? <LoginLink href='/login'>로그인</LoginLink>
           </SignupLogin>
         </SignupField>
       </SignupContainer>

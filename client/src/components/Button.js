@@ -7,7 +7,7 @@ export const Button = styled.button`
   border-radius: 15px;
   margin-top: 15px;
   font-family: sans-serif;
-  box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
   text-decoration: none;
   font-weight: 600;
   transition: 0.25s;
@@ -22,8 +22,8 @@ export const Button = styled.button`
 
 export const MainButton = styled(Button)`
   margin-top: 0px;
-  border-radius: 0px;
-  background-color: skyblue;
+  border-radius: 1rem;
+  background-color: #00b0ff;
 
   &:hover {
     background-color: steelblue;
@@ -38,12 +38,13 @@ export const MainButton2 = styled(MainButton)`
 `;
 
 export const WithdrawalButton = styled(Button)`
-  padding: 1px 5px;
   margin-top: 30px;
-  background-color: darkkhaki;
+  background-color: white;
+  border: 3px solid red;
+  color: black;
 
   &:hover {
-    background-color: darkgoldenrod;
+    color: white;
   }
 `;
 

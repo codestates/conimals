@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Map, MapMarker, CustomOverlayMap } from 'react-kakao-maps-sdk';
 import styled from 'styled-components';
 import { dummydata } from '../lib/dummydata';
@@ -63,27 +63,50 @@ const MarkerWithCustomOverlayStyle = styled.div`
 function ConimalsMap() {
   const [markers, setMarkers] = useState(dummydata);
   const [isOpen, setIsOpen] = useState(false);
+  const [curPosition, SetCurPosition] = useState({ lat: null, lng: null });
 
   //setMarkers 사용은 어떻게 하면 좋을지 고민할 것
 
   function openIf() {
     setIsOpen(isOpen === true ? false : true);
   }
+
+  useEffect(() => {
+    //현재 위치 가져와서 맵 중심 맞추기
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const userPosition = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          };
+          SetCurPosition(userPosition);
+        },
+        (err) => {
+          console.log(err);
+        },
+        { enableHighAccuracy: true, maximumAge: 0, timeout: 5000 }
+      );
+    } else {
+      const userPosition = {
+        lat: 126.982219,
+        lng: 37.5230201,
+      };
+      SetCurPosition(userPosition);
+    }
+  }, []);
+
   return (
     <>
       <MarkerWithCustomOverlayStyle>
         <Map // 지도를 표시할 Container
-          center={{
-            // 지도의 중심좌표
-            lat: 37.51724,
-            lng: 126.97052,
-          }}
+          center={curPosition}
           style={{
             // 지도의 크기
             width: '100vw',
             height: '100vh',
           }}
-          level={8} // 지도의 확대 레벨
+          level={7} // 지도의 확대 레벨
         >
           {markers.map((el, i) => (
             <>
@@ -110,7 +133,7 @@ function ConimalsMap() {
               />
               {isOpen && (
                 <CustomOverlayMap //버튼 클릭 관련
-                  key={el.id}
+                  key={`Tooltip ${el.id}`}
                   position={{
                     lat: `${markers[i].lat}`,
                     lng: `${markers[i].lng}`,

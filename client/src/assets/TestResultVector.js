@@ -7,7 +7,6 @@ export const Background = styled.div`
   height: 95%;
   margin-top: 5%;
   z-index: 1;
-  transform: translate(0%, 0%);
   @media screen and (max-width: 450px) {
     width: 0px;
   }
