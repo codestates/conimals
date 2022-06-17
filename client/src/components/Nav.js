@@ -10,7 +10,7 @@ const Header = styled.header`
   position: fixed;
   top: 0;
   z-index: 10;
-  background-color: #fffffcde;
+  background-color: #fffffc;
 `;
 
 const NavBlock = styled.div`

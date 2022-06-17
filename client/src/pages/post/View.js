@@ -41,7 +41,7 @@ const View = () => {
 
   const removePost = async () => {
     await axios
-      .delete(`${process.env.REACT_APP_API_URL}/posts/${id}`, header)
+      .delete(`${process.env.REACT_APP_API_URL}/posts/view/${id}`, header)
       .then(navigate(-1))
       .catch((err) => console.log(err));
   };

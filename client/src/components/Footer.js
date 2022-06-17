@@ -83,13 +83,16 @@ export default function Footer() {
               </FooterTitle>
             </Policy>
             <FooterTitle>유기동물 관련 추천 사이트</FooterTitle>
-            <a href='https://www.animal.go.kr/front/awtis/protection/protectionList.do?menuNo=1000000060'>
+            <a
+              href='https://www.animal.go.kr/front/awtis/protection/protectionList.do?menuNo=1000000060'
+              target='_blank'
+            >
               <h6>동물보호관리시스템</h6>
             </a>
           </div>
           <MiddlePetmily>
             <TeamLink>
-              <a href='https://github.com/codestates/conimals'>
+              <a href='https://github.com/codestates/conimals' target='_blank'>
                 <FooterTitle>
                   코드스테이츠 SEB 38기 Final Project Team Petmily
                 </FooterTitle>
@@ -98,7 +101,7 @@ export default function Footer() {
             <TeamMemberList>
               <TeamMember>
                 팀장 조진형
-                <a href='https://github.com/YeonSeoJo'>
+                <a href='https://github.com/YeonSeoJo' target='_blank'>
                   <Logo src={gitlogo} />
                 </a>
               </TeamMember>
@@ -106,10 +109,10 @@ export default function Footer() {
                 {' '}
                 정새얀{' '}
                 <div>
-                  <a href='https://github.com/hsly22xk'>
+                  <a href='https://github.com/hsly22xk' target='_blank'>
                     <Logo src={gitlogo} />
                   </a>
-                  <a href='https://hsly22xk.tistory.com/'>
+                  <a href='https://hsly22xk.tistory.com/' target='_blank'>
                     <Logo src={tistory} />
                   </a>
                 </div>
@@ -118,17 +121,17 @@ export default function Footer() {
                 {' '}
                 박선교{' '}
                 <div>
-                  <a href='https://github.com/kitch-finn'>
+                  <a href='https://github.com/kitch-finn' target='_blank'>
                     <Logo src={gitlogo} />
                   </a>
-                  <a href='https://velog.io/@sunn'>
+                  <a href='https://velog.io/@sunn' target='_blank'>
                     <VLogo src={velog} />
                   </a>
                 </div>
               </TeamMember>
               <TeamMember>
                 정민규
-                <a href='https://github.com/D-MG-lab'>
+                <a href='https://github.com/D-MG-lab' target='_blank'>
                   <Logo src={gitlogo} />
                 </a>
               </TeamMember>
