@@ -3,13 +3,14 @@ import Li from './Li';
 import styled from 'styled-components';
 
 const PostsPageUl = styled.ul`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
   justify-items: center;
-  gap: 4%;
-  max-width: 1200px;
+  width: 1200px;
   margin: 30px auto;
-  height: 1080px;
+  background: #fef6f9;
+  border-radius: 1rem;
 `;
 
 const Ul = ({ post }) => {

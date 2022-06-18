@@ -6,13 +6,14 @@ export const Background = styled.div`
   /* justify-content: center; */
   display: inline-block;
   text-align: center;
-  width: 100vw;
+  width: 100%;
   height: auto;
   margin-top: 5%;
   z-index: 1;
   transform: translate(30%, 0%);
   @media screen and (max-width: 450px) {
     transform: translate(55%, 0%);
+    width: 300px;
     height: 300px;
   }
 `;
