@@ -82,11 +82,15 @@ function Login() {
         }
       )
       .then((res) => {
+        if (
+          localStorage.getItem('guest') ||
+          localStorage.getItem('first-guest')
+        ) {
+          localStorage.removeItem('guest');
+          localStorage.removeItem('first-guest');
+        }
         if (res.data.data.accessToken) {
           localStorage.setItem('user', res.data.data.accessToken);
-        }
-        if (localStorage.getItem('guest')) {
-          localStorage.removeItem('guest');
         }
         setModalOpen(true);
         setModalMsg('로그인 되었습니다!');

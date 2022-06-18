@@ -39,6 +39,7 @@ export const MainButton2 = styled(MainButton)`
 
 export const WithdrawalButton = styled(Button)`
   margin-top: 30px;
+  padding: 10px 27px;
   background-color: white;
   border: 3px solid red;
   color: black;
