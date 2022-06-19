@@ -25,7 +25,7 @@
 
 - Position: Full-Stack
 - Stack : NODE js, EXPRESS, MYSql, Sequelize, AWS
-- main kick: 
+- main kick: multer-s3, AWS CI/CD
 
 ### Team Crew
 
