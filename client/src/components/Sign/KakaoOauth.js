@@ -32,10 +32,16 @@ const KakaoOauth = () => {
         }
       )
       .then((res) => {
-        localStorage.setItem('kakao', res.data.token);
-        setModalOpen(true);
-        setModalMsg('카카오 로그인 되었습니다!');
-        setLoading(false);
+        if (res.data.token) {
+          localStorage.setItem('kakao', res.data.token);
+          setModalOpen(true);
+          setModalMsg('카카오 로그인 되었습니다!');
+          setLoading(false);
+        } else {
+          setModalOpen(true);
+          setModalMsg('카카오 로그인에 실패하였습니다');
+          setLoading(false);
+        }
       });
   };
 
