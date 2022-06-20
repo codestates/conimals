@@ -14,6 +14,9 @@
 - third party map api를 이용해 사용자에게 가까운 유기동물보호소의 기본정보와 위치를 제공합니다.
 - 게시판을 이용해 사용자가 키우고 있는 반려동물의 사진을 올리고, 올려진 게시물에 댓글을 생성할 수 있도록 합니다.
 
+## Stack
+![Stack](https://user-images.githubusercontent.com/74191195/174234184-650df995-cd26-4eb9-991d-e2424059220a.png)
+
 ## Team Petmily Members
 
 ### Team Leader
@@ -30,19 +33,19 @@
 
 - Position: Back-end
 - Stack : NODE js, EXPRESS, MYSql, Sequelize, AWS
-- main kick: 
+- main kick: 사용자 및 게시글 CRUD
 
 ### 정민규
 
 - Position: Full-Stack
-- Stack : React.js, Styled-Component
+- Stack : React.js, Javascript, CSS, Styled-Component
 - main kick: 
 
 ### 박선교 
 
 - Position: Front-end
 - Stack : React.js, Javascript, CSS, Styled-Component
-- main kick: 회원가입, 로그인, 로그아웃, 마이페이지, 회원 정보 수정, 카카오 Oauth 로그인, 반려동물 적합도 테스트 페이지, 게스트 모드, Modal
+- main kick: 카카오 Oauth 로그인을 포함한 회원 정보 관련 기능, 게스트 모드
 
-## Deploy(임시)
-[Conimals](https://client.conimals.net/)
+## Deploy
+[Conimals](https://www.conimals.link/)

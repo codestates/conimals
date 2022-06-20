@@ -41,7 +41,7 @@ const View = () => {
 
   const removePost = async () => {
     await axios
-      .delete(`${process.env.REACT_APP_API_URL}/posts/${id}`, header)
+      .delete(`${process.env.REACT_APP_API_URL}/posts/view/${id}`, header)
       .then(navigate(-1))
       .catch((err) => console.log(err));
   };
@@ -74,16 +74,19 @@ const View = () => {
           ) : (
             '해당 게시글을 찾을 수 없습니다'
           )}
-          <ButtonBlock>
-            <Link to={`/Edit/${selectedPost.id}`}>
-              <IconButton aria-label='edit'>
-                <EditIcon />
+
+          {localStorage.getItem('user') || localStorage.getItem('kakao') ? (
+            <ButtonBlock>
+              <Link to={`/Edit/${selectedPost.id}`}>
+                <IconButton aria-label='edit'>
+                  <EditIcon />
+                </IconButton>
+              </Link>
+              <IconButton aria-label='delete' onClick={removePost}>
+                <DeleteIcon />
               </IconButton>
-            </Link>
-            <IconButton aria-label='delete' onClick={removePost}>
-              <DeleteIcon />
-            </IconButton>
-          </ButtonBlock>
+            </ButtonBlock>
+          ) : null}
         </ViewWrap>
       </ViewSection>
     </>

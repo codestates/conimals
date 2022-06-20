@@ -75,6 +75,7 @@ const PostsPageList = styled.li`
   display: flex;
   justify-content: center;
   flex-direction: column;
+  margin: 1.35rem;
 `;
 
 const PostsBlock = styled.div`

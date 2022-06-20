@@ -10,7 +10,7 @@ import Pagination from '../../components/Pagination';
 const PostsSection = styled.section`
   margin-top: 100px;
   width: 100%;
-  margin-top: 120px;
+  margin-top: 180px;
 `;
 
 const ControlBlock = styled.div`
@@ -49,15 +49,17 @@ const Posts = () => {
     <>
       <PostsSection>
         <ControlBlock>
-          <Link to={`/write`}>
-            <Button
-              variant='contained'
-              style={{ backgroundColor: 'orange' }}
-              startIcon={<AddBoxIcon />}
-            >
-              <h5>글쓰기</h5>
-            </Button>
-          </Link>
+          {localStorage.getItem('user') || localStorage.getItem('kakao') ? (
+            <Link to='/write'>
+              <Button
+                variant='contained'
+                style={{ backgroundColor: 'orange' }}
+                startIcon={<AddBoxIcon />}
+              >
+                <h5>글쓰기</h5>
+              </Button>
+            </Link>
+          ) : null}
         </ControlBlock>
         <PostsPageUl post={currentPosts(post)}></PostsPageUl>
         <PaginationBlock>

@@ -159,7 +159,7 @@ const EditPost = () => {
   const onSubmit = async () => {
     await axios
       .patch(
-        `${process.env.REACT_APP_API_URL}/edit/${viewed.id}`,
+        `${process.env.REACT_APP_API_URL}/edit/${id}`,
         {
           postId: id,
           title: viewed.title,
