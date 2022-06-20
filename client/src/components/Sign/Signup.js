@@ -120,6 +120,13 @@ function Signup() {
           withCredentials: true,
         }
       );
+      if (
+        localStorage.getItem('guest') ||
+        localStorage.getItem('first-guest')
+      ) {
+        localStorage.removeItem('guest');
+        localStorage.removeItem('first-guest');
+      }
       setModalOpen(true);
       setLoading(false);
     }
@@ -162,7 +169,7 @@ function Signup() {
           <InputTitle>비밀번호</InputTitle>
 
           <ShadowBigInput
-            type='text'
+            type='password'
             className='input-signup'
             placeholder='8자 이상의 영문, 숫자를 입력해주세요'
             onChange={handleInputValue('password')}
@@ -175,7 +182,7 @@ function Signup() {
           <InputTitle>비밀번호 확인</InputTitle>
 
           <ShadowBigInput
-            type='text'
+            type='password'
             className='input-signup'
             placeholder='8자 이상의 영문, 숫자를 입력해주세요'
             onChange={handleInputValue('retypePassword')}

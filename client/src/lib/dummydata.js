@@ -149,6 +149,36 @@ const dummydata = [
     homelink: 'https://dmanimal.co.kr/main',
     contacts: '1566-8713',
   },
+  {
+    id: 16,
+    title: '도그마루 분당점',
+    lat: 37.37020931281183,
+    lng: 127.10116475380596,
+    address: '경기 성남시 분당구 궁내로40번길 40 2층',
+    kakaolink: 'http://kko.to/4Xc0aWWVK',
+    homelink: 'https://dmanimal.co.kr/main',
+    contacts: '1566-8713',
+  },
+  {
+    id: 17,
+    title: '펫토피아동물병원',
+    lat: 37.367095691,
+    lng: 127.127681498,
+    address: '경기 성남시 분당구 궁내로40번길 40 2층',
+    kakaolink: 'http://kko.to/irN0WF7Z-',
+    homelink: '',
+    contacts: '031-714-8392',
+  },
+  {
+    id: 18,
+    title: '수원시 동물보호센터',
+    lat: 37.28501978,
+    lng: 127.078698506,
+    address: '경기 성남시 분당구 궁내로40번길 40 2층',
+    kakaolink: 'http://kko.to/IDSEspkat',
+    homelink: '',
+    contacts: '031-228-3557',
+  },
 ];
 
 export { dummydata };

@@ -33,6 +33,13 @@ const KakaoOauth = () => {
       )
       .then((res) => {
         if (res.data.token) {
+          if (
+            localStorage.getItem('guest') ||
+            localStorage.getItem('first-guest')
+          ) {
+            localStorage.removeItem('guest');
+            localStorage.removeItem('first-guest');
+          }
           localStorage.setItem('kakao', res.data.token);
           setModalOpen(true);
           setModalMsg('카카오 로그인 되었습니다!');

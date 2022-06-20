@@ -63,7 +63,10 @@ const MarkerWithCustomOverlayStyle = styled.div`
 function ConimalsMap() {
   const [markers, setMarkers] = useState(dummydata);
   const [isOpen, setIsOpen] = useState(false);
-  const [curPosition, SetCurPosition] = useState({ lat: null, lng: null });
+  const [curPosition, SetCurPosition] = useState({
+    lat: null,
+    lng: null,
+  });
 
   //setMarkers 사용은 어떻게 하면 좋을지 고민할 것
 
@@ -72,7 +75,7 @@ function ConimalsMap() {
   }
 
   useEffect(() => {
-    //현재 위치 가져와서 맵 중심 맞추기
+    // 현재 위치 가져와서 맵 중심 맞추기
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
