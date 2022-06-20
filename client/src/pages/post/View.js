@@ -29,7 +29,8 @@ const View = () => {
     getDetail();
   }, []);
 
-  const imageUrl = `${process.env.REACT_APP_API_URL}/posts/${selectedPost.image}`;
+  const imageUrl = `${selectedPost.image}`;
+  // const imageUrl = `${process.env.REACT_APP_API_URL}/posts/${selectedPost.image}`;
   const parsedDate = new Date(selectedPost.createdAt).toLocaleDateString(
     'ko-kr'
   );
@@ -74,16 +75,19 @@ const View = () => {
           ) : (
             '해당 게시글을 찾을 수 없습니다'
           )}
-          <ButtonBlock>
-            <Link to={`/Edit/${selectedPost.id}`}>
-              <IconButton aria-label='edit'>
-                <EditIcon />
+
+          {localStorage.getItem('user') || localStorage.getItem('kakao') ? (
+            <ButtonBlock>
+              <Link to={`/Edit/${selectedPost.id}`}>
+                <IconButton aria-label='edit'>
+                  <EditIcon />
+                </IconButton>
+              </Link>
+              <IconButton aria-label='delete' onClick={removePost}>
+                <DeleteIcon />
               </IconButton>
-            </Link>
-            <IconButton aria-label='delete' onClick={removePost}>
-              <DeleteIcon />
-            </IconButton>
-          </ButtonBlock>
+            </ButtonBlock>
+          ) : null}
         </ViewWrap>
       </ViewSection>
     </>
