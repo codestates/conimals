@@ -139,7 +139,7 @@ function Test() {
         navigate('/results1');
         checkGuest();
       }
-      if (70 <= score || score < 80) {
+      if (70 <= score && score < 80) {
         navigate('/results2');
         checkGuest();
       }
@@ -156,7 +156,7 @@ function Test() {
         navigate('/results1');
         checkGuest();
       }
-      if (70 <= score || score < 80) {
+      if (70 <= score && score < 80) {
         navigate('/results2');
         checkGuest();
       }

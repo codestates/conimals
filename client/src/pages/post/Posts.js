@@ -49,15 +49,17 @@ const Posts = () => {
     <>
       <PostsSection>
         <ControlBlock>
-          <Link to={`/write`}>
-            <Button
-              variant='contained'
-              style={{ backgroundColor: 'orange' }}
-              startIcon={<AddBoxIcon />}
-            >
-              <h5>글쓰기</h5>
-            </Button>
-          </Link>
+          {localStorage.getItem('user') || localStorage.getItem('kakao') ? (
+            <Link to='/write'>
+              <Button
+                variant='contained'
+                style={{ backgroundColor: 'orange' }}
+                startIcon={<AddBoxIcon />}
+              >
+                <h5>글쓰기</h5>
+              </Button>
+            </Link>
+          ) : null}
         </ControlBlock>
         <PostsPageUl post={currentPosts(post)}></PostsPageUl>
         <PaginationBlock>

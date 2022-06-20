@@ -75,16 +75,19 @@ const View = () => {
           ) : (
             '해당 게시글을 찾을 수 없습니다'
           )}
-          <ButtonBlock>
-            <Link to={`/Edit/${selectedPost.id}`}>
-              <IconButton aria-label='edit'>
-                <EditIcon />
+
+          {localStorage.getItem('user') || localStorage.getItem('kakao') ? (
+            <ButtonBlock>
+              <Link to={`/Edit/${selectedPost.id}`}>
+                <IconButton aria-label='edit'>
+                  <EditIcon />
+                </IconButton>
+              </Link>
+              <IconButton aria-label='delete' onClick={removePost}>
+                <DeleteIcon />
               </IconButton>
-            </Link>
-            <IconButton aria-label='delete' onClick={removePost}>
-              <DeleteIcon />
-            </IconButton>
-          </ButtonBlock>
+            </ButtonBlock>
+          ) : null}
         </ViewWrap>
       </ViewSection>
     </>

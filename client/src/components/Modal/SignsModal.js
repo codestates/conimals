@@ -129,7 +129,9 @@ export default function SignsModal({ handleModal }) {
             </>
           ) : (
             <>
-              <div onClick={() => navigate('/')}>&times;</div>
+              <div className='close-btn' onClick={() => navigate('/')}>
+                &times;
+              </div>
               <Title>
                 <h3>앗 아직 회원이 아니시군요!</h3>
               </Title>

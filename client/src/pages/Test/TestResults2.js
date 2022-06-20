@@ -57,7 +57,7 @@ export default function TestResults1() {
           </InnerText>
           <br />
           <a href='/map'>
-            <Button>내 주변 보호소 찾기</Button>
+            <Button>보호소 찾기</Button>
           </a>
           <ResultInfo>
             <h6>
