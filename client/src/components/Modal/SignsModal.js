@@ -114,7 +114,9 @@ export default function SignsModal({ handleModal }) {
         >
           {localStorage.guest === 'use' ? (
             <>
-              <div onClick={() => navigate('/')}>&times;</div>
+              <div className='close-btn' onClick={() => navigate('/')}>
+                &times;
+              </div>
               <Title>
                 <h3>게스트 모드를 이용하셨습니다!</h3>
               </Title>
