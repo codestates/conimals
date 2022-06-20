@@ -15,7 +15,7 @@
 - 게시판을 이용해 사용자가 키우고 있는 반려동물의 사진을 올릴 수 있도록 합니다.
 
 ## Stack
-![Stack](https://user-images.githubusercontent.com/74191195/174234184-650df995-cd26-4eb9-991d-e2424059220a.png)
+![Stack](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F5bc84f4d-f935-46ba-a26e-61637635aacc%2FStack.png?table=block&id=d7373efb-20fd-47ee-a7bf-bc217c281bc1&spaceId=82d63a72-8254-4cde-bf1e-b2597b7c099c&width=1200&userId=95057538-7f0c-4887-8793-9588c0d65c4c&cache=v2)
 
 ## Team Petmily Members
 
