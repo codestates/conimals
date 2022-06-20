@@ -29,7 +29,8 @@ const View = () => {
     getDetail();
   }, []);
 
-  const imageUrl = `${process.env.REACT_APP_API_URL}/posts/${selectedPost.image}`;
+  const imageUrl = `${selectedPost.image}`;
+  // const imageUrl = `${process.env.REACT_APP_API_URL}/posts/${selectedPost.image}`;
   const parsedDate = new Date(selectedPost.createdAt).toLocaleDateString(
     'ko-kr'
   );

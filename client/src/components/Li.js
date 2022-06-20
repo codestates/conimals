@@ -6,7 +6,8 @@ import axios from 'axios';
 const Li = ({ item }) => {
   const parsedDate = new Date(item.createdAt).toLocaleDateString('ko-kr');
 
-  const imgUrl = `${process.env.REACT_APP_API_URL}/posts/${item.image}`;
+  // const imgUrl = `${process.env.REACT_APP_API_URL}/posts/${item.image}`;
+  const imgUrl = `${item.image}`;
 
   const [username, setUsername] = useState('guest');
 

@@ -22,7 +22,7 @@ const KakaoOauth = () => {
   const kakao = (code) => {
     axios
       .post(
-        `${process.env.REACT_APP_API_URL}/users/oauth/kakao/callback?code=${code}`,
+        `${process.env.REACT_APP_API_URI}/users/oauth/kakao/callback?code=${code}`,
         { data: code },
         {
           headers: {
