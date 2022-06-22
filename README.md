@@ -77,7 +77,7 @@
 </div>
 </details>
 
-닉네임 및 비밀번호 변경
+회원 정보 수정 관련
 
 <details>
 <summary>닉네임 변경</summary>
