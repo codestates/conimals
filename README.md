@@ -39,16 +39,16 @@
    
 
     
- ### 사용자 CRUD
-<details>
-<summary>회원가입</summary>
-<div markdown="2">       
+- 사용자 CRUD
+ <details>
+ <summary>회원가입</summary>
+ <div markdown="2">       
 
-![Signup](https://user-images.githubusercontent.com/74191195/175016839-6f09e507-9ebf-40a0-9396-cf3245748a27.gif)
+ ![Signup](https://user-images.githubusercontent.com/74191195/175016839-6f09e507-9ebf-40a0-9396-cf3245748a27.gif)
 
 
-</div>
-</details>
+ </div>
+ </details>
 
 <details>
 <summary>카카오 로그인</summary>
