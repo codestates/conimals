@@ -128,7 +128,7 @@
 </details>
  
 <details>
-<summary>게시판</summary>
+<summary>게시판 전체 기능</summary>
 <div markdown="8"> 
 
   ![PostAll](https://user-images.githubusercontent.com/74191195/175018675-c505ec63-8fbb-4da0-bb81-1d77b144e44b.gif)
