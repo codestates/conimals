@@ -46,7 +46,7 @@
 
 - Position: Front-end
 - Stack : React.js, Javascript, CSS, Styled-Component
-- main kick: 카카오 Oauth 로그인을 포함한 회원 정보 관련 기능, 게스트 모드, 
+- main kick: 카카오 Oauth 로그인을 포함한 회원 정보 관련 기능, 반려생활 적합 테스트 페이지, 게스트 모드
 
 ## Deploy
 [Conimals](https://www.conimals.link/)
