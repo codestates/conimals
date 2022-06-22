@@ -128,7 +128,7 @@
 </details>
  
 <details>
-<summary>게시판 전체 기능</summary>
+<summary>게시판</summary>
 <div markdown="8"> 
 
   ![PostAll](https://user-images.githubusercontent.com/74191195/175018675-c505ec63-8fbb-4da0-bb81-1d77b144e44b.gif)
@@ -160,13 +160,13 @@
 ### 정민규
 
 - Position: Full-Stack
-- Stack : React.js, Javascript, CSS, Styled-Component
+- Stack : React.js, Javascript, CSS, Styled-Component, Axios
 - main kick: 클라이언트 게시판 구현, 카카오맵 API활용 지도 구현, Figma활용 디자인
 
 ### 박선교 
 
 - Position: Front-end
-- Stack : React.js, Javascript, CSS, Styled-Component
+- Stack : React.js, Javascript, CSS, Styled-Component, Axios
 - main kick: 카카오 Oauth 로그인을 포함한 회원 정보 관련 기능, 반려생활 적합 테스트 페이지, 게스트 모드
 
 ## Deploy
