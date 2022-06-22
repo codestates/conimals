@@ -40,7 +40,7 @@
 
 - Position: Full-Stack
 - Stack : React.js, Javascript, CSS, Styled-Component
-- main kick: 
+- main kick: 클라이언트 게시판 구현, 카카오맵 API활용 지도 구현, Figma활용 디자인
 
 ### 박선교 
 
