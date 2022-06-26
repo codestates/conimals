@@ -159,7 +159,7 @@
 
 ### 정민규
 
-- Position: Full-Stack
+- Position: Front-end
 - Stack : React.js, Javascript, CSS, Styled-Component, Axios
 - main kick: 클라이언트 게시판 구현, 카카오맵 API활용 지도 구현, Figma활용 디자인
 
