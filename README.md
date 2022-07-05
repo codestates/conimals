@@ -15,13 +15,21 @@
 - 게시판을 이용해 사용자가 키우고 있는 반려동물의 사진을 올릴 수 있도록 합니다.
 - 보호소에 입소된 유기견 사진을 공유해 유기견 입양 홍보에 이용할 수 있습니다.
 
+
+## Deploy
+
+[Conimals](https://www.conimals.link/)
+
+
 ## Wireframe
 
 [Figma](https://www.figma.com/file/UaxfvREXHGti7MaxzeW2h2/Conimals-%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85?node-id=0%3A1)
 
+
 ## Prototype
 
 [Figma](https://www.figma.com/file/UaxfvREXHGti7MaxzeW2h2/Conimals-%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85?node-id=13%3A4254)
+
 
 ## 주요 기능별 시연 GIF
 
@@ -168,7 +176,3 @@
 - Position: Front-end
 - Stack : React.js, Javascript, CSS, Styled-Component, Axios
 - main kick: 카카오 Oauth 로그인을 포함한 회원 정보 관련 기능, 반려생활 적합 테스트 페이지, 게스트 모드
-
-## Deploy
-
-[Conimals](https://www.conimals.link/)
